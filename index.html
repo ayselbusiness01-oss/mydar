@@ -1,654 +1,132 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PQ2QHCV5');</script>
+<!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MyDar - estimation-marrakech</title>
-<meta name="description" content="Estimation immobilière indicative à Marrakech. Moteur hybride : base référentielle + ajustement marché périodique.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>MyDar — Estimation immobilière indépendante à Marrakech</title>
+<meta name="description" content="Obtenez une fourchette de prix indicative pour votre bien à Marrakech en 2 minutes. Gratuit, indépendant, sans engagement.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="MyDar — Estimation immobilière indépendante à Marrakech">
+<meta property="og:description" content="Obtenez une fourchette de prix indicative pour votre bien à Marrakech en 2 minutes. Gratuit, indépendant, sans engagement.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.mydarimmo.ma">
+<meta property="og:site_name" content="MyDar">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MyDar — Estimation immobilière Marrakech">
+<meta name="twitter:description" content="Fourchette de prix indicative en 2 minutes. Gratuit, indépendant, sans engagement.">
+<link rel="canonical" href="https://www.mydarimmo.ma">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
---primary:#147d61;--primary-dark:#0d5f49;--accent:#ee9d27;--accent-dark:#be7413;
---bg:#f6f3ee;--surface:#ffffff;--surface-2:#f0ebe2;--border:rgba(0,0,0,.09);
---text:#191916;--muted:#676863;--muted-2:#969791;--success:#9ad8bf;
---radius:16px;--radius-sm:10px;--shadow:0 12px 28px rgba(0,0,0,.06);
-}
-body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
-button,input,select{font:inherit}
+:root{--T:#1D9E75;--TD:#0F6E56;--TXD:#085041;--TL:#E1F5EE;--TM:#5DCAA5;--A:#EF9F27;--AL:#FAEEDA;--AD:#BA7517;--ALT:#FAC775;--S:#F7F4EF;--SB:#EDE8DF;--SC:#D8D2C8;--DK:#1A1A18;--MU:#6B6B68;--MU2:#9B9B97;--W:#fff;--BR:rgba(0,0,0,0.09);--r:12px;--rsm:8px;--rxl:18px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--S);color:var(--DK);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
 .view{display:none}.view.active{display:block}
-.nav{position:sticky;top:0;z-index:20;height:60px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 16px;gap:12px}
-.logo{display:flex;align-items:center;gap:8px;cursor:pointer}.brand{font-weight:800;font-size:18px}.brand .my{color:var(--primary)}.brand .dar{color:var(--accent)}
-.nav-links{display:flex;gap:14px;flex-wrap:wrap}.nav-links a{font-size:12px;color:var(--muted);text-decoration:none;cursor:pointer}
-.nav-links a:hover{color:var(--primary)}
-.btn{border:none;border-radius:999px;padding:12px 18px;font-weight:700;cursor:pointer;transition:.18s ease}
-.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:var(--accent-dark)}
-.btn-secondary{background:#fff;color:var(--primary);border:1.5px solid #a9d3c5}.btn-secondary:hover{background:#eff8f4}
-.hero{background:#0c4e42;color:#fff;padding:56px 18px 72px;position:relative;overflow:hidden}
-.hero:before{content:"";position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(0deg,#fff 0,#fff 1px,transparent 1px,transparent 40px),repeating-linear-gradient(90deg,#fff 0,#fff 1px,transparent 1px,transparent 40px)}
-.hero-inner{position:relative;max-width:860px;margin:0 auto;text-align:center}
-.pill{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);font-size:12px;color:#b6ead8;margin-bottom:18px}.dot{width:6px;height:6px;border-radius:50%;background:#8fe2c2}
-.hero h1{font-size:clamp(30px,6vw,54px);line-height:1.06;letter-spacing:-1.2px;margin-bottom:12px}
-.hero p{max-width:700px;margin:0 auto;color:rgba(255,255,255,.72);font-size:15px}
-.hero-actions{display:flex;flex-direction:column;gap:10px;max-width:320px;margin:26px auto 0}
-.hero-stats{margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,255,255,.09);display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.stat strong{display:block;font-size:16px;color:#fff}.stat span{font-size:11px;color:rgba(255,255,255,.42)}
-.band{background:#f8ead5;border-top:1px solid #f4c984;border-bottom:1px solid #f4c984;padding:10px 16px;text-align:center;font-size:12px;color:#6a4310}
-.section{padding:48px 16px}.section-white{background:#fff}.container{max-width:980px;margin:0 auto}.eyebrow{display:inline-block;background:#e6f5ee;color:#0f5c47;padding:4px 10px;border-radius:999px;font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;margin-bottom:12px}
-.section h2{font-size:clamp(22px,4vw,34px);line-height:1.1;letter-spacing:-.5px;margin-bottom:10px}.sub{max-width:620px;color:var(--muted);font-size:14px;margin-bottom:24px}
-.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-.card-soft{background:#eef8f4;border-color:#bfe3d3}.card-warm{background:#fcf0de;border-color:#f5ce8d}.card h3{font-size:15px;margin-bottom:6px}.card p{font-size:13px;color:var(--muted)}
-.quarters{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}.quarter{background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px;cursor:pointer}.quarter:hover{border-color:#79c5ac;background:#f3fbf8}
-.quarter .name{font-weight:700;font-size:14px}.quarter .price{font-size:12px;color:#0f5c47;font-weight:600;margin-top:3px}.quarter .meta{font-size:10px;color:var(--muted-2);margin-top:4px}
-.faq{display:flex;flex-direction:column}.faq-item{border-bottom:1px solid var(--border)}.faq-q{display:flex;justify-content:space-between;align-items:center;padding:15px 0;cursor:pointer;font-weight:600;font-size:13px}.faq-a{display:none;padding-bottom:14px;color:var(--muted);font-size:13px}.faq-item.open .faq-a{display:block}
-.footer{background:#2c2b29;color:rgba(255,255,255,.76);padding:28px 16px}.footer .row{max-width:980px;margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer a{color:rgba(255,255,255,.76);text-decoration:none;font-size:12px}.footer small{display:block;margin-top:18px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:rgba(255,255,255,.35)}
-.tabs{display:flex;overflow:auto;gap:8px;padding:0 16px;background:#fff;border-bottom:1px solid var(--border)}.tabwrap{max-width:980px;margin:0 auto;display:flex;gap:8px}.tab{padding:13px 10px;font-size:12px;font-weight:700;color:var(--muted);border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap}.tab.active{color:var(--primary);border-color:var(--primary)}.panel{display:none;max-width:980px;margin:0 auto;padding:32px 16px 48px}.panel.active{display:block}
-.bloc{padding-bottom:26px;margin-bottom:26px;border-bottom:1px solid var(--border)}.bloc:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}.bloc h3{font-size:18px;margin-bottom:10px}.bloc p{font-size:14px;color:var(--muted);margin-bottom:10px}.note{background:#f3f6f5;border-left:3px solid var(--primary);padding:12px 14px;border-radius:0 10px 10px 0}.note span{display:block;font-size:11px;font-weight:800;color:var(--muted);margin-bottom:4px}.note p{margin:0;font-size:13px;color:var(--text)}
-.funnel-wrap{min-height:100vh}.funnel-top{background:#fff;border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;gap:12px}.back{background:none;border:1px solid var(--border);padding:7px 12px;border-radius:999px;cursor:pointer;color:var(--muted)}.prog{flex:1;height:4px;background:#ece6dc;border-radius:999px;overflow:hidden}.prog > div{height:100%;background:var(--primary);width:0;transition:.25s ease}.pct{font-size:11px;color:var(--muted-2)}
-.funnel-body{padding:24px 12px 56px;display:flex;justify-content:center}.form-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:22px 18px;width:100%;max-width:520px;box-shadow:var(--shadow)}.tag{font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:var(--primary);margin-bottom:8px}.form-card h2{font-size:20px;margin-bottom:6px}.form-help{font-size:13px;color:var(--muted);margin-bottom:18px}.options{display:grid;gap:8px}.o2{grid-template-columns:1fr 1fr}.o3{grid-template-columns:repeat(3,1fr)}
-.opt{border:1.5px solid #ddd4c8;background:#f8f5ef;border-radius:14px;padding:12px 10px;text-align:center;cursor:pointer}.opt.sel{border-color:var(--primary);background:#eaf7f1}.opt:hover{border-color:#8dcfb8}.opt .icon{font-size:18px;margin-bottom:4px}.opt .label{font-size:12px;font-weight:700}.opt .sub{font-size:10px;margin:3px 0 0;color:var(--muted-2)}
-.list-opt{display:flex;justify-content:space-between;align-items:center;padding:11px 12px;border-radius:12px;border:1.5px solid #ddd4c8;background:#f8f5ef;cursor:pointer}.list-opt.sel{border-color:var(--primary);background:#eaf7f1}.list-opt .left{font-size:13px;font-weight:700}.list-opt .right{font-size:11px;color:#0f5c47}
-.field{margin-bottom:10px}.field label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:var(--muted);margin-bottom:5px}.input,.select{width:100%;border:1.5px solid #ddd4c8;background:#f8f5ef;border-radius:12px;padding:11px 12px;font-size:14px}.input:focus,.select:focus{outline:none;border-color:var(--primary);background:#fff}
-.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{padding:8px 11px;border-radius:999px;border:1.5px solid #ddd4c8;background:#f8f5ef;font-size:12px;font-weight:700;cursor:pointer}.chip.sel{border-color:var(--primary);background:#eaf7f1;color:#0f5c47}
-.inline{display:flex;gap:8px}.inline .chip{flex:1;text-align:center}
-.checklist{display:grid;gap:8px}.check{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1.5px solid #ddd4c8;background:#f8f5ef;border-radius:12px;cursor:pointer}.check.sel{border-color:var(--primary);background:#eaf7f1}.check b{font-size:13px}.check span{font-size:12px;color:var(--muted)}
-.helper{font-size:11px;color:var(--muted-2);text-align:center;margin-top:7px}
-.loading-shell{padding:56px 16px;display:flex;justify-content:center;align-items:flex-start;min-height:100vh}.loading-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:34px 22px;max-width:420px;width:100%;text-align:center;box-shadow:var(--shadow)}.ring{width:50px;height:50px;margin:0 auto 14px;border-radius:50%;border:4px solid #d9efe7;border-top-color:var(--primary);animation:spin .9s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.src-row{margin-top:12px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px}.src-pill{font-size:10px;padding:4px 8px;border-radius:999px;background:#f6f3ee;border:1px solid var(--border);color:var(--muted)}.src-pill.on{background:#eaf7f1;color:#0f5c47;border-color:#a7d9c6}.bar{height:4px;background:#ece6dc;border-radius:999px;overflow:hidden;margin-top:16px}.bar > div{height:100%;background:var(--primary);width:0;transition:.3s ease}
-.result-hero{background:#0c4e42;padding:38px 16px 56px;text-align:center;color:#fff}.result-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:4px 10px;border-radius:999px;font-size:10px;color:#9fe1cb;margin-bottom:12px}.result-hero .label{font-size:12px;color:rgba(255,255,255,.5)}.result-hero .range{font-size:clamp(28px,7vw,48px);font-weight:800;line-height:1.05;letter-spacing:-1px;margin-top:6px}.result-hero .subline{font-size:11px;color:rgba(255,255,255,.42);margin-top:4px}.conf{display:inline-block;min-width:220px;margin-top:16px;text-align:left}.conf-top{display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.42)}.conf-track{height:4px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:4px}.conf-track div{height:100%;background:#8fe2c2;width:0}.conf-note{margin-top:4px;font-size:10px;color:#9fe1cb;font-weight:700}
-.result-body{max-width:540px;margin:-18px auto 0;padding:0 12px 40px}.result-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:16px;margin-bottom:10px;box-shadow:var(--shadow)}.result-title{font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:var(--muted);margin-bottom:10px}.fact{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid #f0ece4}.fact:last-child{border-bottom:none}.fact .l{font-size:12px}.badge{font-size:10px;font-weight:800;padding:3px 7px;border-radius:999px}.good{background:#e7f7f1;color:#0e5b47}.warn{background:#fcf0de;color:#79480a}.risk{background:#fbeaea;color:#8a2d2d}.tip{background:#f6f3ee;border-left:3px solid var(--primary);border-radius:0 10px 10px 0;padding:10px 12px;margin-bottom:8px}.tip h4{font-size:12px;margin-bottom:3px}.tip p{font-size:12px;color:var(--muted)}.potentials{display:grid;grid-template-columns:1fr 1fr;gap:8px}.pot{background:#f6f3ee;border:1px solid var(--border);border-radius:12px;padding:10px}.pot.on{background:#eaf7f1;border-color:#a7d9c6}.pot .n{font-size:12px;font-weight:800}.pot .d{font-size:10px;color:var(--muted)}
-.market-box{background:#eef8f4;border:1px solid #b7ddce;border-radius:14px;padding:12px}.market-box p{font-size:12px;color:#215545}.legal{font-size:10px;color:var(--muted-2)}
-@media (max-width:760px){.hero-stats{grid-template-columns:repeat(2,1fr)}.grid-2,.o2,.o3,.potentials{grid-template-columns:1fr}.nav-links{display:none}}
+.nav{background:var(--W);border-bottom:1px solid var(--BR);padding:0 16px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;gap:10px}
+.logo{display:flex;align-items:center;gap:7px;cursor:pointer;flex-shrink:0}.nb{font-size:17px;font-weight:800;letter-spacing:-.3px}.nb .my{color:var(--T)}.nb .dar{color:var(--A)}
+.navl{display:flex;gap:14px}.navl a{font-size:12px;color:var(--MU);text-decoration:none;cursor:pointer;font-weight:500;white-space:nowrap}.navl a:hover{color:var(--T)}
+.btn-nav{background:var(--A);color:#fff;border:none;padding:8px 16px;border-radius:50px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0}.btn-nav:hover{background:var(--AD)}
+.hero{background:var(--TXD);padding:56px 20px 72px;text-align:center;position:relative;overflow:hidden}.hg{position:absolute;inset:0;opacity:.03;background-image:repeating-linear-gradient(0deg,#fff 0,#fff 1px,transparent 0,transparent 48px),repeating-linear-gradient(90deg,#fff 0,#fff 1px,transparent 0,transparent 48px)}.hi{position:relative;max-width:560px;margin:0 auto}
+.hpill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.08);color:#9FE1CB;border:1px solid rgba(255,255,255,.15);padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;margin-bottom:20px;letter-spacing:.4px}.hdot{width:5px;height:5px;border-radius:50%;background:var(--TM)}
+.hero h1{font-size:clamp(22px,5.5vw,44px);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.4px;margin-bottom:10px}.hero-sub{font-size:clamp(13px,3.5vw,15px);color:rgba(255,255,255,.55);margin-bottom:8px}.hero-disc{font-size:10px;color:rgba(255,255,255,.25);margin-bottom:28px;letter-spacing:.2px}
+.hero-ctas{display:flex;flex-direction:column;gap:9px;max-width:280px;margin:0 auto 36px}.btn-hero-main{padding:14px 20px;border-radius:50px;background:var(--A);color:#fff;border:none;cursor:pointer;font-size:14px;font-weight:700;width:100%;text-align:center}.btn-hero-main:hover{background:var(--AD)}.btn-hero-sec{padding:13px 20px;border-radius:50px;border:1.5px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;font-size:13px;font-weight:600;width:100%;text-align:center}.btn-hero-sec:hover{background:rgba(255,255,255,.14)}
+.hstats{display:flex;justify-content:center;border-top:1px solid rgba(255,255,255,.08);padding-top:24px;flex-wrap:wrap;gap:0}.hs{text-align:center;padding:0 16px;border-right:1px solid rgba(255,255,255,.07)}.hs:last-child{border-right:none}.hs .n{font-size:16px;font-weight:800;color:#fff}.hs .l{font-size:9px;color:rgba(255,255,255,.35);margin-top:2px;letter-spacing:.2px}
+.vband{background:var(--AL);border-top:1px solid var(--ALT);border-bottom:1px solid var(--ALT);padding:10px 16px}.vband-inner{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap}.vband span{font-size:11px;color:#633806;font-weight:500}.vband strong{font-weight:700;color:#412402}.vpill{background:rgba(65,36,2,.1);border-radius:50px;padding:2px 8px;font-size:10px;font-weight:600;color:#633806}
+.sec{padding:48px 16px}.sec-w{background:var(--W)}.si{max-width:720px;margin:0 auto}.lbl{display:inline-block;background:var(--TL);color:var(--TXD);font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;margin-bottom:10px;letter-spacing:.6px;text-transform:uppercase}.lbl-a{background:var(--AL);color:#633806}
+h2.sh{font-size:clamp(19px,4vw,30px);font-weight:800;letter-spacing:-.3px;margin-bottom:10px;color:var(--DK)}p.si-sub{font-size:13px;color:var(--MU);line-height:1.75;max-width:480px;margin-bottom:28px}
+.usp-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}.uc{border-radius:var(--r);padding:18px;border:1.5px solid var(--SC)}.uc.s{background:var(--TL);border-color:var(--TM)}.uc.b{background:var(--AL);border-color:var(--ALT)}.uc h3{font-size:14px;font-weight:700;margin-bottom:5px}.uc.s h3{color:var(--TXD)}.uc.b h3{color:#633806}.uc p{font-size:12px;line-height:1.6}.uc.s p{color:var(--TD)}.uc.b p{color:#854F0B}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.sc{background:var(--S);border-radius:var(--r);padding:16px}.sn-t,.sn-a{width:26px;height:26px;border-radius:50%;font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;margin-bottom:9px}.sn-t{background:var(--TL);color:var(--TXD)}.sn-a{background:var(--AL);color:#633806}.sc h3{font-size:12px;font-weight:700;margin-bottom:3px;color:var(--DK)}.sc p{font-size:11px;color:var(--MU);line-height:1.6}
+.qg{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:7px}.qc{background:var(--W);border:1px solid var(--BR);border-radius:var(--r);padding:12px 13px;cursor:pointer;transition:all .12s}.qc:hover{border-color:var(--T);background:var(--TL)}.qn{font-size:13px;font-weight:700;color:var(--DK);margin-bottom:2px}.qr{font-size:11px;color:var(--TD);font-weight:600}.qm{font-size:9px;color:var(--MU2);margin-top:3px;font-style:italic;line-height:1.4}
+.faq-list{display:flex;flex-direction:column}.fi{border-bottom:1px solid var(--BR)}.fq{display:flex;justify-content:space-between;align-items:center;padding:14px 0;cursor:pointer;font-size:13px;font-weight:600;color:var(--DK);gap:10px}.fi-ico{width:18px;height:18px;border-radius:50%;background:var(--S);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;color:var(--MU);transition:transform .18s}.fi.open .fi-ico{transform:rotate(45deg);background:var(--TL);color:var(--TD)}.fa{font-size:13px;color:var(--MU);line-height:1.75;padding-bottom:14px;display:none}.fi.open .fa{display:block}
+.cta-b{background:var(--TXD);padding:56px 16px;text-align:center}.cta-b h2{font-size:clamp(18px,4vw,28px);font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-.3px}.cta-b p{color:rgba(255,255,255,.45);margin-bottom:24px;font-size:13px}.btn-cta{background:var(--A);color:#fff;border:none;padding:13px 28px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;margin:4px}.btn-cta:hover{background:var(--AD)}.btn-cta2{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.2);padding:13px 28px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;margin:4px}
+.footer{background:#2C2C2A;padding:32px 16px 20px}.fi2{max-width:720px;margin:0 auto}.ft2{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap;gap:14px}.fn{font-size:15px;font-weight:800}.fn .my{color:var(--T)}.fn .dar{color:var(--A)}.ftag{font-size:10px;color:rgba(255,255,255,.2);margin-top:2px}.fl{display:flex;gap:12px;flex-wrap:wrap}.fl a{font-size:11px;color:rgba(255,255,255,.28);text-decoration:none;cursor:pointer}.fl a:hover{color:rgba(255,255,255,.65)}.fb{border-top:1px solid rgba(255,255,255,.06);padding-top:12px;font-size:10px;color:rgba(255,255,255,.22)}
+.ch{background:var(--S);border-bottom:1px solid var(--BR);padding:40px 16px 28px}.chi{max-width:720px;margin:0 auto}.ch h1{font-size:clamp(20px,4vw,30px);font-weight:800;letter-spacing:-.3px;margin-bottom:8px;color:var(--DK)}.ch p{font-size:13px;color:var(--MU);max-width:480px;line-height:1.75}.tabs-bar{background:var(--W);border-bottom:1px solid var(--BR);padding:0 16px;overflow-x:auto}.tabs-bar::-webkit-scrollbar{display:none}.ti{max-width:720px;margin:0 auto;display:flex}.tab{padding:12px 14px;font-size:12px;font-weight:600;color:var(--MU);cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .15s}.tab:hover{color:var(--T)}.tab.on{color:var(--T);border-bottom-color:var(--T)}.panel{display:none;max-width:720px;margin:0 auto;padding:36px 16px 52px}.panel.on{display:block}.bloc{margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid var(--BR)}.bloc:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}.num{font-size:10px;font-weight:700;color:var(--TM);text-transform:uppercase;letter-spacing:.8px;margin-bottom:7px}.bloc h3{font-size:17px;font-weight:800;letter-spacing:-.2px;margin-bottom:10px;line-height:1.3;color:var(--DK)}.bloc p{font-size:13px;color:var(--MU);line-height:1.8;margin-bottom:10px}.bloc p:last-child{margin-bottom:0}.note{border-left:3px solid var(--T);background:var(--S);border-radius:0 7px 7px 0;padding:10px 14px;margin-top:12px}.note.w{border-left-color:#E24B4A}.note.a{border-left-color:var(--A)}.note span{font-size:10px;font-weight:700;display:block;margin-bottom:3px;color:var(--MU)}.note.w span{color:#A32D2D}.note.a span{color:#854F0B}.note p{font-size:12px;color:var(--DK);margin:0;line-height:1.6}.note.w p{color:#791F1F}.note.a p{color:#633806}
+.fw{background:var(--S);min-height:100vh}.ft3{background:var(--W);border-bottom:1px solid var(--BR);padding:10px 16px;display:flex;align-items:center;gap:10px}.bbk{background:none;border:1px solid var(--BR);border-radius:50px;padding:6px 11px;font-size:11px;color:var(--MU);cursor:pointer;display:flex;align-items:center;gap:3px;font-weight:500;flex-shrink:0}.bbk:hover{border-color:var(--T);color:var(--T)}.pb{flex:1;height:3px;background:var(--SB);border-radius:50px;overflow:hidden}.pf{height:100%;background:var(--T);border-radius:50px;transition:width .3s}.pct{font-size:10px;color:var(--MU2);white-space:nowrap}
+.fbody{display:flex;justify-content:center;padding:20px 12px 56px}.fc{background:var(--W);border-radius:var(--rxl);border:1px solid var(--BR);padding:22px 18px;width:100%;max-width:440px}.ftag2{font-size:9px;color:var(--T);font-weight:700;text-transform:uppercase;letter-spacing:.7px;margin-bottom:7px}.fc h2{font-size:18px;font-weight:800;color:var(--DK);margin-bottom:4px;letter-spacing:-.2px}.fh{font-size:12px;color:var(--MU);margin-bottom:18px;line-height:1.55}
+.opts{display:grid;gap:6px}.o2{grid-template-columns:1fr 1fr}.o3{grid-template-columns:1fr 1fr 1fr}.ob{background:var(--S);border:1.5px solid var(--SC);border-radius:var(--r);padding:11px 8px;text-align:center;cursor:pointer;transition:all .12s}.ob:hover{border-color:var(--T);background:var(--TL)}.ob.sel{border-color:var(--T);background:var(--TL)}.ob .oi{font-size:16px;margin-bottom:3px}.ob .ol{font-size:12px;font-weight:600;color:var(--DK)}.ob .os{font-size:9px;color:var(--MU);margin-top:1px}
+.ofl{background:var(--S);border:1.5px solid var(--SC);border-radius:var(--rsm);padding:10px 12px;cursor:pointer;transition:all .12s;display:flex;align-items:center;justify-content:space-between;width:100%}.ofl:hover{border-color:var(--T);background:var(--TL)}.ofl.sel{border-color:var(--T);background:var(--TL)}.ofl .ll{font-size:12px;font-weight:600;color:var(--DK)}.ofl .lr{font-size:10px;color:var(--TD);font-weight:500}.cki{width:15px;height:15px;border-radius:50%;background:var(--T);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sin{width:100%;background:var(--S);border:1.5px solid var(--SC);border-radius:var(--r);padding:11px 14px;font-size:20px;font-weight:700;color:var(--DK);text-align:center;margin-bottom:5px}.sin:focus{outline:none;border-color:var(--T);background:#fff}.cbg{display:flex;flex-direction:column;gap:5px}.cbi{display:flex;align-items:center;gap:8px;background:var(--S);border:1.5px solid var(--SC);border-radius:var(--rsm);padding:8px 11px;cursor:pointer}.cbi:hover{border-color:var(--TM)}.cbi.ck{border-color:var(--T);background:var(--TL)}.cbb{width:15px;height:15px;border-radius:3px;border:1.5px solid var(--SC);background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}.cbi.ck .cbb{background:var(--T);border-color:var(--T)}.cbl{font-size:12px;color:var(--DK);font-weight:500}
+.finp{width:100%;background:var(--S);border:1.5px solid var(--SC);border-radius:var(--rsm);padding:9px 11px;font-size:14px;color:var(--DK);margin-bottom:8px}.finp:focus{outline:none;border-color:var(--T);background:#fff}.flbl{font-size:10px;font-weight:700;color:var(--MU);margin-bottom:3px;display:block;text-transform:uppercase;letter-spacing:.4px}.bcont{width:100%;background:var(--A);color:#fff;border:none;padding:13px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;margin-top:14px}.bcont:hover{background:var(--AD)}.reas{display:flex;align-items:center;justify-content:center;gap:3px;font-size:10px;color:var(--MU2);margin-top:6px}.mst{flex:1;padding:7px;border-radius:var(--rsm);border:1.5px solid var(--SC);background:var(--S);font-size:11px;font-weight:600;color:var(--MU);cursor:pointer;text-align:center}.mst.sel{background:var(--TL);border-color:var(--T);color:var(--TXD)}
+.conb{background:var(--S);border-radius:var(--r);padding:11px;margin-top:12px;display:flex;flex-direction:column;gap:8px}.coni{display:flex;gap:8px;align-items:flex-start;cursor:pointer}.concb{width:15px;height:15px;border-radius:3px;border:1.5px solid var(--SC);background:#fff;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center}.coni.ck .concb{background:var(--T);border-color:var(--T)}.cont{font-size:11px;color:var(--MU);line-height:1.55}.cont strong{color:var(--DK)}.chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}.chip{background:var(--S);border:1.5px solid var(--SC);border-radius:50px;padding:4px 10px;font-size:11px;font-weight:600;color:var(--MU);cursor:pointer}.chip.sel{background:var(--TL);border-color:var(--T);color:var(--TXD)}
+.lscr{background:var(--W);border-radius:var(--rxl);border:1px solid var(--BR);padding:40px 20px;text-align:center;max-width:400px;width:100%;margin:0 auto}.lring{width:44px;height:44px;border:3px solid var(--TL);border-top-color:var(--T);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 14px}@keyframes spin{to{transform:rotate(360deg)}}.lsrc-row{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:10px}.lsrc{font-size:10px;background:var(--S);border:1px solid var(--BR);border-radius:50px;padding:3px 8px;color:var(--MU);font-weight:500}.lsrc.lit{background:var(--TL);color:var(--TXD);border-color:var(--TM)}
+.rh{background:var(--TXD);padding:40px 16px 58px;text-align:center}.rmb{display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,.08);color:#9FE1CB;padding:3px 10px;border-radius:50px;font-size:9px;font-weight:600;margin-bottom:10px;letter-spacing:.3px}.rl{font-size:12px;color:rgba(255,255,255,.48);margin-bottom:6px}.rr{font-size:clamp(20px,6vw,42px);font-weight:800;color:#fff;letter-spacing:-.5px;margin-bottom:4px;line-height:1}.conf-wrap{margin-top:14px;display:inline-block;min-width:180px;text-align:left}.conf-lbl{font-size:9px;color:rgba(255,255,255,.38);margin-bottom:3px;display:flex;justify-content:space-between}.conf-track{height:3px;background:rgba(255,255,255,.1);border-radius:50px;overflow:hidden}.conf-bar{height:100%;border-radius:50px;background:var(--TM)}.conf-note{font-size:10px;color:#9FE1CB;margin-top:3px;font-weight:600}
+.rbody{max-width:480px;margin:-18px auto 0;padding:0 12px 44px}.rc{background:var(--W);border-radius:var(--rxl);border:1px solid var(--BR);padding:16px;margin-bottom:9px}.rct{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--MU);margin-bottom:10px}.rfact{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--BR)}.rfact:last-child{border-bottom:none}.rfact-l{font-size:12px;color:var(--DK)}.badge{font-size:9px;font-weight:700;padding:2px 6px;border-radius:50px}.bg{background:var(--TL);color:var(--TXD)}.br2{background:#FCEBEB;color:#791F1F}.ba{background:var(--AL);color:#633806}.rcons{border-left:3px solid var(--T);padding:9px 12px;background:var(--S);border-radius:0 var(--rsm) var(--rsm) 0;margin-bottom:6px}.rcons:last-child{margin-bottom:0}.rcons.w{border-left-color:#E24B4A}.rcons.a{border-left-color:var(--A)}.rcons-t{font-size:11px;font-weight:700;color:var(--DK);margin-bottom:2px}.rcons.w .rcons-t{color:#791F1F}.rcons.a .rcons-t{color:#633806}.rcons p{font-size:11px;color:var(--MU);line-height:1.6}.pot-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px}.pot{background:var(--S);border-radius:var(--rsm);padding:9px 11px;border:1px solid var(--BR)}.pot.on{background:var(--TL);border-color:var(--TM)}.pot.off{opacity:.35}.pot-name{font-size:11px;font-weight:700;color:var(--DK)}.pot.on .pot-name{color:var(--TXD)}.pot-desc{font-size:9px;color:var(--MU);margin-top:1px}.disc{background:var(--AL);border-radius:var(--rsm);padding:8px 12px;font-size:10px;color:#633806;display:flex;align-items:flex-start;gap:5px;margin-top:8px;line-height:1.55}.src-note{background:var(--TL);border-radius:var(--rsm);padding:7px 10px;font-size:10px;color:var(--TD);display:flex;align-items:flex-start;gap:4px;margin-top:8px;line-height:1.55}.cta-stack{display:flex;flex-direction:column;gap:6px;margin-top:4px}.bcp{background:var(--A);color:#fff;border:none;padding:13px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;width:100%;text-align:center}.bcp:hover{background:var(--AD)}.bcs{background:#fff;color:var(--TD);border:1.5px solid var(--TM);padding:11px;border-radius:50px;font-size:12px;font-weight:600;cursor:pointer;width:100%;text-align:center}.bwa{background:#25D366;color:#fff;border:none;padding:11px;border-radius:50px;font-size:12px;font-weight:600;cursor:pointer;width:100%;display:flex;align-items:center;justify-content:center;gap:5px}.trust{display:flex;align-items:center;justify-content:center;gap:3px;font-size:10px;color:var(--MU2);margin-top:8px}
+@media(max-width:640px){.navl{display:none}.usp-row{grid-template-columns:1fr}.o3,.o2{grid-template-columns:1fr 1fr}.pot-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQ2QHCV5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="app">
-  <nav class="nav">
-    <div class="logo" onclick="goTo('landing')">
-      <svg width="30" height="30" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M17 3L2 12v19h9V20h12v11h9V12L17 3z" fill="#147d61"></path><circle cx="17" cy="11" r="3" fill="#ee9d27"></circle></svg>
-      <div class="brand"><span class="my">My</span><span class="dar">Dar</span></div>
-    </div>
-    <div class="nav-links">
-      <a onclick="goTo('landing')">Accueil</a>
-      <a onclick="goTo('conseils')">Conseils</a>
-      <a onclick="goTo('quartiers')">Quartiers</a>
-    </div>
-    <button class="btn btn-primary" onclick="startF('sell')">Estimer</button>
-  </nav>
-
-  <section id="v-landing" class="view active">
-    <div class="hero">
-      <div class="hero-inner">
-        <div class="pill"><span class="dot"></span>Marrakech · moteur hybride référentiel + marché</div>
-        <h1>Comprendre le vrai prix d’un bien à Marrakech, sans promesse magique.</h1>
-        <p>MyDar fournit une fourchette indicative basée sur une grille de référence stable, puis ajustée périodiquement selon l’activité récente des annonces et les signaux du marché local.</p>
-        <div class="hero-actions">
-          <button class="btn btn-primary" onclick="startF('sell')">J’estime mon bien</button>
-          <button class="btn btn-secondary" onclick="startF('buy')">Je vérifie un prix</button>
-        </div>
-        <div class="hero-stats">
-          <div class="stat"><strong>10 quartiers</strong><span>Marrakech couverts</span></div>
-          <div class="stat"><strong>6 types</strong><span>De biens</span></div>
-          <div class="stat"><strong>24/48h</strong><span>Refresh marché prévu</span></div>
-          <div class="stat"><strong>Gratuit</strong><span>Sans engagement</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="band">Base fixe + ajustement marché plafonné : la donnée d’annonces corrige le moteur, elle ne le pilote pas seule.</div>
-
-    <div class="section section-white"><div class="container">
-      <div class="eyebrow">Positionnement</div>
-      <h2>Une estimation indicative, pensée pour inspirer confiance</h2>
-      <p class="sub">Le moteur part d’un référentiel par quartier et type de bien, puis applique des multiplicateurs d’état, d’équipements et d’usage. Une couche “marché” peut ensuite ajuster légèrement les prix selon la tendance récente observée.</p>
-      <div class="grid-2">
-        <div class="card card-soft"><h3>Vous vendez</h3><p>Obtenez une fourchette cohérente avant de fixer votre prix, de signer un mandat ou de tester votre positionnement.</p></div>
-        <div class="card card-warm"><h3>Vous achetez</h3><p>Vérifiez si un prix demandé semble aligné, ambitieux ou trop élevé pour le marché local et les caractéristiques du bien.</p></div>
-      </div>
-    </div></div>
-
-    <div class="section"><div class="container">
-      <div class="eyebrow">Comment ça marche</div>
-      <h2>Une logique plus saine qu’un prix “IA” opaque</h2>
-      <p class="sub">Le moteur repose sur des bases maîtrisées : référentiels, grille MyDar et ajustement périodique issu du marché d’annonces, avec limite maximale d’impact pour éviter les dérives.</p>
-      <div class="grid-2">
-        <div class="card"><h3>Base fixe</h3><p>Prix au m² par quartier et type, calibrés pour rester cohérents même si le marché actif devient bruité.</p></div>
-        <div class="card"><h3>Ajustement marché</h3><p>Coefficient appliqué toutes les 24/48h sur certaines zones, issu d’un flux d’annonces nettoyé, médianisé et plafonné.</p></div>
-      </div>
-    </div></div>
-
-    <div class="section section-white"><div class="container">
-      <div class="eyebrow">Référentiel Marrakech</div>
-      <h2>Un marché très segmenté</h2>
-      <p class="sub">Chaque quartier a sa logique de valorisation, ses écarts de standing et ses micro-localisations. Les fourchettes ci-dessous restent indicatives.</p>
-      <div class="quarters" id="quartersGrid"></div>
-    </div></div>
-
-    <div class="section"><div class="container">
-      <div class="eyebrow">Questions fréquentes</div>
-      <h2>Ce qu’on nous demande souvent</h2>
-      <div class="faq">
-        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">L’estimation est-elle gratuite ? <span>+</span></div><div class="faq-a">Oui. L’outil est gratuit et sert d’aide à la décision. Il ne remplace pas une expertise notariale, bancaire ou contradictoire.</div></div>
-        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">La fourchette est-elle exacte ? <span>+</span></div><div class="faq-a">Non. Elle est indicative. L’état réel, la micro-localisation, les documents du bien et la tension de marché peuvent faire varier la valeur.</div></div>
-        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Le marché d’annonces sert à quoi ? <span>+</span></div><div class="faq-a">À ajuster légèrement la base MyDar. Il sert de thermomètre périodique, pas de vérité absolue.</div></div>
-      </div>
-    </div></div>
-
-    <div class="section"><div class="container" style="text-align:center">
-      <button class="btn btn-primary" onclick="startF('sell')">Lancer l’estimation</button>
-    </div></div>
-  </section>
-
-  <section id="v-conseils" class="view">
-    <div class="section"><div class="container"><div class="eyebrow" style="background:#fcf0de;color:#6a4310">Conseils Marrakech</div><h2>Des repères concrets avant de vendre, acheter ou investir</h2><p class="sub">MyDar n’est pas qu’un calculateur. C’est aussi un cadre de lecture pour mieux interpréter un prix et éviter certains pièges de marché.</p></div></div>
-    <div class="tabs"><div class="tabwrap">
-      <div class="tab active" onclick="sw('v',this)">Vous vendez</div>
-      <div class="tab" onclick="sw('a',this)">Vous achetez</div>
-      <div class="tab" onclick="sw('i',this)">Vous investissez</div>
-      <div class="tab" onclick="sw('r',this)">Riad & Médina</div>
-    </div></div>
-    <div id="cp-v" class="panel active">
-      <div class="bloc"><h3>Le prix affiché n’est pas le prix vendu</h3><p>Les annonces servent d’indice, mais pas de vérité. Un bien mal positionné peut rester longtemps en ligne et gonfler artificiellement la perception du marché.</p><div class="note"><span>Lecture utile</span><p>Le bon usage d’une annonce n’est pas “voilà le prix”, mais “voilà le niveau d’ambition du vendeur”.</p></div></div>
-      <div class="bloc"><h3>Fixez un prix cohérent avec votre délai</h3><p>Bas de fourchette si vous voulez vendre plus vite, centre de fourchette si vous visez une commercialisation normale, haut de fourchette si le bien a de vrais arguments différenciants.</p></div>
-    </div>
-    <div id="cp-a" class="panel">
-      <div class="bloc"><h3>Comparez le bien au bon sous-marché</h3><p>On ne compare pas un appartement standard à Targa avec un appartement premium à Hivernage. La cohérence du comparable compte plus que la quantité de comparables.</p></div>
-      <div class="bloc"><h3>Le titre foncier reste un filtre majeur</h3><p>Un bien juridiquement clair vaut plus, se vend mieux et se revend plus facilement.</p></div>
-    </div>
-    <div id="cp-i" class="panel">
-      <div class="bloc"><h3>Le brut ne dit pas le net</h3><p>Le potentiel locatif doit être lu après vacance, gestion, maintenance et fiscalité. Un bien qui semble rentable sur annonce peut être banal une fois corrigé.</p></div>
-      <div class="bloc"><h3>Le quartier compte autant que le produit</h3><p>Le meilleur plan n’est pas toujours le bien le moins cher. C’est celui qui garde une profondeur de demande et une revente lisible.</p></div>
-    </div>
-    <div id="cp-r" class="panel">
-      <div class="bloc"><h3>La Médina demande plus de prudence</h3><p>Le marché y est plus hétérogène, plus opaque et plus sensible à la rénovation, à l’accès, à la licence et au potentiel d’exploitation.</p></div>
-      <div class="bloc"><h3>Le coût travaux change tout</h3><p>Un riad à “bon prix” peut devenir très cher après rénovation lourde. Il faut presque toujours lire le prix d’achat avec un budget travaux à côté.</p></div>
-    </div>
-  </section>
-
-  <section id="v-quartiers" class="view">
-    <div class="section section-white"><div class="container">
-      <div class="eyebrow">Référentiel Avril 2026</div>
-      <h2>Marrakech quartier par quartier</h2>
-      <p class="sub">Ces repères sont issus de la base moteur MyDar. Le marché actif peut ensuite appliquer un ajustement limité par zone.</p>
-      <div class="quarters" id="quartersGrid2"></div>
-    </div></div>
-  </section>
-
-  <section id="v-funnel" class="view">
-    <div class="funnel-wrap">
-      <div class="funnel-top">
-        <button class="back" onclick="prevStep()">Retour</button>
-        <div class="prog"><div id="progFill"></div></div>
-        <div class="pct" id="progText">1 / 11</div>
-      </div>
-      <div class="funnel-body"><div class="form-card" id="funnelCard"></div></div>
-    </div>
-  </section>
-
-  <section id="v-loading" class="view">
-    <div class="loading-shell">
-      <div class="loading-card">
-        <div class="ring"></div>
-        <h3 style="font-size:18px;margin-bottom:5px">Analyse en cours</h3>
-        <p style="color:var(--muted);font-size:13px">Nous calculons une base cohérente puis appliquons un éventuel ajustement marché plafonné.</p>
-        <div class="src-row">
-          <div class="src-pill" id="src1">Référentiel local</div>
-          <div class="src-pill" id="src2">Quartier & type</div>
-          <div class="src-pill" id="src3">État du bien</div>
-          <div class="src-pill" id="src4">Équipements</div>
-          <div class="src-pill" id="src5">Ajustement marché</div>
-        </div>
-        <div class="bar"><div id="loadBar"></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="v-result" class="view">
-    <div class="result-hero">
-      <div class="result-badge" id="resultMode">Estimation MyDar</div>
-      <div class="label">Fourchette indicative</div>
-      <div class="range" id="resultRange">-</div>
-      <div class="subline" id="resultSub">Marrakech</div>
-      <div class="conf">
-        <div class="conf-top"><span>Niveau de confiance</span><span id="confPct">-</span></div>
-        <div class="conf-track"><div id="confBar"></div></div>
-        <div class="conf-note" id="confNote">-</div>
-      </div>
-    </div>
-    <div class="result-body">
-      <div class="result-card">
-        <div class="result-title">Facteurs analysés</div>
-        <div id="facts"></div>
-        <div class="market-box" style="margin-top:12px">
-          <p id="marketExplain"></p>
-        </div>
-      </div>
-      <div class="result-card">
-        <div class="result-title">Conseils pour votre situation</div>
-        <div id="tips"></div>
-      </div>
-      <div class="result-card">
-        <div class="result-title">Potentiel du bien</div>
-        <div class="potentials" id="potentials"></div>
-      </div>
-      <div class="result-card">
-        <div class="result-title">Prochaine étape</div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <button class="btn btn-primary" id="ctaMain">Recevoir cette estimation</button>
-          <button class="btn btn-secondary" onclick="goTo('landing')">Retour à l’accueil</button>
-        </div>
-        <p class="legal" style="margin-top:10px">Estimation indicative, non contractuelle. Le moteur est volontairement prudent et ne remplace pas une expertise locale.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="row">
-      <div>
-        <div class="brand"><span class="my">My</span><span class="dar">Dar</span></div>
-        <div style="font-size:12px;margin-top:4px;color:rgba(255,255,255,.38)">Estimation indicative · Marrakech</div>
-      </div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a onclick="goTo('landing')">Accueil</a>
-        <a onclick="goTo('conseils')">Conseils</a>
-        <a onclick="goTo('quartiers')">Quartiers</a>
-      </div>
-    </div>
-    <div class="row"><small>© 2026 MyDar · Version améliorée de travail · moteur hybride base fixe + ajustement marché simulé</small></div>
-  </footer>
+<nav class="nav">
+  <div class="logo" onclick="goTo('landing')">
+    <svg width="28" height="28" viewBox="0 0 34 34" fill="none"><path d="M17 3L2 12v19h9V20h12v11h9V12L17 3z" fill="#1D9E75"/><circle cx="17" cy="11" r="3" fill="#EF9F27"/></svg>
+    <div class="nb"><span class="my">My</span><span class="dar">Dar</span></div>
+  </div>
+  <div class="navl"><a onclick="goTo('landing')">Accueil</a><a onclick="goTo('conseils')">Conseils</a><a onclick="goTo('quartiers')">Quartiers</a></div>
+  <button class="btn-nav" onclick="startF('sell')">Estimer</button>
+</nav>
+<div id="v-landing" class="view active">
+<div class="hero"><div class="hg"></div><div class="hi"><div class="hpill"><span class="hdot"></span>Marrakech · Données marché actualisées</div><h1>Comprendre le vrai prix d'un bien à Marrakech n'a jamais été simple.</h1><p class="hero-sub">Fourchette indicative indépendante en 2 minutes.</p><p class="hero-disc">Estimation indicative · Non contractuelle · Gratuit · Sans engagement</p><div class="hero-ctas"><button class="btn-hero-main" onclick="startF('sell')">J'estime mon bien</button><button class="btn-hero-sec" onclick="startF('buy')">Je vérifie un prix</button></div><div class="hstats"><div class="hs"><div class="n">10</div><div class="l">Quartiers couverts</div></div><div class="hs"><div class="n">6 types</div><div class="l">De biens</div></div><div class="hs"><div class="n">Mis à jour</div><div class="l">En continu</div></div><div class="hs"><div class="n">Gratuit</div><div class="l">Sans engagement</div></div></div></div></div>
+<div class="vband"><div class="vband-inner"><span>Actuellement disponible à</span><strong>Marrakech</strong><span>·</span><span class="vpill">Casablanca bientôt</span><span class="vpill">Agadir bientôt</span><span class="vpill">Et d'autres villes</span></div></div>
+<div class="sec sec-w"><div class="si"><div class="lbl">Vendeurs et acheteurs</div><h2 class="sh">Une référence indépendante, des deux côtés</h2><p class="si-sub">Que vous souhaitiez vendre au juste prix ou vérifier que vous ne payez pas trop cher, MyDar vous fournit une fourchette ancrée sur les données réelles du marché marrakchi.</p><div class="usp-row"><div class="uc s"><h3>Vous vendez</h3><p>Une référence indépendante avant de confier votre bien. Négociez en position de force.</p></div><div class="uc b"><h3>Vous achetez</h3><p>Vérifiez si le prix demandé est cohérent. Achetez sereinement ou négociez avec des arguments concrets.</p></div></div></div></div>
+<div class="sec"><div class="si"><div class="lbl">Comment ça marche</div><h2 class="sh">Simple, rapide, honnête sur ses limites</h2><p class="si-sub">Nous croisons plusieurs sources de données actives et des référentiels de marché pour produire une estimation cohérente, mise à jour régulièrement.</p><div class="steps"><div class="sc"><div class="sn-t">1</div><h3>Décrivez le bien</h3><p>Type, quartier, surface, état, équipements.</p></div><div class="sc"><div class="sn-a">2</div><h3>Analyse en cours</h3><p>Croisement avec les données actives et les indices officiels.</p></div><div class="sc"><div class="sn-t">3</div><h3>Fourchette et conseils</h3><p>Estimation indicative avec conseils adaptés.</p></div><div class="sc"><div class="sn-a">4</div><h3>Agissez informé</h3><p>Vendez, achetez ou négociez avec une référence solide.</p></div></div></div></div>
+<div class="sec sec-w"><div class="si"><div class="lbl">Marrakech · 10 quartiers</div><h2 class="sh">Un marché très segmenté</h2><p class="si-sub">Chaque quartier a sa propre logique de valorisation.</p><div class="qg"><div class="qc" onclick="startF('sell')"><div class="qn">Guéliz</div><div class="qr">13 000 à 25 000 MAD/m²</div><div class="qm">Ancien, rénové, résidences récentes</div></div><div class="qc" onclick="startF('sell')"><div class="qn">Semlalia</div><div class="qr">10 000 à 16 000 MAD/m²</div><div class="qm">Résidentiel central, bon rapport prix/surface</div></div><div class="qc" onclick="startF('sell')"><div class="qn">Hivernage</div><div class="qr">20 000 à 40 000+ MAD/m²</div><div class="qm">Résidences de standing à villas de luxe</div></div><div class="qc" onclick="startF('sell')"><div class="qn">Médina</div><div class="qr">9 000 à 35 000 MAD/m²</div><div class="qm">Du riad brut à la maison d'hôtes rénovée</div></div><div class="qc" onclick="startF('sell')"><div class="qn">Palmeraie</div><div class="qr">13 000 à 30 000+ MAD/m²</div><div class="qm">Villa standard à propriété de prestige</div></div><div class="qc" onclick="startF('sell')"><div class="qn">Agdal</div><div class="qr">11 000 à 20 000 MAD/m²</div><div class="qm">Familles, écoles, cadres expatriés</div></div><div class="qc" onclick="startF('sell')"><div class="qn">Targa</div><div class="qr">7 500 à 14 000 MAD/m²</div><div class="qm">Programmes neufs, quartier en essor</div></div><div class="qc" onclick="startF('sell')"><div class="qn">Mhamid</div><div class="qr">5 500 à 9 500 MAD/m²</div><div class="qm">Proche aéroport, fort potentiel locatif</div></div><div class="qc" onclick="startF('sell')"><div class="qn">Sidi Ghanem</div><div class="qr">5 000 à 8 500 MAD/m²</div><div class="qm">Lofts, ateliers, usages atypiques</div></div><div class="qc" onclick="startF('sell')"><div class="qn">Route de Casa</div><div class="qr">7 000 à 12 000 MAD/m²</div><div class="qm">Second marché, terrains, promoteurs</div></div></div><p style="font-size:10px;color:var(--MU2);margin-top:10px">Fourchettes indicatives · Prix varient selon état, équipements et micro-localisation.</p></div></div>
+<div class="sec"><div class="si"><div class="lbl">Questions fréquentes</div><h2 class="sh">Ce qu'on nous demande souvent</h2><div style="margin-top:20px" class="faq-list"><div class="fi"><div class="fq" onclick="tFaq(this)">L'estimation est-elle gratuite ?<span class="fi-ico">+</span></div><div class="fa">Oui, l'estimation est gratuite, sans engagement et sans obligation de passer par un intermédiaire. Vous pouvez ensuite, si vous le souhaitez, être mis en relation avec un professionnel local.</div></div><div class="fi"><div class="fq" onclick="tFaq(this)">La fourchette est-elle fiable ?<span class="fi-ico">+</span></div><div class="fa">Elle est indicative. Elle reflète les prix du marché pour un bien comparable. L'état exact, la micro-localisation et la conjoncture peuvent faire varier les prix de 10 à 20%. Pour une évaluation certifiée, un expert local est indispensable.</div></div><div class="fi"><div class="fq" onclick="tFaq(this)">Ça fonctionne pour vérifier un prix avant d'acheter ?<span class="fi-ico">+</span></div><div class="fa">Absolument. Décrivez le bien que vous envisagez d'acheter et comparez notre fourchette au prix demandé. Un écart significatif vous donne des arguments concrets pour négocier.</div></div></div></div></div>
+<div class="cta-b"><h2>Votre bien vaut combien aujourd'hui ?</h2><p>Une fourchette indicative indépendante en 2 minutes.</p><button class="btn-cta" onclick="startF('sell')">J'estime mon bien</button><button class="btn-cta2" onclick="startF('buy')">Je vérifie un prix</button></div>
+<div class="footer"><div class="fi2"><div class="ft2"><div><div class="fn"><span class="my">My</span><span class="dar">Dar</span></div><div class="ftag">Estimation indicative · Marrakech</div></div><div class="fl"><a onclick="goTo('conseils')">Nos conseils</a><a onclick="goTo('quartiers')">Quartiers</a><a onclick="goTo('confidentialite')">Confidentialité</a><a onclick="goTo('mentions')">Mentions légales</a></div></div><div class="fb">© 2026 MyDar · Estimation indicative, non contractuelle · Marrakech, Maroc</div></div></div>
 </div>
-
+<div id="v-conseils" class="view"><div class="ch"><div class="chi"><div class="lbl lbl-a" style="margin-bottom:12px">Nos conseils · Marrakech 2026</div><h1>Des repères pour avancer sereinement</h1><p>Le marché marrakchi a ses usages. Voici ce qu'il faut savoir avant de vendre, d'acheter ou d'investir.</p></div></div><div class="tabs-bar"><div class="ti"><div class="tab on" onclick="sw('v',this)">Vous vendez</div><div class="tab" onclick="sw('a',this)">Vous achetez</div><div class="tab" onclick="sw('i',this)">Vous investissez</div><div class="tab" onclick="sw('r',this)">Riad et Médina</div><div class="tab" onclick="sw('p',this)">Les pièges</div></div></div><div id="cp-v" class="panel on"><div class="bloc"><div class="num">01</div><h3>Le prix affiché n'est jamais le prix vendu</h3><p>À Marrakech, négocier fait partie du processus. Les biens se vendent en moyenne 8 à 15% en dessous du prix demandé.</p></div></div><div id="cp-a" class="panel"><div class="bloc"><div class="num">01</div><h3>Visitez au moins deux fois</h3><p>Le matin en semaine, c'est calme partout. Le vendredi soir ou le samedi matin, c'est parfois très différent.</p></div></div><div id="cp-i" class="panel"><div class="bloc"><div class="num">01</div><h3>Calculez le rendement net</h3><p>Déduisez charges, vacance, gestion et maintenance pour lire la vraie rentabilité.</p></div></div><div id="cp-r" class="panel"><div class="bloc"><div class="num">01</div><h3>La Médina est un marché hétérogène</h3><p>Deux biens proches peuvent afficher des écarts très importants selon état, accès et potentiel d'exploitation.</p></div></div><div id="cp-p" class="panel"><div class="bloc"><div class="num">01</div><h3>L'urgence artificielle</h3><p>Si le bien est vraiment bon, il sera encore disponible le temps de vérifier les documents.</p></div></div></div>
+<div id="v-quartiers" class="view"><div class="sec sec-w" style="padding-bottom:16px"><div class="si"><div class="lbl">Référentiel · Avril 2026</div><h2 class="sh">Marrakech quartier par quartier</h2><p class="si-sub">Fourchettes indicatives basées sur les données actives du marché et les indices officiels.</p><div class="qg"><div class="qc" onclick="startF('sell')"><div class="qn">Guéliz</div><div class="qr">13 000 à 25 000 MAD/m²</div><div class="qm">Ancien, rénové, résidences récentes</div></div><div class="qc" onclick="startF('sell')"><div class="qn">Médina riad</div><div class="qr">18 000 à 40 000+ MAD/m²</div><div class="qm">Du riad brut à la maison d'hôtes rénovée</div></div><div class="qc" onclick="startF('sell')"><div class="qn">Targa</div><div class="qr">7 500 à 14 000 MAD/m²</div><div class="qm">Programmes neufs, quartier en essor</div></div></div></div></div></div>
+<div id="v-funnel" class="view"><div class="fw"><div class="ft3"><button class="bbk" onclick="prevStep()">← Retour</button><div class="pb"><div class="pf" id="pfill"></div></div><div class="pct" id="psct">1 / 11</div></div><div class="fbody"><div class="fc" id="fcard"></div></div></div></div>
+<div id="v-loading" class="view"><div class="fw"><div class="fbody" style="align-items:center;padding-top:52px"><div class="lscr"><div class="lring"></div><div style="font-size:14px;font-weight:700;color:var(--DK);margin-bottom:4px">Analyse en cours</div><div style="font-size:12px;color:var(--MU);margin-bottom:14px">Nous analysons votre bien et le comparons aux données du marché local</div><div class="lsrc-row"><div class="lsrc" id="ls1">Annonces actives</div><div class="lsrc" id="ls2">Transactions récentes</div><div class="lsrc" id="ls3">Données officielles</div><div class="lsrc" id="ls4">Calibration marché</div><div class="lsrc" id="ls5">Indices immobiliers</div></div><div style="margin-top:14px;height:3px;background:var(--SB);border-radius:50px;overflow:hidden"><div id="lbar" style="height:100%;background:var(--T);border-radius:50px;width:0%;transition:width .4s"></div></div></div></div></div></div>
+<div id="v-result" class="view"><nav class="nav"><div class="logo" onclick="goTo('landing')"><svg width="28" height="28" viewBox="0 0 34 34" fill="none"><path d="M17 3L2 12v19h9V20h12v11h9V12L17 3z" fill="#1D9E75"/><circle cx="17" cy="11" r="3" fill="#EF9F27"/></svg><div class="nb"><span class="my">My</span><span class="dar">Dar</span></div></div><button class="btn-nav" onclick="startF('sell')">Nouvelle estimation</button></nav><div class="rh"><div class="rmb" id="rmode">Estimation</div><div class="rl">Fourchette indicative</div><div class="rr" id="rrange">—</div><div style="font-size:10px;color:rgba(255,255,255,.35);margin-top:3px" id="rsub">Marrakech</div><div class="conf-wrap"><div class="conf-lbl"><span>Niveau de confiance</span><span id="rconf-pct">—</span></div><div class="conf-track"><div class="conf-bar" id="rconf-bar" style="width:0%"></div></div><div class="conf-note" id="rconf-note">—</div></div></div><div class="rbody"><div class="rc"><div class="rct">Facteurs analysés</div><div id="rfactors"></div><div class="disc"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;margin-top:1px"><path d="M8 1L1 14h14L8 1z" stroke="#633806" stroke-width="1.2"/><path d="M8 6v4M8 11.5v.5" stroke="#633806" stroke-width="1.2" stroke-linecap="round"/></svg>Fourchette indicative. Varie selon la micro-localisation, l'état précis et les conditions de marché.</div><div class="src-note" id="market-note"></div></div><div class="rc"><div class="rct">Conseils pour votre situation</div><div id="rconseils"></div></div><div class="rc"><div class="rct">Potentiel du bien</div><div class="pot-grid" id="rpot"></div></div><div class="rc"><div class="rct">Prochaine étape</div><div class="cta-stack"><button class="bcp" id="rcta1">Recevoir la fourchette par email</button><button class="bwa" onclick="window.open('https://wa.me/212663667975?text=Bonjour%2C%20je%20souhaite%20parler%20%C3%A0%20un%20expert%20suite%20%C3%A0%20mon%20estimation%20MyDar.','_blank')">Parler à un expert</button><button class="bcs" onclick="goTo('landing')">Retour à l'accueil</button></div><div class="trust">Données confidentielles · Jamais publiées</div></div></div></div>
+<div id="v-mentions" class="view"><nav class="nav"><div class="logo" onclick="goTo('landing')"><svg width="28" height="28" viewBox="0 0 34 34" fill="none"><path d="M17 3L2 12v19h9V20h12v11h9V12L17 3z" fill="#1D9E75"/><circle cx="17" cy="11" r="3" fill="#EF9F27"/></svg><div class="nb"><span class="my">My</span><span class="dar">Dar</span></div></div><button class="btn-nav" onclick="goTo('landing')">Retour</button></nav><div class="panel on" style="display:block;max-width:680px"><h1 style="font-size:24px;font-weight:800;margin-bottom:24px;color:var(--DK)">Mentions légales</h1><p style="font-size:13px;color:var(--MU)">Estimation indicative, non contractuelle.</p></div></div>
+<div id="v-confidentialite" class="view"><nav class="nav"><div class="logo" onclick="goTo('landing')"><svg width="28" height="28" viewBox="0 0 34 34" fill="none"><path d="M17 3L2 12v19h9V20h12v11h9V12L17 3z" fill="#1D9E75"/><circle cx="17" cy="11" r="3" fill="#EF9F27"/></svg><div class="nb"><span class="my">My</span><span class="dar">Dar</span></div></div><button class="btn-nav" onclick="goTo('landing')">Retour</button></nav><div class="panel on" style="display:block;max-width:680px"><h1 style="font-size:24px;font-weight:800;margin-bottom:24px;color:var(--DK)">Politique de confidentialité</h1><p style="font-size:12px;color:var(--MU);margin-bottom:28px">Conforme à la loi marocaine 09-08 relative à la protection des données personnelles.</p></div></div>
+</div>
 <script>
-const WEBHOOK_URL = '';
-const APP_STATE = {
-  mode: 'sell',
-  step: 0,
-  answers: {
-    type: '', quartier: '', surface: '', config: '', etat: '', equipements: [], usage: '', projet: '', delai: '', nom: '', contact: '', consent: false
-  }
-};
-
-const STEPS = [
-  {key:'type', title:'Quel type de bien ?', help:'Choisissez le type principal.', render:'type'},
-  {key:'quartier', title:'Dans quel quartier ?', help:'Le quartier reste le premier driver de valeur.', render:'quartier'},
-  {key:'surface', title:'Quelle surface ?', help:'Indiquez la surface intérieure approximative en m².', render:'surface'},
-  {key:'config', title:'Quelle configuration ?', help:'Nombre de pièces ou profil général du bien.', render:'config'},
-  {key:'etat', title:'Quel est son état ?', help:'L’état influence fortement la valorisation.', render:'etat'},
-  {key:'equipements', title:'Quels équipements ?', help:'Sélectionnez ce qui apporte une vraie valeur.', render:'equipements'},
-  {key:'usage', title:'Quel usage dominant ?', help:'Résidence principale, secondaire ou locatif.', render:'usage'},
-  {key:'projet', title:'Votre projet ?', help:'Cela permet d’adapter les conseils et la sortie.', render:'projet'},
-  {key:'delai', title:'Votre délai ?', help:'Le timing influence la stratégie de prix.', render:'delai'},
-  {key:'contact', title:'Vos coordonnées', help:'Pour vous recontacter avec votre estimation.', render:'contact'},
-  {key:'consent', title:'Consentement', help:'Vous gardez le contrôle sur l’usage de vos données.', render:'consent'}
-];
-
-const DATA = {
-  quarters: {
-    'Guéliz': {range:'13 000 à 25 000 MAD/m²', meta:'Ancien, rénové, résidences récentes'},
-    'Semlalia': {range:'10 000 à 16 000 MAD/m²', meta:'Résidentiel central, bon rapport prix/surface'},
-    'Hivernage': {range:'20 000 à 40 000 MAD/m²', meta:'Résidences de standing et premium'},
-    'Médina': {range:'9 000 à 35 000 MAD/m²', meta:'Du riad brut à la maison d’hôtes rénovée'},
-    'Palmeraie': {range:'13 000 à 30 000 MAD/m²', meta:'Villa standard à propriété de prestige'},
-    'Agdal': {range:'11 000 à 20 000 MAD/m²', meta:'Quartier familial et expatrié'},
-    'Targa': {range:'7 500 à 14 000 MAD/m²', meta:'Programmes neufs et marché d’usage'},
-    'Mhamid': {range:'5 500 à 9 500 MAD/m²', meta:'Proche aéroport, potentiel locatif'},
-    'Sidi Ghanem': {range:'5 000 à 8 500 MAD/m²', meta:'Ateliers, lofts, usages atypiques'},
-    'Route de Casa': {range:'7 000 à 12 000 MAD/m²', meta:'Second marché, foncier, promoteurs'}
-  },
-  qpm2: {
-    'Guéliz': {appartement:18500, villa:23500, riad:18000, duplex:17500, terrain:11500, local:16500},
-    'Semlalia': {appartement:12500, villa:14500, riad:0, duplex:12250, terrain:8500, local:11000},
-    'Hivernage': {appartement:28500, villa:36000, riad:0, duplex:26500, terrain:18000, local:22000},
-    'Médina': {appartement:11000, villa:0, riad:23500, duplex:0, terrain:9000, local:13000},
-    'Palmeraie': {appartement:0, villa:22500, riad:0, duplex:0, terrain:14500, local:0},
-    'Agdal': {appartement:14500, villa:17000, riad:0, duplex:14250, terrain:10250, local:12500},
-    'Targa': {appartement:9800, villa:12200, riad:0, duplex:10100, terrain:7600, local:9800},
-    'Mhamid': {appartement:7100, villa:8600, riad:0, duplex:7300, terrain:5700, local:7700},
-    'Sidi Ghanem': {appartement:6500, villa:7800, riad:0, duplex:7000, terrain:5600, local:7200},
-    'Route de Casa': {appartement:8800, villa:10200, riad:0, duplex:9000, terrain:7000, local:8600}
-  },
-  stateMult: {neuf:1.08, renove:1.03, bon:1, rafraichir:0.93, travaux:0.82},
-  usageMult: {residence:1, secondaire:1.02, locatif:1.04, saisonnier:1.07, investissement:1.03},
-  equipMult: {piscine:1.05, jardin:1.03, terrasse:1.02, parking:1.015, securite:1.015, ascenseur:1.01, vue:1.03, licence:1.08, hammam:1.02, solaire:1.015},
-  configMult: {'studio-t2':0.98, 't3':1, 't4+':1.03, 'grande-villa':1.05, 'riad-exploitation':1.06, 'local-premium':1.04, 'terrain-standard':1},
-  marketAdjust: {
-    'Guéliz': {factor:1.03, trend:'Marché actif légèrement au-dessus de la base moteur', lastRefresh:'il y a 24h'},
-    'Semlalia': {factor:0.99, trend:'Marché proche de la base, peu d’écart notable', lastRefresh:'il y a 36h'},
-    'Hivernage': {factor:1.04, trend:'Premium soutenu, annonces hautes mais filtrées', lastRefresh:'il y a 24h'},
-    'Médina': {factor:1.02, trend:'Ajustement prudent vu l’hétérogénéité du secteur', lastRefresh:'il y a 48h'},
-    'Palmeraie': {factor:1.01, trend:'Marché premium stable, effet lissé', lastRefresh:'il y a 48h'},
-    'Agdal': {factor:1.00, trend:'Marché aligné sur la base moteur', lastRefresh:'il y a 36h'},
-    'Targa': {factor:1.02, trend:'Légère tension à l’achat sur certains segments', lastRefresh:'il y a 24h'},
-    'Mhamid': {factor:0.98, trend:'Ajustement baissier modéré sur stock standard', lastRefresh:'il y a 36h'},
-    'Sidi Ghanem': {factor:0.97, trend:'Marché atypique, ajustement volontairement limité', lastRefresh:'il y a 48h'},
-    'Route de Casa': {factor:1.01, trend:'Base moteur peu corrigée', lastRefresh:'il y a 48h'}
-  }
-};
-
-function renderQuarterCards(targetId){
-  const el = document.getElementById(targetId);
-  el.innerHTML = Object.entries(DATA.quarters).map(([name, v]) => `
-    <div class="quarter" onclick="prefillQuarter('${name.replace(/'/g,"\\'")}')">
-      <div class="name">${name}</div>
-      <div class="price">${v.range}</div>
-      <div class="meta">${v.meta}</div>
-    </div>`).join('');
-}
-
-function goTo(view){
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  const el = document.getElementById(`v-${view}`);
-  if(el) el.classList.add('active');
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-
-function toggleFaq(node){ node.parentElement.classList.toggle('open'); }
-
-function sw(key, tab){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  tab.classList.add('active');
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  document.getElementById(`cp-${key}`).classList.add('active');
-}
-
-function prefillQuarter(q){
-  APP_STATE.answers.quartier = q;
-  startF('sell');
-  if(APP_STATE.step === 1) renderStep();
-}
-
-function startF(mode){
-  APP_STATE.mode = mode;
-  APP_STATE.step = 0;
-  APP_STATE.answers = {type:'', quartier:APP_STATE.answers.quartier || '', surface:'', config:'', etat:'', equipements:[], usage:'', projet: mode === 'sell' ? 'vendre' : 'acheter', delai:'', nom:'', contact:'', consent:false};
-  goTo('funnel');
-  renderStep();
-}
-
-function prevStep(){
-  if(APP_STATE.step <= 0){ goTo('landing'); return; }
-  APP_STATE.step -= 1;
-  renderStep();
-}
-
-function nextStep(){
-  const key = STEPS[APP_STATE.step].key;
-  if(!validateStep(key)) return;
-  if(APP_STATE.step === STEPS.length - 1){ startLoading(); return; }
-  APP_STATE.step += 1;
-  renderStep();
-}
-
-function validateStep(key){
-  const a = APP_STATE.answers;
-  if(key === 'equipements') return true;
-  if(key === 'consent' && !a.consent){ alert('Merci de confirmer votre consentement pour continuer.'); return false; }
-  if(!a[key] || (typeof a[key] === 'string' && !a[key].trim())){ alert('Merci de compléter cette étape.'); return false; }
-  if(key === 'surface' && (+a.surface < 15 || +a.surface > 5000)){ alert('Veuillez saisir une surface cohérente.'); return false; }
-  if(key === 'contact' && (!a.nom.trim() || !a.contact.trim())){ alert('Merci d’indiquer votre nom et votre contact.'); return false; }
-  return true;
-}
-
-function renderStep(){
-  const card = document.getElementById('funnelCard');
-  const step = STEPS[APP_STATE.step];
-  const progress = ((APP_STATE.step + 1) / STEPS.length) * 100;
-  document.getElementById('progFill').style.width = progress + '%';
-  document.getElementById('progText').textContent = `${APP_STATE.step + 1} / ${STEPS.length}`;
-  card.innerHTML = `
-    <div class="tag">Étape ${APP_STATE.step + 1}</div>
-    <h2>${step.title}</h2>
-    <div class="form-help">${step.help}</div>
-    <div id="stepInner"></div>
-    <button class="btn btn-primary" style="width:100%;margin-top:16px" onclick="nextStep()">Continuer</button>
-    <div class="helper">Estimation indicative · non contractuelle · aucune promesse de prix exact</div>`;
-  renderStepContent(step.render);
-}
-
-function selectOne(key, value){ APP_STATE.answers[key] = value; renderStep(); }
-function toggleEquip(value){
-  const arr = APP_STATE.answers.equipements;
-  const i = arr.indexOf(value);
-  if(i >= 0) arr.splice(i,1); else arr.push(value);
-  renderStep();
-}
-
-function renderStepContent(type){
-  const el = document.getElementById('stepInner');
-  const a = APP_STATE.answers;
-  if(type === 'type'){
-    const items = [
-      ['appartement','🏢','Appartement'],['villa','🏡','Villa'],['riad','🕌','Riad'],['duplex','⬆️','Duplex'],['terrain','📐','Terrain'],['local','🏪','Local']
-    ];
-    el.innerHTML = `<div class="options o2">${items.map(([v,i,l])=>`<div class="opt ${a.type===v?'sel':''}" onclick="selectOne('type','${v}')"><div class="icon">${i}</div><div class="label">${l}</div></div>`).join('')}</div>`;
-  }
-  if(type === 'quartier'){
-    el.innerHTML = `<div class="options">${Object.keys(DATA.quarters).map(v=>`<div class="list-opt ${a.quartier===v?'sel':''}" onclick="selectOne('quartier',\`${v}\`)"><div class="left">${v}</div><div class="right">${DATA.quarters[v].range}</div></div>`).join('')}</div>`;
-  }
-  if(type === 'surface'){
-    el.innerHTML = `<div class="field"><label>Surface intérieure</label><input class="input" type="number" min="15" max="5000" placeholder="Ex : 120" value="${a.surface}" oninput="APP_STATE.answers.surface=this.value"></div>`;
-  }
-  if(type === 'config'){
-    const cfgs = [
-      ['studio-t2','Compact'],['t3','Standard'],['t4+','Familial'],['grande-villa','Grande villa'],['riad-exploitation','Riad exploitable'],['local-premium','Local premium'],['terrain-standard','Terrain standard']
-    ];
-    el.innerHTML = `<div class="options">${cfgs.map(([v,l])=>`<div class="list-opt ${a.config===v?'sel':''}" onclick="selectOne('config','${v}')"><div class="left">${l}</div><div class="right">Profil</div></div>`).join('')}</div>`;
-  }
-  if(type === 'etat'){
-    const items = [['neuf','Neuf ou quasi neuf'],['renove','Rénové'],['bon','Bon état'],['rafraichir','À rafraîchir'],['travaux','Travaux lourds']];
-    el.innerHTML = `<div class="options">${items.map(([v,l])=>`<div class="list-opt ${a.etat===v?'sel':''}" onclick="selectOne('etat','${v}')"><div class="left">${l}</div><div class="right">État</div></div>`).join('')}</div>`;
-  }
-  if(type === 'equipements'){
-    const items = [['piscine','Piscine'],['jardin','Jardin'],['terrasse','Terrasse'],['parking','Parking'],['securite','Sécurité'],['ascenseur','Ascenseur'],['vue','Vue'],['licence','Licence'],['hammam','Hammam'],['solaire','Solaire']];
-    el.innerHTML = `<div class="chips">${items.map(([v,l])=>`<div class="chip ${a.equipements.includes(v)?'sel':''}" onclick="toggleEquip('${v}')">${l}</div>`).join('')}</div>`;
-  }
-  if(type === 'usage'){
-    const items = [['residence','Résidence principale'],['secondaire','Résidence secondaire'],['locatif','Location longue durée'],['saisonnier','Location saisonnière'],['investissement','Investissement patrimonial']];
-    el.innerHTML = `<div class="options">${items.map(([v,l])=>`<div class="list-opt ${a.usage===v?'sel':''}" onclick="selectOne('usage','${v}')"><div class="left">${l}</div><div class="right">Usage</div></div>`).join('')}</div>`;
-  }
-  if(type === 'projet'){
-    const items = [['vendre','Je vends'],['acheter','J’achète'],['investir','J’investis'],['arbitrer','Je compare / j’arbitre']];
-    el.innerHTML = `<div class="options o2">${items.map(([v,l])=>`<div class="opt ${a.projet===v?'sel':''}" onclick="selectOne('projet','${v}')"><div class="label">${l}</div></div>`).join('')}</div>`;
-  }
-  if(type === 'delai'){
-    const items = [['urgent','0 à 2 mois'],['court','2 à 4 mois'],['souple','4 à 6 mois'],['long','Plus de 6 mois']];
-    el.innerHTML = `<div class="inline">${items.map(([v,l])=>`<div class="chip ${a.delai===v?'sel':''}" onclick="selectOne('delai','${v}')">${l}</div>`).join('')}</div>`;
-  }
-  if(type === 'contact'){
-    el.innerHTML = `
-      <div class="field"><label>Nom</label><input class="input" placeholder="Votre nom" value="${a.nom}" oninput="APP_STATE.answers.nom=this.value"></div>
-      <div class="field"><label>Email ou téléphone</label><input class="input" placeholder="exemple@email.com ou +212..." value="${a.contact}" oninput="APP_STATE.answers.contact=this.value"></div>`;
-  }
-  if(type === 'consent'){
-    el.innerHTML = `<div class="checklist">
-      <div class="check ${a.consent?'sel':''}" onclick="APP_STATE.answers.consent=!APP_STATE.answers.consent;renderStep()">
-        <div>✅</div><div><b>J’accepte d’être recontacté</b><span>Mes données peuvent servir à me transmettre mon estimation et, si je le souhaite, à être mis en relation avec un partenaire pertinent.</span></div>
-      </div>
-    </div>`;
-  }
-}
-
-function startLoading(){
-  goTo('loading');
-  const ids = ['src1','src2','src3','src4','src5'];
-  const bar = document.getElementById('loadBar');
-  ids.forEach(id=>document.getElementById(id).classList.remove('on'));
-  bar.style.width = '0%';
-  let i = 0;
-  const iv = setInterval(()=>{
-    if(i < ids.length){
-      document.getElementById(ids[i]).classList.add('on');
-      bar.style.width = (((i + 1) / ids.length) * 100) + '%';
-      i++;
-      return;
-    }
-    clearInterval(iv);
-    setTimeout(showResult, 450);
-  }, 340);
-}
-
-function safeBasePrice(a){
-  const quarter = DATA.qpm2[a.quartier] || {};
-  let base = quarter[a.type] || 0;
-  if(!base){
-    const fallback = Object.values(quarter).filter(Boolean);
-    base = fallback.length ? fallback.reduce((x,y)=>x+y,0)/fallback.length : 10000;
-  }
-  return base;
-}
-
-function getEquipFactor(equipements){
-  let f = 1;
-  (equipements || []).forEach(e => { f *= (DATA.equipMult[e] || 1); });
-  return Math.min(f, 1.17);
-}
-
-function getMarketAdjustment(quartier){
-  const m = DATA.marketAdjust[quartier] || {factor:1, trend:'Aucun ajustement marché appliqué', lastRefresh:'n/a'};
-  const raw = m.factor;
-  const clamped = Math.max(0.96, Math.min(1.05, raw));
-  return {...m, clamped};
-}
-
-function calcConfidence(a){
-  let score = 62;
-  if(a.quartier) score += 6;
-  if(a.surface) score += 6;
-  if(a.etat) score += 7;
-  if(a.type) score += 5;
-  if(a.equipements.length >= 2) score += 4;
-  if(a.type === 'riad' || a.quartier === 'Médina') score -= 6;
-  if(a.etat === 'travaux') score -= 4;
-  score = Math.max(54, Math.min(87, score));
-  let note = 'Confiance moyenne';
-  if(score >= 78) note = 'Bonne cohérence des signaux';
-  else if(score <= 62) note = 'Prudence : marché plus hétérogène';
-  return {score, pct:`${score}%`, note};
-}
-
-function formatMAD(n){ return new Intl.NumberFormat('fr-FR').format(Math.round(n)) + ' MAD'; }
-
-function calcEstimate(a){
-  const surface = Math.max(15, Number(a.surface || 0));
-  const basePm2 = safeBasePrice(a);
-  const stateF = DATA.stateMult[a.etat] || 1;
-  const usageF = DATA.usageMult[a.usage] || 1;
-  const equipF = getEquipFactor(a.equipements);
-  const configF = DATA.configMult[a.config] || 1;
-  const market = getMarketAdjustment(a.quartier);
-
-  const baseBeforeMarket = basePm2 * stateF * usageF * equipF * configF;
-  const adjustedPm2 = baseBeforeMarket * market.clamped;
-  const central = adjustedPm2 * surface;
-
-  let spreadLow = 0.92;
-  let spreadHigh = 1.08;
-  if(a.type === 'riad' || a.quartier === 'Médina'){ spreadLow = 0.88; spreadHigh = 1.12; }
-  if(a.etat === 'travaux'){ spreadLow -= 0.02; spreadHigh += 0.02; }
-
-  return {
-    surface, basePm2, stateF, usageF, equipF, configF, market,
-    adjustedPm2,
-    central,
-    low: central * spreadLow,
-    high: central * spreadHigh
-  };
-}
-
-function buildFacts(est, conf, a){
-  const rows = [
-    ['Quartier', a.quartier, 'good'],
-    ['Type', a.type, 'good'],
-    ['Base moteur', `${Math.round(est.basePm2).toLocaleString('fr-FR')} MAD/m²`, 'warn'],
-    ['Ajustement marché', `${((est.market.clamped - 1) * 100).toFixed(1)}%`, est.market.clamped >= 1 ? 'good' : 'risk'],
-    ['Prix estimé après ajustements', `${Math.round(est.adjustedPm2).toLocaleString('fr-FR')} MAD/m²`, 'good'],
-    ['Confiance', conf.pct, 'warn']
-  ];
-  return rows.map(([l,r,c]) => `<div class="fact"><div class="l">${l}</div><span class="badge ${c}">${r}</span></div>`).join('');
-}
-
-function buildTips(a, est){
-  const tips = [];
-  if(a.projet === 'vendre'){
-    if(a.delai === 'urgent') tips.push(['Sortie rapide', 'Positionnez-vous plutôt dans la moitié basse de la fourchette si l’objectif est de vendre vite.']);
-    else tips.push(['Arbitrage vendeur', 'Commencez proche du centre-haut de fourchette seulement si le bien se défend vraiment sur ses attributs.']);
-  }
-  if(a.projet === 'acheter') tips.push(['Lecture acheteur', 'Comparez le prix demandé à la borne haute. Au-dessus, il faut de vrais arguments de rareté.']);
-  if(a.etat === 'travaux') tips.push(['Travaux', 'La valeur finale dépendra fortement du budget réel de remise à niveau.']);
-  if(a.quartier === 'Médina' || a.type === 'riad') tips.push(['Prudence Médina / Riad', 'La dispersion de marché y est plus forte. Une visite technique et documentaire reste essentielle.']);
-  if(a.usage === 'saisonnier') tips.push(['Locatif court séjour', 'Ne lisez pas la rentabilité sur le brut affiché : intégrez vacance, gestion et maintenance.']);
-  return tips.slice(0,4).map(([t,p], i)=>`<div class="tip ${i===0?'':'"'}><h4>${t}</h4><p>${p}</p></div>`).join('');
-}
-
-function buildPotentials(a){
-  const pots = [
-    ['Location longue durée', a.usage === 'locatif' || ['Guéliz','Agdal','Targa'].includes(a.quartier)],
-    ['Saisonnier / tourisme', a.usage === 'saisonnier' || ['Médina','Hivernage','Guéliz','Mhamid'].includes(a.quartier)],
-    ['Revalorisation après travaux', a.etat === 'rafraichir' || a.etat === 'travaux'],
-    ['Positionnement premium', ['Hivernage','Palmeraie'].includes(a.quartier) || a.equipements.includes('piscine') || a.equipements.includes('licence')]
-  ];
-  return pots.map(([n,on])=>`<div class="pot ${on?'on':''}"><div class="n">${n}</div><div class="d">${on?'Potentiel visible':'Potentiel plus limité'}</div></div>`).join('');
-}
-
-function showResult(){
-  try {
-    const a = APP_STATE.answers;
-    const est = calcEstimate(a);
-    const conf = calcConfidence(a);
-    document.getElementById('resultMode').textContent = a.projet === 'acheter' ? 'Vérification de prix' : 'Estimation MyDar';
-    document.getElementById('resultRange').textContent = `${formatMAD(est.low)} - ${formatMAD(est.high)}`;
-    document.getElementById('resultSub').textContent = `${a.quartier} · ${a.surface} m² · ${a.type}`;
-    document.getElementById('confPct').textContent = conf.pct;
-    document.getElementById('confBar').style.width = conf.score + '%';
-    document.getElementById('confNote').textContent = conf.note;
-    document.getElementById('facts').innerHTML = buildFacts(est, conf, a);
-    document.getElementById('tips').innerHTML = buildTips(a, est);
-    document.getElementById('potentials').innerHTML = buildPotentials(a);
-    document.getElementById('marketExplain').textContent = `Base quartier/type : ${Math.round(est.basePm2).toLocaleString('fr-FR')} MAD/m². Ajustement marché appliqué : ${((est.market.clamped - 1) * 100).toFixed(1)}%. ${est.market.trend}. Dernier refresh : ${est.market.lastRefresh}.`;
-    document.getElementById('ctaMain').textContent = a.projet === 'acheter' ? 'Recevoir cette vérification' : 'Recevoir cette estimation';
-    document.getElementById('ctaMain').onclick = () => sendLead(est, conf);
-    goTo('result');
-    sendLead(est, conf, true);
-  } catch(err){
-    console.error('showResult error', err);
-    alert('Une erreur est survenue pendant l’analyse.');
-    goTo('landing');
-  }
-}
-
-async function sendLead(est, conf, silent=false){
-  const payload = {
-    created_at: new Date().toISOString(),
-    mode: APP_STATE.mode,
-    ...APP_STATE.answers,
-    estimate_low: Math.round(est.low),
-    estimate_high: Math.round(est.high),
-    estimate_pm2: Math.round(est.adjustedPm2),
-    confidence: conf.score,
-    market_adjustment: est.market.clamped,
-    market_refresh: est.market.lastRefresh,
-    source_logic: 'base_fixe_plus_ajustement_marche_plafonne'
-  };
-  if(!WEBHOOK_URL){
-    if(!silent) alert('Webhook non configuré : estimation prête mais envoi désactivé.');
-    console.log('Lead payload', payload);
-    return;
-  }
-  try {
-    await fetch(WEBHOOK_URL, {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify(payload)
-    });
-    if(!silent) alert('Estimation envoyée avec succès.');
-  } catch(err){
-    console.error('sendLead error', err);
-    if(!silent) alert('Impossible d’envoyer maintenant, mais votre estimation a bien été calculée.');
-  }
-}
-
-renderQuarterCards('quartersGrid');
-renderQuarterCards('quartersGrid2');
+const TOTAL=11;let step=1,mode='sell';const A={};
+const WEBHOOK_URL='';
+const QPM2={'Guéliz':{appartement:15000,villa:19000,riad:14000,terrain:9000,immeuble:14500,local:13000},'Semlalia':{appartement:12000,villa:15500,riad:11500,terrain:8000,immeuble:11500,local:10500},'Hivernage':{appartement:20000,villa:24000,riad:19000,terrain:12000,immeuble:18500,local:16000},'Médina':{appartement:10000,villa:14000,riad:18000,terrain:7500,immeuble:10000,local:9000},'Palmeraie':{appartement:15000,villa:18000,riad:14000,terrain:10000,immeuble:12000,local:10000},'Agdal':{appartement:14000,villa:17000,riad:12000,terrain:9000,immeuble:13500,local:12000},'Targa':{appartement:9500,villa:12500,riad:8500,terrain:7000,immeuble:9000,local:8500},'Mhamid':{appartement:6000,villa:8500,riad:7000,terrain:5000,immeuble:6500,local:6000},'Sidi Ghanem':{appartement:6500,villa:8000,riad:6500,terrain:4800,immeuble:7000,local:8000},'Route de Casablanca':{appartement:9500,villa:11000,riad:8000,terrain:6500,immeuble:9000,local:8000},'Autre':{appartement:8500,villa:10500,riad:9000,terrain:5500,immeuble:8000,local:7000}};
+const ETAT_M={neuf:1.20,recent:1.09,bon:1.00,rafraichir:0.87,renover:0.74};
+const EQ_M={piscine:1.12,jardin:1.05,terrasse:1.03,parking:1.02,securise:1.04,vue:1.03,solaire:1.03,chauffe_solaire:1.02,titre_foncier:1.08,maison_hotes:1.14,lcd:1.10,meuble:1.05,clim:1.02,balcon:1.02,ascenseur:1.01};
+const VAR={appartement:[0.93,1.09],villa:[0.89,1.14],riad:[0.83,1.22],terrain:[0.85,1.20],immeuble:[0.89,1.13],local:[0.89,1.12]};
+const MARKET_ADJUST={'Guéliz':{factor:1.03,last:'24h',trend:'demande active légèrement supérieure à la base'},'Semlalia':{factor:1.00,last:'36h',trend:'marché proche de la base'},'Hivernage':{factor:1.04,last:'24h',trend:'segment premium soutenu'},'Médina':{factor:1.02,last:'48h',trend:'marché hétérogène ajusté prudemment'},'Palmeraie':{factor:1.01,last:'48h',trend:'premium stable'},'Agdal':{factor:1.00,last:'36h',trend:'base moteur peu corrigée'},'Targa':{factor:1.02,last:'24h',trend:'tension légère sur certains programmes'},'Mhamid':{factor:0.98,last:'36h',trend:'ajustement baissier modéré'},'Sidi Ghanem':{factor:0.97,last:'48h',trend:'marché atypique lissé'},'Route de Casablanca':{factor:1.01,last:'48h',trend:'ajustement limité'},'Autre':{factor:1,last:'n/a',trend:'pas de correction spécifique'}};
+const fN=n=>new Intl.NumberFormat('fr-MA').format(n);
+function goTo(v){document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));const node=document.getElementById('v-'+v);if(node)node.classList.add('active');window.scrollTo(0,0)}
+function startF(m){mode=m;step=1;Object.keys(A).forEach(k=>delete A[k]);A._mode=m;goTo('funnel');render()}
+function prevStep(){if(step>1){step--;render();}else goTo('landing')}
+function nextStep(){if(step<TOTAL){step++;render();}else startLoad()}
+function updP(){document.getElementById('pfill').style.width=((step-1)/TOTAL*100)+'%';document.getElementById('psct').textContent=step+' / '+TOTAL}
+function sel(k,v,el){A[k]=v;const wrap=el.parentElement;wrap&&wrap.querySelectorAll('.ob,.ofl').forEach(b=>b.classList.remove('sel'));el.classList.add('sel');setTimeout(nextStep,220)}
+function togCb(k,v,el){if(!A[k])A[k]=[];const i=A[k].indexOf(v);if(i>-1){A[k].splice(i,1);el.classList.remove('ck');el.querySelector('.cbb').innerHTML='';}else{A[k].push(v);el.classList.add('ck');el.querySelector('.cbb').innerHTML=ck();}}
+function togCon(el){el.classList.toggle('ck');el.querySelector('.concb').innerHTML=el.classList.contains('ck')?ck():''}
+function ck(){return '<svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'}
+function ob(ic,lb,sb,k,v){return `<div class="ob ${A[k]===v?'sel':''}" onclick="sel('${k}','${v}',this)"><div class="oi">${ic}</div><div class="ol">${lb}</div>${sb?`<div class="os">${sb}</div>`:''}</div>`}
+function ofl(lb,rb,k,v){const s=A[k]===v;return `<button type="button" class="ofl ${s?'sel':''}" onclick="sel('${k}','${v}',this)"><span class="ll">${lb}</span>${s?`<span class="cki">${ck()}</span>`:`<span class="lr">${rb}</span>`}</button>`}
+function render(){updP();document.getElementById('fcard').innerHTML=[s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11][step-1]();document.getElementById('fcard').scrollIntoView({behavior:'smooth',block:'start'})}
+function s1(){return `<div class="ftag2">Étape 1 sur 11</div><h2>${mode==='buy'?'Quel bien voulez-vous vérifier ?':'Quel bien souhaitez-vous estimer ?'}</h2><p class="fh">Chaque type suit une logique de valorisation propre au marché de Marrakech.</p><div style="display:flex;gap:5px;margin-bottom:16px"><div class="mst ${mode==='sell'?'sel':''}" onclick="mode='sell';A._mode='sell';render()">Estimer pour vendre</div><div class="mst ${mode==='buy'?'sel':''}" onclick="mode='buy';A._mode='buy';render()">Vérifier avant d'acheter</div></div><div class="opts o3">${ob('🏢','Appartement','','type','appartement')}${ob('🏡','Villa','','type','villa')}${ob('🏺','Riad','Médina','type','riad')}${ob('🌿','Terrain','','type','terrain')}${ob('🏗️','Immeuble','','type','immeuble')}${ob('🏪','Local','','type','local')}</div>`}
+function s2(){const t=A.type||'appartement';return `<div class="ftag2">Étape 2 sur 11</div><h2>Dans quel quartier ?</h2><p class="fh">La localisation est le premier facteur de valorisation à Marrakech.</p><div class="opts">${Object.keys(QPM2).map(q=>{const b=QPM2[q][t];return ofl(q,b?`~${fN(b)} MAD/m²`:'','quartier',q)}).join('')}</div>`}
+function s3(){const isT=A.type==='terrain';return `<div class="ftag2">Étape 3 sur 11</div><h2>${isT?'Surface du terrain ?':'Surface habitable ?'}</h2><p class="fh">${isT?'Superficie totale en m².':'Surface habitable en m², hors terrasse et garage.'}</p><input type="number" class="sin" id="sin" placeholder="${isT?'600':'90'}" value="${A.surface||''}" min="10" max="9999" oninput="A.surface=this.value"/><div style="font-size:11px;color:var(--MU);text-align:center">m²</div>${A.type!=='terrain'?`<div style="margin-top:10px;padding:9px 11px;background:var(--S);border-radius:var(--rsm);font-size:11px;color:var(--MU)">Jardin (optionnel) : <input type="number" style="width:60px;padding:3px 6px;border:1px solid var(--SC);border-radius:5px;font-size:11px;background:#fff" placeholder="0" oninput="A.surface_terrain=this.value"/> m²</div>`:''}<button class="bcont" onclick="if(document.getElementById('sin').value>0){A.surface=parseInt(document.getElementById('sin').value);nextStep();}else{document.getElementById('sin').style.borderColor='#E24B4A'}">Continuer</button><div class="reas">Estimation indicative, non contractuelle</div>`}
+function s4(){const t=A.type;if(t==='terrain'||t==='local')return `<div class="ftag2">Étape 4 sur 11</div><h2>Configuration du bien</h2><p class="fh">Précisez le type principal.</p><div class="opts">${ofl('Nu constructible','Terrain vierge','config','nu')}${ofl('Avec fondations','Pré-construit','config','fondations')}${ofl('Rez-de-chaussée','RDC','config','rdc')}${ofl('En étage','Étage','config','etage')}</div>`;if(t==='villa'||t==='riad')return `<div class="ftag2">Étape 4 sur 11</div><h2>Nombre de chambres ?</h2><p class="fh">Détermine le standing du bien.</p><div class="opts o3">${['2 ch','3 ch','4 ch','5 ch','6 ch+'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`;if(t==='immeuble')return `<div class="ftag2">Étape 4 sur 11</div><h2>Nombre de lots ?</h2><p class="fh">Taille de l'immeuble.</p><div class="opts o2">${['2 à 4 lots','5 à 8 lots','9 à 15 lots','15+ lots'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`;return `<div class="ftag2">Étape 4 sur 11</div><h2>Nombre de pièces ?</h2><p class="fh">Studio, F2, F3 : chaque configuration a sa valeur propre.</p><div class="opts o3">${['Studio','F2 · 1ch','F3 · 2ch','F4 · 3ch','F5 · 4ch','F6+'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`}
+function s5(){return `<div class="ftag2">Étape 5 sur 11</div><h2>État général du bien ?</h2><p class="fh">L'état peut modifier la fourchette de 20 à 35%.</p><div class="opts">${ofl('Neuf ou jamais habité','Impact positif fort','etat','neuf')}${ofl('Récent, moins de 5 ans','Très bon état','etat','recent')}${ofl('Bon état général','Entretenu','etat','bon')}${ofl('À rafraîchir','Petits travaux','etat','rafraichir')}${ofl('À rénover','Travaux importants','etat','renover')}</div>`}
+function s6(){const eqs=[['balcon','Balcon'],['terrasse','Terrasse'],['jardin','Jardin'],['piscine','Piscine'],['parking','Parking'],['securise','Résidence sécurisée'],['vue','Vue dégagée'],['clim','Climatisation'],['ascenseur','Ascenseur'],['solaire','Panneaux solaires'],['chauffe_solaire','Chauffe-eau solaire'],['meuble','Meublé'],['titre_foncier','Titre foncier'],['maison_hotes',"Maison d'hôtes possible"],['lcd','Location courte durée']];const eq=A.equipements||[];return `<div class="ftag2">Étape 6 sur 11</div><h2>Équipements ?</h2><p class="fh">Cochez tout ce qui s'applique. Chaque élément affine la fourchette.</p><div class="cbg">${eqs.map(([v,l])=>`<div class="cbi ${eq.includes(v)?'ck':''}" onclick="togCb('equipements','${v}',this)"><div class="cbb">${eq.includes(v)?ck():''}</div><span class="cbl">${l}</span></div>`).join('')}</div><button class="bcont" onclick="nextStep()">Continuer</button>`}
+function s7(){return `<div class="ftag2">Étape 7 sur 11</div><h2>Usage actuel du bien ?</h2><p class="fh">L'usage influe sur la valorisation.</p><div class="opts">${ofl('Résidence principale','Occupé','usage','principale')}${ofl('Résidence secondaire','Vacances','usage','secondaire')}${ofl('Location longue durée','Loué','usage','loc_longue')}${ofl('Location courte durée','Airbnb','usage','loc_courte')}${ofl("Maison d'hôtes","Exploité",'usage','maison_hotes')}${ofl('Vide','Non exploité','usage','vide')}</div>`}
+function s8(){if(mode==='buy')return `<div class="ftag2">Étape 8 sur 11</div><h2>Pourquoi vérifiez-vous ce prix ?</h2><p class="fh">Pour vous donner les conseils les plus adaptés.</p><div class="opts">${ofl('Vérifier si le prix est cohérent','Avant négociation','projet','verif_prix')}${ofl('Comparer plusieurs biens','Due diligence','projet','comparer')}${ofl("Décider si j'achète",'Décision finale','projet','decider')}${ofl('Investissement locatif','Rentabilité','projet','investir')}</div>`;return `<div class="ftag2">Étape 8 sur 11</div><h2>Votre projet avec ce bien ?</h2><p class="fh">Pour vous orienter vers les bons conseils.</p><div class="opts">${ofl('Vendre rapidement','Urgence','projet','vendre_vite')}${ofl('Vendre dans les mois à venir','Préparation','projet','vendre_mois')}${ofl('Connaître la valeur','Sans projet immédiat','projet','connaitre')}${ofl('Mettre en location','Revenus locatifs','projet','louer')}${ofl('Rénover avant vente','Valorisation','projet','renover_vente')}</div>`}
+function s9(){return `<div class="ftag2">Étape 9 sur 11</div><h2>Dans quel délai envisagez-vous d'agir ?</h2><p class="fh">Confidentiel. Nous aide à vous accompagner au bon moment.</p><div class="opts">${ofl('Immédiat','Dès maintenant','delai','immediat')}${ofl('Dans 1 à 3 mois','Court terme','delai','1_3mois')}${ofl('Dans 3 à 6 mois','Moyen terme','delai','3_6mois')}${ofl('Plus tard','Long terme','delai','plus_tard')}${ofl('Pas encore défini','En réflexion','delai','indefini')}</div>`}
+function s10(){return `<div class="ftag2">Étape 10 sur 11</div><h2>Où envoyer votre fourchette ?</h2><p class="fh">Vos données sont confidentielles et ne seront jamais revendues.</p><div><label class="flbl">Prénom</label><input class="finp" id="fp" placeholder="Karim" value="${A.prenom||''}" oninput="A.prenom=this.value"/></div><div><label class="flbl">Téléphone / WhatsApp</label><input class="finp" id="ft" placeholder="+212 6 00 00 00 00" value="${A.tel||''}" oninput="A.tel=this.value"/></div><div><label class="flbl">Email</label><input class="finp" id="fe" placeholder="votre@email.com" value="${A.email||''}" oninput="A.email=this.value"/></div><div><label class="flbl">Préférence de contact</label><div class="chips">${['WhatsApp','Téléphone','Email'].map(p=>`<div class="chip ${A.contact===p?'sel':''}" onclick="A.contact='${p}';document.querySelectorAll('.chips .chip').forEach(c=>c.classList.remove('sel'));this.classList.add('sel')">${p}</div>`).join('')}</div></div><button class="bcont" onclick="if(A.prenom&&A.tel){nextStep();}else{alert('Merci de renseigner votre prénom et téléphone.')}">Recevoir ma fourchette</button><div class="reas">Données confidentielles</div>`}
+function s11(){return `<div class="ftag2">Étape 11 sur 11</div><h2>Dernière étape</h2><p class="fh">Confirmez vos préférences avant de recevoir votre fourchette indicative.</p><div class="conb"><div class="coni" id="con1" onclick="togCon(this)"><div class="concb"></div><div class="cont"><strong>J'ai lu et j'accepte la <span style="color:var(--T);text-decoration:underline;cursor:pointer" onclick="event.stopPropagation();goTo('confidentialite')">politique de confidentialité</span>.</strong> <span style="color:#E24B4A;font-weight:700">*</span></div></div><div class="coni" onclick="togCon(this)"><div class="concb"></div><div class="cont"><strong>J'accepte que MyDar me recontacte</strong> si ma demande le nécessite.</div></div><div class="coni" onclick="togCon(this)"><div class="concb"></div><div class="cont">J'accepte, <strong>si ma demande le justifie</strong>, d'être mis en relation avec un professionnel partenaire.</div></div></div><p style="font-size:10px;color:var(--MU2);margin-top:8px"><span style="color:#E24B4A">*</span> Champ obligatoire</p><button class="bcont" onclick="const c=document.getElementById('con1');if(!c.classList.contains('ck')){c.style.outline='2px solid #E24B4A';c.scrollIntoView({behavior:'smooth',block:'center'});return;}c.style.outline='';startLoad()">Voir ma fourchette</button><div class="reas" style="margin-top:6px">Conformément à la loi marocaine 09-08</div>`}
+function startLoad(){goTo('loading');['ls1','ls2','ls3','ls4','ls5'].forEach(id=>document.getElementById(id).classList.remove('lit'));const pills=['ls1','ls2','ls3','ls4','ls5'];const bar=document.getElementById('lbar');bar.style.width='0%';let i=0;const iv=setInterval(()=>{if(i<pills.length){document.getElementById(pills[i]).classList.add('lit');i++;bar.style.width=(i/pills.length*100)+'%';}if(i>=pills.length){clearInterval(iv);setTimeout(showResult,500)}},360)}
+function getMarketAdjust(q){const m=MARKET_ADJUST[q]||MARKET_ADJUST['Autre'];return {...m,clamped:Math.max(0.96,Math.min(1.05,m.factor||1))}}
+function calcEst(){const q=QPM2[A.quartier]||QPM2['Autre'];const t=A.type||'appartement';const base=q[t]||8500;const surf=Math.max(parseInt(A.surface)||90,10);let m=ETAT_M[A.etat]||1.0;let eq=1.0;(A.equipements||[]).forEach(e=>{if(EQ_M[e])eq*=EQ_M[e]});eq=Math.min(eq,1.55);m*=eq;if(A.usage==='loc_courte')m*=1.07;else if(A.usage==='maison_hotes')m*=1.10;else if(A.usage==='vide')m*=0.96;const market=getMarketAdjust(A.quartier);const adj=Math.round(base*m*market.clamped);const vc=adj*surf;const[lo,hi]=VAR[t]||[0.93,1.09];return{low:Math.round(vc*lo/10000)*10000,high:Math.round(vc*hi/10000)*10000,base,mult:Math.round(m*1000)/1000,market,adjPm2:adj,surface:surf}}
+function calcConf(){let s=50;if(['Guéliz','Semlalia','Agdal','Mhamid'].includes(A.quartier))s+=22;else if(['Hivernage','Targa','Route de Casablanca'].includes(A.quartier))s+=14;else if(A.quartier==='Médina')s+=5;else if(A.quartier==='Palmeraie')s+=10;else if(A.quartier==='Sidi Ghanem')s-=5;if(A.type==='appartement')s+=16;else if(A.type==='villa')s+=10;else if(A.type==='riad')s-=8;else if(A.type==='terrain')s-=12;if(A.surface&&A.surface>=50&&A.surface<=200)s+=8;if(A.etat)s+=5;s=Math.min(Math.max(s,20),90);let note;if(s>=70)note='Bonne — marché documenté sur ce segment';else if(s>=45)note='Correcte — à affiner avec un expert local';else note='Faible — marché peu homogène, estimation large';return{s,pct:s+'%',note}}
+function fac(lbl,val,cls='bg'){return `<div class="rfact"><div class="rfact-l">${lbl}</div><span class="badge ${cls}">${val}</span></div>`}
+function cons(t,p,c=''){return `<div class="rcons ${c}"><div class="rcons-t">${t}</div><p>${p}</p></div>`}
+function pot(n,on){return `<div class="pot ${on?'on':'off'}"><div class="pot-name">${n}</div><div class="pot-desc">${on?'Potentiel visible':'Potentiel plus limité'}</div></div>`}
+function showResult(){try{const est=calcEst(),conf=calcConf();document.getElementById('rmode').textContent=mode==='buy'?'Vérification de prix':'Estimation';document.getElementById('rrange').textContent=`${fN(est.low)} - ${fN(est.high)} MAD`;document.getElementById('rsub').textContent=`${A.quartier||'Marrakech'} · ${A.surface||'—'} m² · ${A.type||'bien'}`;document.getElementById('rconf-pct').textContent=conf.pct;document.getElementById('rconf-bar').style.width=conf.s+'%';document.getElementById('rconf-note').textContent=conf.note;document.getElementById('rfactors').innerHTML=fac('Quartier',A.quartier||'—')+fac('Type',A.type||'—')+fac('Base moteur',`${fN(est.base)} MAD/m²`,'ba')+fac('Ajustement marché',`${((est.market.clamped-1)*100).toFixed(1)}%`,est.market.clamped>=1?'bg':'br2')+fac('Prix ajusté',`${fN(est.adjPm2)} MAD/m²`,'bg')+fac('Confiance',conf.pct,'ba');document.getElementById('market-note').innerHTML=`Ajustement marché plafonné appliqué : ${((est.market.clamped-1)*100).toFixed(1)}% · ${est.market.trend} · Dernière mise à jour : ${est.market.last}`;let tips='';if(mode==='buy'){tips+=cons('Lecture acheteur','Comparez le prix demandé à la borne haute. Au-dessus, il faut de vrais arguments de rareté.','a')}else if(A.projet==='vendre_vite'){tips+=cons('Vente rapide','Positionnez-vous plutôt dans la moitié basse de la fourchette pour vendre vite.','w')}else{tips+=cons('Arbitrage vendeur','Si le bien se défend vraiment, vous pouvez tester le haut de fourchette avec une bonne présentation.','a')}if(A.etat==='renover')tips+=cons('Travaux','La valeur finale dépendra fortement du budget réel de remise à niveau.','w');if(A.type==='riad'||A.quartier==='Médina')tips+=cons('Riad / Médina','Marché plus dispersé : visite technique et vérifications documentaires recommandées.','w');if(A.usage==='loc_courte'||A.usage==='maison_hotes')tips+=cons('Exploitation locative','Lisez toujours la rentabilité en net, pas seulement en brut.','a');document.getElementById('rconseils').innerHTML=tips||cons('Repère général','Votre fourchette est indicative. Affinez-la avec une analyse locale si vous passez à l’action.');document.getElementById('rpot').innerHTML=pot('Location longue durée',['loc_longue','principale','secondaire'].includes(A.usage)||['Guéliz','Agdal','Targa'].includes(A.quartier))+pot('Saisonnier / tourisme',['loc_courte','maison_hotes'].includes(A.usage)||['Médina','Hivernage','Guéliz','Mhamid'].includes(A.quartier))+pot('Revalorisation après travaux',['rafraichir','renover'].includes(A.etat))+pot('Positionnement premium',['Hivernage','Palmeraie'].includes(A.quartier)||(A.equipements||[]).includes('piscine')||(A.equipements||[]).includes('maison_hotes'));document.getElementById('rcta1').onclick=()=>sendLead(est,conf,false);goTo('result');sendLead(est,conf,true)}catch(e){console.error(e);alert('Une erreur est survenue pendant le calcul.');goTo('landing')}}
+async function sendLead(est,conf,silent){const payload={created_at:new Date().toISOString(),mode,A:{...A},estimate_low:est.low,estimate_high:est.high,estimate_pm2:est.adjPm2,confidence:conf.s,market_adjustment:est.market.clamped,market_refresh:est.market.last,logic:'base_fixe_plus_ajustement_marche_plafonne'};if(!WEBHOOK_URL){console.log('Lead payload',payload);if(!silent)alert('Webhook non configuré : estimation prête, envoi désactivé.');return}try{await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});if(!silent)alert('Estimation envoyée avec succès.')}catch(err){console.error(err);if(!silent)alert('Impossible d’envoyer maintenant, mais votre estimation a bien été calculée.')}}
+function tFaq(el){el.parentElement.classList.toggle('open')}
+function sw(v,el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));el.classList.add('on');document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));const panel=document.getElementById('cp-'+v);if(panel)panel.classList.add('on')}
 </script>
 </body>
 </html>
