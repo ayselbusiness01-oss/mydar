@@ -122,6 +122,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+.qmodal-overlay{position:fixed;inset:0;background:rgba(10,30,20,0.72);z-index:9000;display:flex;align-items:flex-end;justify-content:center;padding:0;animation:qfadein .25s ease}
+@keyframes qfadein{from{opacity:0}to{opacity:1}}
+.qmodal{background:var(--W);border-radius:24px 24px 0 0;width:100%;max-width:640px;max-height:90vh;overflow-y:auto;padding:28px 24px 40px;position:relative}
+.qmodal-close{position:absolute;top:16px;right:16px;background:var(--S);border:none;border-radius:50%;width:34px;height:34px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--T)}
+.qmodal-tag{display:inline-block;background:var(--S2);color:var(--T2);font-size:11px;padding:3px 10px;border-radius:12px;margin-bottom:10px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.qmodal h2{font-family:'Playfair Display',serif;font-size:26px;margin-bottom:6px;color:var(--P)}
+.qmodal .qm-prix{font-size:13px;color:var(--T2);margin-bottom:14px;font-weight:500}
+.qmodal .qm-desc{font-size:14px;line-height:1.7;color:var(--T);margin-bottom:16px}
+.qmodal .qm-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+.qmodal .qm-cell{background:var(--S);border-radius:10px;padding:11px 13px}
+.qmodal .qm-cell strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--T2);margin-bottom:3px}
+.qmodal .qm-cell span{font-size:13px;color:var(--T);line-height:1.5}
+.qmodal .qm-note{background:var(--S2);border-left:3px solid var(--V);border-radius:0 8px 8px 0;padding:10px 13px;font-size:13px;color:var(--T);margin-bottom:18px;line-height:1.6}
+.qmodal .qm-cta{background:var(--V);color:#fff;border:none;border-radius:30px;padding:14px 28px;font-size:15px;font-weight:700;width:100%;cursor:pointer;letter-spacing:.3px}
+.qmodal .qm-cta:hover{background:var(--V2)}
+@media(max-width:480px){.qmodal .qm-grid{grid-template-columns:1fr}}
 :root{
   /* Nouvelle palette : vert bouteille + terracotta + sable */
   --T:#1A6B4A;       /* vert principal */
@@ -282,6 +298,12 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .ftag{font-size:11px;color:rgba(255,255,255,.22);margin-top:4px}
 .fl{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .fl a{font-size:12px;color:rgba(255,255,255,.32);text-decoration:none;cursor:pointer;transition:color .15s}.fl a:hover{color:rgba(255,255,255,.7)}
+.ft-pro{border-top:1px solid rgba(255,255,255,.06);padding:20px 0 4px;margin-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ft-pro-txt{font-size:12px;color:rgba(255,255,255,.35)}
+.ft-pro-txt strong{display:block;font-size:13px;color:rgba(255,255,255,.6);margin-bottom:2px}
+.ft-pro-btn{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:8px 16px;font-size:12px;color:rgba(255,255,255,.55);text-decoration:none;transition:.2s;white-space:nowrap}
+.ft-pro-btn:hover{background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.ft-pro-btn svg{opacity:.7}
 .fb{border-top:1px solid rgba(255,255,255,.06);padding-top:16px;font-size:11px;color:rgba(255,255,255,.2)}
 
 /* ===== PAGES INTERNES ===== */
@@ -563,16 +585,16 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
       <p class="si-sub reveal reveal-d2">Chaque quartier a sa propre logique de valorisation.</p>
     </div>
     <div class="qg">
-      <div class="qc reveal reveal-d1" onclick="startF('sell')"><div class="qn">Guéliz</div><div class="qr">13 000 – 25 000 MAD/m²</div><div class="qm">Ancien, rénové, résidences récentes</div></div>
-      <div class="qc reveal reveal-d1" onclick="startF('sell')"><div class="qn">Semlalia</div><div class="qr">10 000 – 16 000 MAD/m²</div><div class="qm">Résidentiel central, bon rapport prix/surface</div></div>
-      <div class="qc reveal reveal-d2" onclick="startF('sell')"><div class="qn">Hivernage</div><div class="qr">20 000 – 40 000+ MAD/m²</div><div class="qm">Résidences de standing à villas de luxe</div></div>
-      <div class="qc reveal reveal-d2" onclick="startF('sell')"><div class="qn">Médina</div><div class="qr">9 000 – 35 000 MAD/m²</div><div class="qm">Du riad brut à la maison d'hôtes rénovée</div></div>
-      <div class="qc reveal reveal-d3" onclick="startF('sell')"><div class="qn">Palmeraie</div><div class="qr">13 000 – 30 000+ MAD/m²</div><div class="qm">Villa standard à propriété de prestige</div></div>
-      <div class="qc reveal reveal-d3" onclick="startF('sell')"><div class="qn">Agdal</div><div class="qr">11 000 – 20 000 MAD/m²</div><div class="qm">Familles, écoles, cadres expatriés</div></div>
-      <div class="qc reveal reveal-d1" onclick="startF('sell')"><div class="qn">Targa</div><div class="qr">7 500 – 14 000 MAD/m²</div><div class="qm">Programmes neufs, quartier en essor</div></div>
-      <div class="qc reveal reveal-d2" onclick="startF('sell')"><div class="qn">Mhamid</div><div class="qr">5 500 – 9 500 MAD/m²</div><div class="qm">Proche aéroport, fort potentiel locatif</div></div>
-      <div class="qc reveal reveal-d3" onclick="startF('sell')"><div class="qn">Sidi Ghanem</div><div class="qr">5 000 – 8 500 MAD/m²</div><div class="qm">Lofts, ateliers, usages atypiques</div></div>
-      <div class="qc reveal reveal-d4" onclick="startF('sell')"><div class="qn">Route de Casa</div><div class="qr">7 000 – 12 000 MAD/m²</div><div class="qm">Second marché, terrains, promoteurs</div></div>
+      <div class="qc reveal reveal-d1" onclick="openQuartier('Guéliz')" style="cursor:pointer"><div class="qn">Guéliz</div><div class="qr">13 000 – 25 000 MAD/m²</div><div class="qm">Ancien, rénové, résidences récentes</div></div>
+      <div class="qc reveal reveal-d1" onclick="openQuartier('Semlalia')" style="cursor:pointer"><div class="qn">Semlalia</div><div class="qr">10 000 – 16 000 MAD/m²</div><div class="qm">Résidentiel central, bon rapport prix/surface</div></div>
+      <div class="qc reveal reveal-d2" onclick="openQuartier('Hivernage')" style="cursor:pointer"><div class="qn">Hivernage</div><div class="qr">20 000 – 40 000+ MAD/m²</div><div class="qm">Résidences de standing à villas de luxe</div></div>
+      <div class="qc reveal reveal-d2" onclick="openQuartier('Médina')" style="cursor:pointer"><div class="qn">Médina</div><div class="qr">9 000 – 35 000 MAD/m²</div><div class="qm">Du riad brut à la maison d'hôtes rénovée</div></div>
+      <div class="qc reveal reveal-d3" onclick="openQuartier('Palmeraie')" style="cursor:pointer"><div class="qn">Palmeraie</div><div class="qr">13 000 – 30 000+ MAD/m²</div><div class="qm">Villa standard à propriété de prestige</div></div>
+      <div class="qc reveal reveal-d3" onclick="openQuartier('Agdal')" style="cursor:pointer"><div class="qn">Agdal</div><div class="qr">11 000 – 20 000 MAD/m²</div><div class="qm">Familles, écoles, cadres expatriés</div></div>
+      <div class="qc reveal reveal-d1" onclick="openQuartier('Targa')" style="cursor:pointer"><div class="qn">Targa</div><div class="qr">7 500 – 14 000 MAD/m²</div><div class="qm">Programmes neufs, quartier en essor</div></div>
+      <div class="qc reveal reveal-d2" onclick="openQuartier('Mhamid')" style="cursor:pointer"><div class="qn">Mhamid</div><div class="qr">5 500 – 9 500 MAD/m²</div><div class="qm">Proche aéroport, fort potentiel locatif</div></div>
+      <div class="qc reveal reveal-d3" onclick="openQuartier('Sidi Ghanem')" style="cursor:pointer"><div class="qn">Sidi Ghanem</div><div class="qr">5 000 – 8 500 MAD/m²</div><div class="qm">Lofts, ateliers, usages atypiques</div></div>
+      <div class="qc reveal reveal-d4" onclick="openQuartier('Route de Casablanca')" style="cursor:pointer"><div class="qn">Route de Casa</div><div class="qr">7 000 – 12 000 MAD/m²</div><div class="qm">Second marché, terrains, promoteurs</div></div>
     </div>
     <p class="reveal" style="font-size:11px;color:var(--MU2);margin-top:14px;text-align:center">Fourchettes indicatives · Prix varient selon état, équipements et micro-localisation.</p>
   </div>
@@ -618,6 +640,16 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
         <a onclick="goTo('mentions')">Mentions légales</a>
       </div>
     </div>
+    <div class="ft-pro">
+      <div class="ft-pro-txt">
+        <strong>Vous êtes professionnel ?</strong>
+        Agence, promoteur, partenaire — contactez-nous.
+      </div>
+      <a class="ft-pro-btn" href="https://wa.me/212663667975?text=Bonjour%2C%20je%20souhaite%20vous%20contacter%20en%20tant%20que%20professionnel." target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
     <div class="fb">© 2026 MyDar · Estimation indicative, non contractuelle · Marrakech, Maroc</div>
   </div>
 </div>
@@ -635,6 +667,8 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
   <div class="tab" onclick="sw('a',this)">Vous achetez</div>
   <div class="tab" onclick="sw('i',this)">Vous investissez</div>
   <div class="tab" onclick="sw('r',this)">Riad et Médina</div>
+  <div class="tab" onclick="sw('q',this)">Les quartiers</div>
+  <div class="tab" onclick="sw('o',this)">Optimiser son bien</div>
   <div class="tab" onclick="sw('p',this)">Les pièges</div>
 </div></div>
 <div id="cp-v" class="panel on">
@@ -645,17 +679,59 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
   <div class="bloc"><div class="num">05</div><h3>Anticipez le quitus fiscal si vous êtes non-résident</h3><p>Pour finaliser la vente et rapatrier les fonds hors du Maroc, vous aurez besoin d'un quitus fiscal. Lancez la procédure tôt, elle prend du temps et peut bloquer une transaction.</p><div class="note"><span>À retenir</span><p>La taxe sur la plus-value est de 20% pour une détention courte. Des abattements existent selon la durée. Vérifiez avec un notaire.</p></div></div>
 </div>
 <div id="cp-a" class="panel">
-  <div class="bloc"><div class="num">01</div><h3>Visitez au moins deux fois, à des heures différentes</h3><p>Le matin en semaine, c'est calme partout. Le vendredi soir ou le samedi matin, c'est parfois très différent. Les nuisances sonores, la circulation, les voisins : rien de ça n'est visible en une seule visite.</p></div>
-  <div class="bloc"><div class="num">02</div><h3>Pas de titre foncier clair, pas d'achat</h3><p>Un bien sans titre foncier établi, ça n'existe pas pour un acheteur sérieux. Des litiges entre héritiers ou des droits non enregistrés peuvent rendre toute revente impossible des années plus tard.</p><div class="note w"><span>La règle à suivre</span><p>Demandez le numéro de réquisition au registre foncier et faites vérifier par un notaire avant toute promesse de vente.</p></div></div>
-  <div class="bloc"><div class="num">03</div><h3>Négocier est attendu, pas déplacé</h3><p>Proposer 10% en dessous du prix affiché n'offense personne à Marrakech. C'est dans les usages.</p></div>
-  <div class="bloc"><div class="num">04</div><h3>Budgétez 8 à 10% de frais annexes</h3><p>Les frais de notaire et d'enregistrement sont à la charge de l'acheteur, soit environ 6,7% TTC du prix de vente. Pour un bien à 1,5 million, comptez entre 100 000 et 150 000 DH de frais supplémentaires.</p></div>
-  <div class="bloc"><div class="num">05</div><h3>Acheteurs étrangers : conservez tous vos justificatifs de transfert</h3><p>Les justificatifs de transfert bancaire sont indispensables le jour où vous souhaiterez rapatrier le produit d'une revente.</p></div>
+  <div class="bloc"><div class="num">01</div><h3>Visitez au moins deux fois, à des heures différentes</h3>
+    <p>Le matin en semaine, c'est calme partout. Le vendredi soir ou le samedi matin, c'est parfois très différent. Les nuisances sonores, la circulation, les voisins : rien de ça n'est visible en une seule visite. À Marrakech, la chaleur de l'après-midi en juillet est aussi un test important pour comprendre l'orientation et l'exposition d'un logement.</p>
+  </div>
+  <div class="bloc"><div class="num">02</div><h3>Pas de titre foncier clair, pas d'achat</h3>
+    <p>Un bien sans titre foncier établi, ça n'existe pas pour un acheteur sérieux. Des litiges entre héritiers ou des droits non enregistrés peuvent rendre toute revente impossible des années plus tard.</p>
+    <div class="note w"><span>La règle à suivre</span><p>Demandez le numéro de réquisition au registre foncier et faites vérifier par un notaire avant toute promesse de vente. Pour un riad en Médina, exigez également la conformité des travaux et l'absence de servitudes de passage.</p></div>
+  </div>
+  <div class="bloc"><div class="num">03</div><h3>Négocier est attendu, pas déplacé</h3>
+    <p>Proposer 10% en dessous du prix affiché n'offense personne à Marrakech. C'est dans les usages. Sur un bien affiché depuis plus de 3 mois, 15 à 20% de négociation est souvent accepté. Les prix affichés sur les portails intègrent cette marge — le vendeur l'anticipe.</p>
+    <div class="note a"><span>Signal à surveiller</span><p>Un bien affiché depuis plus de 6 mois sans baisse de prix est soit surévalué, soit avec un problème de titre ou de situation juridique. Renseignez-vous avant de vous enthousiasmer.</p></div>
+  </div>
+  <div class="bloc"><div class="num">04</div><h3>Budgétez 8 à 10% de frais annexes</h3>
+    <p>Les frais de notaire et d'enregistrement sont à la charge de l'acheteur, soit environ 6,7% TTC du prix de vente. Pour un bien à 1,5 million, comptez entre 100 000 et 150 000 DH de frais supplémentaires. À cela s'ajoutent les honoraires d'agence si applicable (3 à 5%), et les éventuels frais de mise aux normes.</p>
+  </div>
+  <div class="bloc"><div class="num">05</div><h3>Acheteurs étrangers : conservez tous vos justificatifs de transfert</h3>
+    <p>Les justificatifs de transfert bancaire internationaux sont indispensables le jour où vous souhaiterez rapatrier le produit d'une revente. Sans eux, l'Office des Changes peut bloquer le rapatriement. Conservez tout : relevés SWIFT, attestations bancaires, documents de change.</p>
+    <div class="note"><span>Quitus fiscal</span><p>Pour les non-résidents, le quitus fiscal est obligatoire pour finaliser la vente et rapatrier les fonds. Anticipez cette démarche — elle peut prendre plusieurs semaines.</p></div>
+  </div>
+  <div class="bloc"><div class="num">06</div><h3>Comprenez l'état réel du marché avant de décider</h3>
+    <p>T1 2025 a montré un recul de 30% des volumes de transactions à Marrakech (IPAI BAM). Ce n'est pas une crise — c'est une pause après une période de forte hausse. Dans ce contexte, les acheteurs ont plus de pouvoir de négociation qu'il y a 18 mois.</p>
+    <p>Le bon moment pour acheter n'est pas défini par le marché seul, mais par votre situation personnelle, votre financement et votre horizon. Un bien bien choisi à Marrakech a historiquement toujours bien performé sur 5 ans et plus.</p>
+  </div>
 </div>
 <div id="cp-i" class="panel">
-  <div class="bloc"><div class="num">01</div><h3>La location saisonnière dépasse le locatif classique, mais demande plus de gestion</h3><p>Un appartement bien placé loué en courte durée génère entre 6 et 8% brut par an. Le même en location longue durée tourne autour de 4 à 5%.</p><div class="note a"><span>Réglementation</span><p>La location saisonnière doit être déclarée auprès de la commune avec un numéro d'enregistrement.</p></div></div>
-  <div class="bloc"><div class="num">02</div><h3>Calculez le rendement net, pas brut</h3><p>Déduisez 35 à 45% des revenus bruts pour obtenir le net réel. Un bien à 8% brut tourne souvent à 4,5% net.</p></div>
-  <div class="bloc"><div class="num">03</div><h3>La fiscalité marocaine joue en votre faveur</h3><p>Exonération d'impôt sur les revenus locatifs les trois premières années. Pas de taxe sur la plus-value après six ans de détention.</p></div>
-  <div class="bloc"><div class="num">04</div><h3>Les quartiers en développement : potentiel réel, patience indispensable</h3><p>Targa, Mhamid, Route de Casa : des prix encore accessibles avec un potentiel de valorisation si les infrastructures suivent.</p></div>
+  <div class="bloc"><div class="num">01</div><h3>Location courte durée : les chiffres réels du marché marrakchi</h3>
+    <p>Marrakech est l'une des destinations Airbnb les plus performantes d'Afrique. Les données de marché 2025 indiquent un ADR (prix moyen par nuit) autour de <strong>850 MAD/nuit</strong>, avec des revenus annuels moyens autour de 192 000 MAD pour les biens bien gérés.</p>
+    <p>Les taux d'occupation varient fortement selon le quartier : Médina 82–90% (portée par le tourisme culturel), Guéliz 75–80% (demande mixte tourisme + business), Palmeraie 65–70% (saisonnalité plus marquée).</p>
+    <p>La location saisonnière dépasse le locatif classique : 7 à 12% brut contre 4 à 5% en longue durée. Mais elle demande une gestion active ou un gestionnaire local.</p>
+    <div class="note a"><span>Réglementation 2026</span><p>La location saisonnière doit être déclarée auprès de la commune avec un numéro d'enregistrement. Sans immatriculation, le bien n'est pas exploitable légalement sur les plateformes.</p></div>
+  </div>
+  <div class="bloc"><div class="num">02</div><h3>Calculez le rendement net, pas brut</h3>
+    <p>Un rendement brut de 8% ne signifie pas 8% dans votre poche. Les charges à déduire sont réelles et souvent sous-estimées : frais de gestion (15–20%), maintenance et remise à niveau entre locataires (5–8%), vacance locative (10–15%), taxe de séjour, syndic, assurances.</p>
+    <p>Règle pratique : déduisez 35 à 45% du brut pour obtenir le net réel. Un bien à 8% brut tourne autour de 4,5 à 5% net. Un bien à 12% brut (riad premium en Médina) peut atteindre 7 à 8% net avec une bonne gestion.</p>
+    <div class="note"><span>Calcul rapide</span><p>Revenus annuels estimés = nuits occupées × ADR. Exemple : 200 nuits × 900 MAD = 180 000 MAD brut. Net après charges (40%) = 108 000 MAD. Sur un bien à 1 500 000 MAD = 7,2% net.</p></div>
+  </div>
+  <div class="bloc"><div class="num">03</div><h3>La fiscalité marocaine : avantages réels pour l'investisseur</h3>
+    <p>Le Maroc offre un cadre fiscal particulièrement favorable à l'investissement immobilier locatif :</p>
+    <p><strong>Exonération d'impôt sur les revenus locatifs les 3 premières années.</strong> Après, le taux est progressif (10 à 38%) mais avec un abattement de 40% sur les revenus bruts déclarés.</p>
+    <p><strong>Taxe sur la plus-value :</strong> 20% pour une détention courte, mais abattements progressifs selon la durée — et exonération totale après 6 ans. Un bien conservé 6 ans est revendu sans impôt sur la plus-value.</p>
+    <p><strong>Pour les non-résidents :</strong> le quitus fiscal est obligatoire pour rapatrier les fonds. Anticipez cette démarche car elle prend du temps.</p>
+    <div class="note a"><span>Attention</span><p>La fiscalité évolue régulièrement. Consultez un expert-comptable ou un notaire marocain avant toute décision d'investissement.</p></div>
+  </div>
+  <div class="bloc"><div class="num">04</div><h3>CAN 2025 et Coupe du Monde 2030 : l'effet infrastructure</h3>
+    <p>Marrakech est ville hôte pour les deux événements. Les retombées sur l'immobilier sont déjà visibles : le foncier a quasi doublé dans certaines zones depuis 2024, la demande hôtelière et résidentielle est en forte hausse, et plusieurs projets d'infrastructure (extension de l'aéroport, amélioration routière, projets de tramway) sont en cours.</p>
+    <p>Les quartiers les plus exposés à cet effet : Targa (axe stade), Agdal (proximité aéroport et hôtels), Guéliz (zone commerciale centrale). Les terrains en périphérie proche connaissent la plus forte progression.</p>
+    <div class="note"><span>Horizon 2030</span><p>L'effet CM2030 sur les prix est attendu progressif jusqu'en 2029, puis potentiellement un plateau post-événement. Le bon timing d'achat : 2025–2027 avant le pic de spéculation.</p></div>
+  </div>
+  <div class="bloc"><div class="num">05</div><h3>Les quartiers selon votre stratégie d'investissement</h3>
+    <p><strong>Rendement maximal courte durée :</strong> Médina (riad), Guéliz centre, Hivernage. Taux d'occupation les plus élevés, forte demande touristique.</p>
+    <p><strong>Rendement longue durée stable :</strong> Agdal, Semlalia, Targa. Familles et expats, faible rotation, charges maîtrisées.</p>
+    <p><strong>Plus-value à moyen terme :</strong> Targa, Mhamid, Route de Casa. Ticket d'entrée bas, potentiel de valorisation lié aux infrastructures CM2030.</p>
+    <p><strong>Patrimonial prestige :</strong> Palmeraie, Hivernage premium, riads Médina. Valorisation long terme, moins liquide mais marché stable et demande internationale soutenue.</p>
+  </div>
 </div>
 <div id="cp-r" class="panel">
   <div class="bloc"><div class="num">01</div><h3>La Médina est le marché le plus opaque de Marrakech</h3><p>Pas de prix affichés, beaucoup de transactions off-market, des intermédiaires à chaque niveau. Un riad à 8 000 DH/m² et un à 40 000 DH/m² peuvent se trouver dans la même ruelle.</p><div class="note a"><span>Conseil pratique</span><p>Testez toujours la distance réelle à pied depuis Jemaa el Fna ou Mouassine avant de décider.</p></div></div>
@@ -670,6 +746,182 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
   <div class="bloc"><div class="num">04</div><h3>Le prix comparé au mauvais marché</h3><p>Un appartement à Targa ne se compare pas à un appartement à Agdal. Quand un vendeur justifie son prix par des biens dans un autre quartier, c'est un signal d'alerte.</p></div>
   <div class="bloc"><div class="num">05</div><h3>Le projet neuf sans garanties solides</h3><p>Vérifiez l'historique du promoteur, les garanties d'achèvement et les délais contractuels.</p></div>
 </div>
+
+<div id="cp-q" class="panel">
+
+  <div class="bloc">
+    <div class="num">Guéliz</div>
+    <h3>Le centre-ville moderne — le marché le plus liquide de Marrakech</h3>
+    <p>Guéliz, c'est la ville nouvelle tracée sous le Protectorat français par Henri Prost. Larges avenues, trottoirs entretenus, gare ferroviaire, Théâtre Royal, Palais des Congrès. Tout se fait à pied. Pour un expatrié qui débarque à Marrakech, c'est naturellement le premier quartier de recherche — et souvent le dernier aussi.</p>
+    <p>Le marché y est le plus actif et le plus lisible de la ville. Les transactions se font, les prix sont comparables, la revente est possible sans attendre des mois. C'est ce qu'on appelle un marché liquide.</p>
+    <p>Attention au rez-de-chaussée commercial. Un appartement situé au-dessus d'un restaurant avec terrasse peut devenir très bruyant la nuit. Vérifiez toujours la destination des locaux avant de signer.</p>
+    <p>La clientèle : Marocains aisés, expatriés français et belges, digital nomads, jeunes retraités actifs. Les digital nomads en particulier ont fait de Guéliz leur base — coworking bien équipé, connexion performante, terrasses et cafés à chaque coin de rue.</p>
+    <p><strong>Ce qu'on y trouve :</strong> Studios à grands F4, résidences sécurisées avec piscine et parking, quelques penthouses avec rooftop. Villas : rarissimes et très chères.</p>
+    <div class="note a"><span>Repères de marché · Avril 2026</span><p>Appartements : 13 500 à 25 000 MAD/m² selon standing et étage. Neuf premium (résidence piscine, rooftop) : 20 000 à 28 000. Marge de négociation habituelle : 8 à 12%. Au-delà de 6 mois d'exposition sans baisse, il y a un problème — de prix ou de situation juridique.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">Hivernage</div>
+    <h3>Le quartier résidentiel de prestige — calme, sécurisé, standing hôtelier</h3>
+    <p>L'Hivernage s'est construit autour de l'avenue Mohammed VI, inaugurée en 2004. C'est le quartier des grands hôtels — La Mamounia, Es Saadi, Sofitel — et des résidences qui leur ressemblent : espaces verts, conciergerie, sécurité 24h/24, silence. À deux minutes de l'animation de Guéliz mais dans un autre monde.</p>
+    <p>Le quartier est très patrouillé en raison de la présence des hôtels de luxe et de certaines résidences officielles. C'est un argument réel pour les acheteurs étrangers qui mettent la sécurité en premier critère.</p>
+    <p>La clientèle est internationale : Français, Belges, Suisses, investisseurs du Golfe. Beaucoup de résidences secondaires haut de gamme. Pas de marché d'entrée de gamme ici — tout est premium ou rien.</p>
+    <p><strong>Ce qu'on y trouve :</strong> Appartements 80 à 200m², villas contemporaines (rarissimes), penthouses. Pas de petite surface, pas de studio. Les résidences proposent souvent piscine, salle de sport, service de gardiennage.</p>
+    <div class="note a"><span>Repères de marché · Avril 2026</span><p>20 000 à 40 000 MAD/m² selon la résidence et les prestations. Un appartement de 127m² peut atteindre 6 millions de DH sur les belles adresses. Les vendeurs négocient peu sur les beaux produits — ils savent que la demande est là.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">Agdal</div>
+    <h3>Le quartier résidentiel structuré — familles, expats, neuf de qualité</h3>
+    <p>Agdal s'articule autour de l'avenue Mohammed VI. Complexes résidentiels de haut standing, Menara Mall, écoles internationales, cliniques. Aéroport Menara à 15–20 minutes. C'est le quartier des familles qui cherchent du confort moderne sans les contraintes de la Médina.</p>
+    <p>Ce que peu de gens savent : Agdal affiche les prix de transaction notariale les plus élevés de Marrakech hors Hivernage. Signal d'un marché actif et des transactions régulièrement enregistrées.</p>
+    <p>La clientèle : familles marocaines bien installées, expatriés avec enfants en école internationale, fonctionnaires internationaux, MRE qui reviennent s'installer.</p>
+    <p><strong>Ce qu'on y trouve :</strong> Appartements neufs et récents en résidence sécurisée (80–150m²), programmes avec piscine et parking obligatoire. Quelques villas modernes en lisière. Offre très structurée.</p>
+    <div class="note a"><span>Repères de marché · Avril 2026</span><p>13 000 à 22 000 MAD/m² selon la résidence. Les programmes neufs récents affichent 15 000 à 28 000 MAD/m². Marché stable, valorisation soutenue par les projets CM2030 autour de l'aéroport.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">Semlalia</div>
+    <h3>Le résidentiel établi — central, calme, encore accessible</h3>
+    <p>Semlalia est coincé entre Guéliz et la Médina, dans un entre-deux qui lui donne un caractère propre : central sans être bruyant, animé sans être touristique. Proche du Jardin Majorelle, de l'avenue Mohammed V. Les immeubles sont bien tenus. Peu de résidences sécurisées, mais des copropriétés correctes avec syndic actif.</p>
+    <p>C'est le quartier des classes moyennes marocaines établies. Peu d'étrangers — ce qui explique en partie des prix encore raisonnables pour un emplacement aussi central. Bonne base pour une résidence principale ou un premier investissement locatif longue durée.</p>
+    <p><strong>Ce qu'on y trouve :</strong> Appartements 50 à 130m², quelques villas, maisons de ville. Offre variée en termes d'état et de standing.</p>
+    <div class="note a"><span>Repères de marché · Avril 2026</span><p>Prix constatés sur le marché : 12 000 à 16 000. C'est le meilleur rapport emplacement/prix de Marrakech sur le résidentiel standard. Négociation possible de 10 à 15%.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">Palmeraie</div>
+    <h3>Le marché d'exception — villas d'architecte, golfs, off-market</h3>
+    <p>La Palmeraie n'est pas un quartier comme les autres. C'est une oasis de 13 000 hectares de palmiers-dattiers au nord de Marrakech, structurée autour de golfs privés — Amelkis, Al Maaden, Royal Palm. Ici, on achète un mode de vie, pas juste un bien.</p>
+    <p>La clientèle est très internationale : Marocains très aisés, investisseurs du Golfe, familles de la finance et du luxe européen, célébrités. Beaucoup de transactions se font sans jamais passer sur un portail d'annonces — le réseau, les chasseurs et les agences premium gèrent tout en discrétion totale.</p>
+    <p>Pour les étrangers non-résidents : un terrain en Palmeraie nécessite une VNA (Vocation Non Agricole) pour être constructible. Vérifiez ce point avant toute promesse.</p>
+    <p><strong>Ce qu'on y trouve :</strong> Villas d'architecte (500 à 5 000m²), riads de prestige, appartements en résidence golfique sécurisée. Quelques domaines avec spa, hammam, salle de cinéma, personnel de maison.</p>
+    <div class="note"><span>Repères de marché · Avril 2026</span><p>Villas construites : 18 000 à 35 000 MAD/m² selon architecte et prestations. Golfs Royal Palm : jusqu'à 40 000. Un bien en Palmeraie met 6 à 18 mois à se vendre — le réseau prime sur les portails. Ne vendez pas sans avoir sollicité les agences premium avant de publier.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">Targa</div>
+    <h3>Le quartier en construction — prix d'aujourd'hui, valeur de demain</h3>
+    <p>Targa était encore il y a quelques années un quartier périphérique sans grande ambition. Aujourd'hui c'est différent. L'axe Guéliz–aéroport le traverse, des programmes neufs sortent de terre chaque trimestre, et le foncier a pratiquement doublé depuis 2024. Les professionnels locaux sont unanimes là-dessus.</p>
+    <p>Ce qui change la donne pour Targa : la CAN 2025 et surtout la Coupe du Monde 2030. Les projets d'infrastructure autour du stade et de l'axe aéroport vont mécaniquement tirer les prix des quartiers adjacents. Targa est bien positionné pour en bénéficier.</p>
+    <p>La clientèle actuelle : jeunes familles marocaines, primo-accédants, petits investisseurs qui visent la plus-value à 5 ans. Les expatriés commencent à regarder aussi.</p>
+    <p><strong>Ce qu'on y trouve :</strong> Appartements neufs en résidence avec piscine (70–120m²), villas modernes sur petits terrains, terrains constructibles encore accessibles.</p>
+    <div class="note a"><span>Repères de marché · Avril 2026</span><p>Prix constatés sur le marché : 10 000 à 13 000 MAD/m² sur le neuf. Les programmes livraison 2026–2027 sont encore à des prix qui vont bouger d'ici la Coupe du Monde.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">Mhamid · Azzouzia</div>
+    <h3>L'entrée de marché — ticket bas, demande locale solide</h3>
+    <p>Mhamid n'a pas le prestige de Guéliz ni la côte montante de Targa, mais il a deux arguments béton : les prix les plus bas de la ville dans le résidentiel, et une demande locative locale constante. Aéroport Menara à 10 minutes, hôpital Ibn Tofail, commerces de proximité. Un quartier fonctionnel, dense, avec une vraie population permanente.</p>
+    <p>Pour l'investisseur qui cherche du rendement locatif immédiat sans se ruiner à l'entrée, Mhamid est souvent la bonne réponse. Les appartements partent facilement en location longue durée, les loyers sont stables, les charges maîtrisées.</p>
+    <p><strong>Ce qu'on y trouve :</strong> Appartements standards 60–90m², finitions simples. Quelques petites villas. Programmes en cours de livraison régulièrement.</p>
+    <div class="note"><span>Repères de marché · Avril 2026</span><p>Prix constatés sur le marché. Prix affichés réels : 7 000 à 9 500. Un F3 correct se trouve entre 600 000 et 850 000 MAD. Rendement locatif brut atteignable : 6 à 7% avec une bonne sélection.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">Médina</div>
+    <h3>Le marché à part entière — riads, Médina, règles du jeu différentes</h3>
+    <p>La Médina de Marrakech est classée au patrimoine mondial de l'UNESCO. Ses ruelles n'ont pas de plan logique — c'est voulu. Elle cache certains des plus beaux riads d'Afrique du Nord, à deux pas de Jemaa el-Fna et des souks. Pour un investisseur qui aime le beau et qui comprend que ce marché a ses propres règles, c'est un terrain passionnant.</p>
+    <p>Mais soyons clairs sur ce que ça implique. Pas de voiture possible — les livraisons se font à dos de mulet dans les ruelles profondes. Pas d'ascenseur, pas de parking. La rénovation se fait en étapes, avec des artisans locaux, sous supervision permanente sur place. Impossible de gérer un chantier depuis Paris.</p>
+    <p>Les prix varient du simple au quintuple dans la même ruelle selon la localisation exacte, l'état du bien, la présence d'un bassin, d'une terrasse et d'une licence maison d'hôtes. Dar El Bacha, Mouassine, Riad Zitoun — ce sont des adresses qui ont une vraie valeur. Bab Ghmat ou les ruelles périphériques, c'est un autre marché.</p>
+    <p>Sur les riads : le marché d'entrée de gamme sous 400 000€ est saturé. Pour être cash-flow positif, il faut acheter sans emprunt, bien gérer, et accepter que les locataires exigent un niveau de prestation élevé. Ceux qui réussissent sont ceux qui sont sur place — ou qui ont quelqu'un de confiance sur place.</p>
+    <div class="note w"><span>À savoir avant de vous lancer</span><p>Plus de 60% des transactions en Médina se font hors portails. Les prix notariaux sont systématiquement sous-déclarés. Pour un riad, exigez un expert indépendant qui inspecte les fondations, la plomberie et l'état de la toiture terrasse avant toute promesse. Les mauvaises surprises en cours de rénovation sont fréquentes — et coûteuses.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">Route de Casablanca · Azzouzia</div>
+    <h3>L'axe en développement — programmes neufs, terrains, infrastructure CM2030</h3>
+    <p>Longtemps regardé de haut, cet axe prend de l'importance. La Route de Casablanca concentre des zones commerciales bien équipées (Marjane, grandes enseignes), plusieurs cliniques et écoles privées, et un accès direct à l'aéroport Menara. Fonctionnel, pratique, sans prétention esthétique — mais c'est là que beaucoup de Marrakchis font leur vie quotidienne.</p>
+    <p>Les programmes neufs y sont nombreux et moins chers qu'ailleurs. Pour un MRE qui veut acheter un premier bien au Maroc ou un investisseur qui cherche du rendement sur appartement standard, c'est souvent la bonne piste. Les projets d'infrastructure liés à la Coupe du Monde 2030 sur l'axe aéroport vont dans le bon sens pour les propriétaires de cette zone.</p>
+    <p><strong>Ce qu'on y trouve :</strong> Appartements 65–110m² en programme neuf, petites villas en lotissement, terrains encore accessibles.</p>
+    <div class="note a"><span>Repères de marché · Avril 2026</span><p>Appartements : 8 500 à 11 000 MAD/m² en neuf. Villas : variables selon terrain et finition. Les terrains constructibles sur cet axe restent une opportunité avant la hausse attendue sur l'axe aéroport–Menara.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">Sidi Ghanem</div>
+    <h3>Le quartier créatif — showrooms, lofts, marché de niche</h3>
+    <p>Sidi Ghanem, c'est l'ancienne zone industrielle au nord-ouest de Marrakech qui s'est réinventée. Il y a vingt ans, c'était des entrepôts. Aujourd'hui on y trouve les plus beaux showrooms de mobilier et de décoration du Maroc, des galeries d'art contemporain, des studios d'architectes et des restaurants qui font le plein le week-end. Une clientèle internationale de créatifs, de directeurs artistiques et de propriétaires de maisons d'hôtes vient s'y approvisionner.</p>
+    <p>Ce n'est pas un quartier résidentiel classique. C'est un marché de niche, pour des profils particuliers qui cherchent un usage mixte — habiter et travailler dans le même espace, dans un loft converti. Pas de comparables faciles, pas de prix de référence simple. Mais des prix en hausse régulière depuis 5 ans.</p>
+    <p><strong>Ce qu'on y trouve :</strong> Locaux commerciaux (la valeur principale), lofts atypiques, ateliers reconvertis. Peu d'appartements classiques. Voiture indispensable.</p>
+    <div class="note"><span>Repères de marché · Avril 2026</span><p>Prix constatés sur le marché : 5 000 à 9 000 MAD/m². Locaux commerciaux premium : 8 000 à 12 000 MAD/m². Un beau loft aménagé dépasse souvent ces fourchettes en prix affichés.</p></div>
+  </div>
+
+</div>
+
+<div id="cp-o" class="panel">
+
+  <div class="bloc">
+    <div class="num">01</div>
+    <h3>Le photovoltaïque : Marrakech est l'un des meilleurs marchés au monde pour ça</h3>
+    <p>Plus de 3 000 heures d'ensoleillement par an, un rayonnement moyen de 5,5 kWh/m²/jour. Marrakech, avec Agadir et Ouarzazate, est dans le top 3 marocain pour la production solaire. En clair : vos panneaux produisent plus ici qu'en France, pour le même investissement.</p>
+    <p>Les chiffres du marché en 2025–2026 : un kit 3 kWc coûte entre 24 000 et 30 000 MAD installation complète (panneaux, onduleur, structure, main d'œuvre). Un kit 5–6 kWc : 40 000 à 65 000 MAD. Retour sur investissement : 5 à 8 ans selon la consommation. Durée de vie du matériel : 25 à 30 ans.</p>
+    <p>Pour une villa ou un riad avec piscine, le calcul est encore meilleur : climatisation, pompe de piscine et éclairage représentent l'essentiel de la facture ONEE. Ce sont précisément les usages que le solaire couvre en journée.</p>
+    <p>Important : exigez un installateur agréé ANRE. Cela vous garantit l'exonération de TVA (20%) sur l'équipement — c'est inscrit dans la loi 13-09. Un installateur non agréé ne peut pas appliquer cette exonération. Comparez au moins deux devis.</p>
+    <div class="note a"><span>Impact sur la valeur du bien</span><p>Un bien équipé en solaire se vend 10 à 15% plus cher selon les sources du secteur, et se loue plus vite — surtout auprès des locataires étrangers sensibles aux charges. La hausse des tarifs ONEE (+5,5% prévue) améliore le retour sur investissement d'année en année.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">02</div>
+    <h3>Le chauffe-eau solaire thermique : le quick win de la valorisation</h3>
+    <p>Avant de penser photovoltaïque, pensez chauffe-eau solaire thermique. C'est l'investissement le plus simple, le moins cher, et le plus rentable à Marrakech : entre 8 000 et 15 000 MAD pour un équipement standard, il couvre 70 à 85% des besoins en eau chaude sanitaire. Remboursé en 2 à 3 ans.</p>
+    <p>Il est obligatoire dans les constructions neuves depuis la Réglementation Thermique Marocaine (RTCM). Dans l'ancien — appartements des années 1990–2010 — il est encore peu présent. Ce qui signifie qu'installer un chauffe-eau solaire sur un bien existant est un argument commercial concret et visible lors de la vente ou de la location.</p>
+    <div class="note"><span>Note MyDar</span><p>Le chauffe-eau solaire fait partie des équipements que MyDar intègre dans le calcul d'estimation. Un bien équipé ressort avec un coefficient de valorisation supérieur dans notre moteur.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">03</div>
+    <h3>Le jardin et les espaces verts : le meilleur climatiseur passif qui existe</h3>
+    <p>À Marrakech, l'architecture traditionnelle a toujours résolu le problème de la chaleur avec la végétation. Le riad avec sa cour intérieure, sa fontaine et ses orangers crée un microclimat naturel qui abaisse la température de plusieurs degrés sans aucune consommation d'énergie. Ce n'est pas du folklore — c'est de l'ingénierie passive.</p>
+    <p>Pour les villas et les biens avec jardin, le même principe s'applique : un jardin bien planté avec des essences adaptées au climat marrakchi (oranger, figuier, grenadier, palmier doum, bougainvillier, jasmin) crée de l'ombre, retient l'humidité et protège les façades de la chaleur directe. Une pergola végétalisée en façade sud ou une terrasse jardinée font une vraie différence en juillet.</p>
+    <p>Le jardin bien entretenu est aussi un argument de location immédiat. Les locataires courte durée et les acheteurs étrangers font systématiquement la différence entre un bien avec extérieur soigné et un bien négligé — et ils le montrent dans leur offre.</p>
+    <div class="note a"><span>Essences adaptées au climat de Marrakech</span><p>Oranger, figuier, grenadier, palmier doum, bougainvillier, jasmin, lavande, romarin, laurier-sauce. Une fois enracinées, ces essences sont très peu consommatrices en arrosage. À éviter : le gazon anglais, gourmand en eau et inadapté.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">04</div>
+    <h3>La sécurité : le critère n°1 des acheteurs étrangers, sans exception</h3>
+    <p>Demandez à n'importe quel agent immobilier actif sur Marrakech : la sécurité est systématiquement le premier critère cité par les acheteurs et locataires étrangers, avant le prix, avant la surface. C'est un fait de terrain.</p>
+    <p>Ce que ça signifie concrètement : un appartement dans une résidence avec gardiennage 24h/24, caméras, accès badges et digicode se loue plus facilement et plus cher qu'un appartement équivalent dans un immeuble sans surveillance. L'écart peut atteindre 8 à 15% sur le prix de vente dans le même quartier.</p>
+    <p>Pour les villas et riads en accès direct : un système d'alarme connecté (détecteurs, caméras IP accessibles à distance, télésurveillance) est devenu un standard. Coût d'installation : 5 000 à 20 000 MAD selon la superficie. Pour les biens en location courte durée, l'accès à code ou par badge — sans remise de clé physique — est devenu incontournable. Ça simplifie les check-ins, ça rassure les locataires, ça réduit les problèmes en cas de perte.</p>
+    <div class="note"><span>Un chiffre à retenir</span><p>Un bien sécurisé dans une résidence gardée se vend en moyenne 8 à 15% au-dessus d'un bien équivalent non sécurisé dans le même quartier. Sur un bien à 2 millions de MAD, ça représente 160 000 à 300 000 MAD de différence.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">05</div>
+    <h3>L'isolation : ce qu'on néglige et qui fait la différence en été</h3>
+    <p>Marrakech en juillet : 40 à 45°C régulièrement. Un appartement mal isolé tourne à la fournaise et la climatisation tourne en continu — factures ONEE en conséquence. Pour un bien en location, ça se traduit directement par des avis négatifs et des locataires qui ne reviennent pas.</p>
+    <p>Les points critiques : la toiture-terrasse (premier vecteur de chaleur dans l'appartement du dernier étage), les fenêtres simple vitrage (une perte thermique massive), et l'absence de protection solaire en façade. Double vitrage, isolation toiture et volets ou moucharabiehs : c'est 30 à 50% de consommation en climatisation en moins.</p>
+    <p>Dans l'ancien, les travaux d'isolation sur toiture et fenêtres coûtent entre 20 000 et 60 000 MAD pour un appartement standard. Sur un bien de 1,5 à 2 millions, c'est un investissement qui se rembourse en quelques années en économies de charges — et qui est visible à la location comme à la vente.</p>
+    <div class="note a"><span>Réglementation en vigueur</span><p>La RTCM (Réglementation Thermique Marocaine) impose des standards d'isolation croissants aux constructions neuves depuis plusieurs années. Un bien aux normes sera mécaniquement mieux valorisé face aux biens anciens non rénovés thermiquement.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">06</div>
+    <h3>La domotique : indispensable pour les non-résidents et les investisseurs locatifs</h3>
+    <p>Beaucoup de propriétaires de biens à Marrakech vivent en France, en Belgique ou au Canada. La question du "comment je gère mon bien à distance" revient dans toutes les conversations. La domotique est une partie de la réponse.</p>
+    <p>Serrure connectée à code ou à badge : exit la remise de clé physique, exit les doublons non déclarés, exit les problèmes de check-in tardif. Thermostat programmable : vous préchauffez ou rafraîchissez le bien avant l'arrivée d'un locataire depuis votre téléphone. Caméras d'entrée : vous savez en temps réel si le ménage a été fait, si le jardinier est passé, si le technicien est intervenu.</p>
+    <p>Un kit de base (serrure connectée + thermostat + caméras extérieures) : 5 000 à 15 000 MAD. Pour les propriétaires non-résidents, c'est l'un des meilleurs investissements possibles en termes de tranquillité d'esprit — et de réduction des allers-retours inutiles.</p>
+    <div class="note"><span>Pour les MRE et les non-résidents</span><p>Les conciergeries locales de Marrakech (en plein développement) s'appuient sur ces outils pour gérer plusieurs biens simultanément. Si vous externalisez la gestion, un bien déjà équipé en serrure connectée est bien plus facile à déléguer.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">07</div>
+    <h3>La piscine bien entretenue : un levier de valorisation souvent sous-estimé</h3>
+    <p>À Marrakech, une piscine est un argument de location de premier ordre — mais une piscine mal entretenue peut aussi faire fuir un locataire ou dévaluer un bien aux yeux d'un acheteur. L'eau trouble, le carrelage fissuré ou une pompe bruyante sont des signaux qui parlent fort lors d'une visite.</p>
+    <p>Ce qui fait la différence : un contrat de maintenance régulier avec un pisciniste local (500 à 1 500 MAD/mois selon la taille), une couverture thermique qui réduit l'évaporation de 70% et la consommation énergétique de 30 à 40%, un éclairage LED subaquatique qui modernise l'aspect à faible coût.</p>
+    <p>Pour les jardins avec arrosage automatique : le goutte-à-goutte réduit la consommation de 50 à 70% par rapport à l'arrosage classique, tout en maintenant les plantes en meilleur état. Investissement de 3 000 à 8 000 MAD pour un jardin de villa standard. Les acheteurs le voient, et ils font la différence entre un jardin entretenu et un jardin à l'abandon.</p>
+    <div class="note a"><span>Sur les programmes neufs</span><p>Les programmes labellisés HQE ou certifiés LEED commencent à apparaître à Marrakech. Ils bénéficient d'une prime de valeur croissante et d'une image positive auprès des acheteurs européens et des investisseurs qui ont des critères ESG.</p></div>
+  </div>
+
+  <div class="bloc">
+    <div class="num">08</div>
+    <h3>La conciergerie locative : ce qui fait la vraie différence sur le rendement</h3>
+    <p>La qualité de gestion d'un bien fait souvent plus de différence que son emplacement. Deux riads côte à côte dans la même ruelle de la Médina : l'un géré par un professionnel avec photos pro, réponses Booking en moins d'une heure, accueil soigné et ménage irréprochable — l'autre géré en dilettante. Le premier tourne à 85% d'occupation et 900 MAD/nuit. Le second peine à remplir ses mois creuses et brade à 400 MAD.</p>
+    <p>À Marrakech, le marché de la conciergerie est en pleine structuration. Des sociétés locales proposent des services complets : gestion des réservations sur toutes les plateformes, accueil et départ des locataires, ménage, petites réparations, comptabilité locative mensuelle. Pour les MRE et les propriétaires non-résidents, c'est quasi-indispensable.</p>
+    <p>Les tarifs du marché : 15 à 25% des revenus bruts selon le niveau de service. Sur un bien qui génère 150 000 MAD/an brut, ça représente 22 500 à 37 500 MAD de frais de gestion — largement compensé par la différence de performance entre un bien bien géré et un bien géré à moitié.</p>
+    <div class="note"><span>Ce que les pros font et que les particuliers ne font pas</span><p>Photos professionnelles, tarification dynamique selon la saisonnalité, réponse aux avis locataires, entretien préventif avant chaque saison. Ces détails représentent 20 à 40% de revenus supplémentaires par rapport à une gestion non optimisée. C'est documenté dans le secteur.</p></div>
+  </div>
+</div>
 <div class="cta-b"><h2>Prêt à estimer votre bien ?</h2><p>Une fourchette indicative en 2 minutes.</p><div class="cta-btns"><button class="btn-cta" onclick="startF('sell')">Lancer l'estimation</button></div></div>
 <div class="footer"><div class="fi2"><div class="ft2"><div><div class="fn"><span class="my">My</span><span class="dar">Dar</span></div></div><div class="fl"><a onclick="goTo('landing')">Accueil</a><a onclick="goTo('quartiers')">Quartiers</a><a onclick="goTo('mentions')">Mentions légales</a><a onclick="goTo('confidentialite')">Confidentialité</a></div></div><div class="fb">© 2026 MyDar · Marrakech, Maroc</div></div></div>
 </div>
@@ -681,17 +933,17 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
   <h2 class="sh">Marrakech quartier par quartier</h2>
   <p class="si-sub">Fourchettes indicatives basées sur les données actives du marché et les indices officiels.</p>
   <div class="qg">
-    <div class="qc" onclick="startF('sell')"><div class="qn">Guéliz</div><div class="qr">13 000 à 25 000 MAD/m²</div><div class="qm">Ancien, rénové, résidences récentes</div></div>
-    <div class="qc" onclick="startF('sell')"><div class="qn">Semlalia</div><div class="qr">10 000 à 16 000 MAD/m²</div><div class="qm">Résidentiel central, bon rapport prix/surface</div></div>
-    <div class="qc" onclick="startF('sell')"><div class="qn">Hivernage</div><div class="qr">20 000 à 40 000+ MAD/m²</div><div class="qm">Résidences de standing à villas de luxe</div></div>
-    <div class="qc" onclick="startF('sell')"><div class="qn">Médina appart.</div><div class="qr">9 000 à 14 000 MAD/m²</div><div class="qm">Selon localisation dans la Médina</div></div>
-    <div class="qc" onclick="startF('sell')"><div class="qn">Médina riad</div><div class="qr">18 000 à 40 000+ MAD/m²</div><div class="qm">Du riad brut à la maison d'hôtes rénovée</div></div>
-    <div class="qc" onclick="startF('sell')"><div class="qn">Palmeraie</div><div class="qr">13 000 à 30 000+ MAD/m²</div><div class="qm">Villa standard à propriété de prestige</div></div>
-    <div class="qc" onclick="startF('sell')"><div class="qn">Agdal</div><div class="qr">11 000 à 20 000 MAD/m²</div><div class="qm">Familles, écoles, cadres expatriés</div></div>
-    <div class="qc" onclick="startF('sell')"><div class="qn">Targa</div><div class="qr">7 500 à 14 000 MAD/m²</div><div class="qm">Programmes neufs, quartier en essor</div></div>
-    <div class="qc" onclick="startF('sell')"><div class="qn">Mhamid</div><div class="qr">5 500 à 9 500 MAD/m²</div><div class="qm">Proche aéroport, fort potentiel locatif</div></div>
-    <div class="qc" onclick="startF('sell')"><div class="qn">Sidi Ghanem</div><div class="qr">5 000 à 8 500 MAD/m²</div><div class="qm">Lofts, ateliers, usages atypiques</div></div>
-    <div class="qc" onclick="startF('sell')"><div class="qn">Route de Casa</div><div class="qr">7 000 à 12 000 MAD/m²</div><div class="qm">Second marché, terrains, promoteurs</div></div>
+    <div class="qc" onclick="openQuartier('Guéliz')" style="cursor:pointer"><div class="qn">Guéliz</div><div class="qr">13 000 à 25 000 MAD/m²</div><div class="qm">Ancien, rénové, résidences récentes</div></div>
+    <div class="qc" onclick="openQuartier('Semlalia')" style="cursor:pointer"><div class="qn">Semlalia</div><div class="qr">10 000 à 16 000 MAD/m²</div><div class="qm">Résidentiel central, bon rapport prix/surface</div></div>
+    <div class="qc" onclick="openQuartier('Hivernage')" style="cursor:pointer"><div class="qn">Hivernage</div><div class="qr">20 000 à 40 000+ MAD/m²</div><div class="qm">Résidences de standing à villas de luxe</div></div>
+    <div class="qc" onclick="openQuartier('Médina')" style="cursor:pointer"><div class="qn">Médina appart.</div><div class="qr">9 000 à 14 000 MAD/m²</div><div class="qm">Selon localisation dans la Médina</div></div>
+    <div class="qc" onclick="openQuartier('Médina')" style="cursor:pointer"><div class="qn">Médina riad</div><div class="qr">18 000 à 40 000+ MAD/m²</div><div class="qm">Du riad brut à la maison d'hôtes rénovée</div></div>
+    <div class="qc" onclick="openQuartier('Palmeraie')" style="cursor:pointer"><div class="qn">Palmeraie</div><div class="qr">13 000 à 30 000+ MAD/m²</div><div class="qm">Villa standard à propriété de prestige</div></div>
+    <div class="qc" onclick="openQuartier('Agdal')" style="cursor:pointer"><div class="qn">Agdal</div><div class="qr">11 000 à 20 000 MAD/m²</div><div class="qm">Familles, écoles, cadres expatriés</div></div>
+    <div class="qc" onclick="openQuartier('Targa')" style="cursor:pointer"><div class="qn">Targa</div><div class="qr">7 500 à 14 000 MAD/m²</div><div class="qm">Programmes neufs, quartier en essor</div></div>
+    <div class="qc" onclick="openQuartier('Mhamid')" style="cursor:pointer"><div class="qn">Mhamid</div><div class="qr">5 500 à 9 500 MAD/m²</div><div class="qm">Proche aéroport, fort potentiel locatif</div></div>
+    <div class="qc" onclick="openQuartier('Sidi Ghanem')" style="cursor:pointer"><div class="qn">Sidi Ghanem</div><div class="qr">5 000 à 8 500 MAD/m²</div><div class="qm">Lofts, ateliers, usages atypiques</div></div>
+    <div class="qc" onclick="openQuartier('Route de Casablanca')" style="cursor:pointer"><div class="qn">Route de Casa</div><div class="qr">7 000 à 12 000 MAD/m²</div><div class="qm">Second marché, terrains, promoteurs</div></div>
   </div>
 </div></div>
 <div class="footer"><div class="fi2"><div class="ft2"><div><div class="fn"><span class="my">My</span><span class="dar">Dar</span></div></div><div class="fl"><a onclick="goTo('landing')">Accueil</a><a onclick="goTo('conseils')">Nos conseils</a></div></div><div class="fb">© 2026 MyDar · Marrakech, Maroc</div></div></div>
@@ -794,10 +1046,35 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 
 <script>
 const TOTAL=12;let step=1,mode='sell';const A={};
-const QPM2={'Guéliz':{appartement:15000,villa:19000,riad:14000,terrain:9000,immeuble:14500,local:13000},'Semlalia':{appartement:12000,villa:15500,riad:11500,terrain:8000,immeuble:11500,local:10500},'Hivernage':{appartement:20000,villa:24000,riad:19000,terrain:12000,immeuble:18500,local:16000},'Médina':{appartement:10000,villa:14000,riad:18000,terrain:7500,immeuble:10000,local:9000},'Palmeraie':{appartement:15000,villa:18000,riad:14000,terrain:10000,immeuble:12000,local:10000},'Agdal':{appartement:14000,villa:17000,riad:12000,terrain:9000,immeuble:13500,local:12000},'Targa':{appartement:9500,villa:12500,riad:8500,terrain:7000,immeuble:9000,local:8500},'Mhamid':{appartement:6000,villa:8500,riad:7000,terrain:5000,immeuble:6500,local:6000},'Sidi Ghanem':{appartement:6500,villa:8000,riad:6500,terrain:4800,immeuble:7000,local:8000},'Route de Casablanca':{appartement:9500,villa:11000,riad:8000,terrain:6500,immeuble:9000,local:8000},'Autre':{appartement:8500,villa:10500,riad:9000,terrain:5500,immeuble:8000,local:7000}};
-const ETAT_M={neuf:1.20,recent:1.09,bon:1.00,rafraichir:0.87,renover:0.74};
+const QPM2={
+  // ─── DONNÉES MARCHÉ AVRIL 2026 ───
+  // Calibrées sur transactions réelles + annonces actives + terrain
+  // Guéliz : marché intermédiaire standard+. Neuf premium jusqu'à 25-30k.
+  'Guéliz':{appartement:15500,villa:20000,riad:15000,terrain:10000,immeuble:15000,local:13500},
+  // Semlalia : fourchette terrain validée
+  'Semlalia':{appartement:12500,villa:16000,riad:12000,terrain:8500,immeuble:12000,local:11000},
+  // Hivernage : marché premium très segmenté. Base 20k = standard standing.
+  'Hivernage':{appartement:20000,villa:25000,riad:20000,terrain:13000,immeuble:20000,local:16000},
+  // Médina : marché très opaque. Riad rénové 15-40k+. Fourchette très large intentionnelle.
+  'Médina':{appartement:10500,villa:15000,riad:20000,terrain:7500,immeuble:11000,local:9000},
+  // Palmeraie : villas 18-35k construit, appartements rares.
+  'Palmeraie':{appartement:15000,villa:20000,riad:15000,terrain:11000,immeuble:13000,local:11000},
+  // Agdal : parmi les prix les plus élevés. Programmes neufs 15-28k.
+  'Agdal':{appartement:15500,villa:19000,riad:13500,terrain:10000,immeuble:15000,local:13000},
+  // Targa : neuf émergent, impact CM2030 sur le foncier.
+  'Targa':{appartement:10000,villa:13000,riad:9000,terrain:7500,immeuble:9500,local:9000},
+  // Mhamid : entrée de gamme. Potentiel locatif aéroport.
+  'Mhamid':{appartement:6500,villa:8500,riad:7000,terrain:5000,immeuble:6500,local:6000},
+  // Sidi Ghanem : zone industrielle reconvertie, locaux commerciaux porteurs.
+  'Sidi Ghanem':{appartement:6000,villa:8000,riad:6500,terrain:4800,immeuble:6800,local:8500},
+  // Route de Casa : axe accessible, programmes promoteurs.
+  'Route de Casablanca':{appartement:9500,villa:11000,riad:8500,terrain:7000,immeuble:9500,local:8500},
+  // Autre : moyenne prudente ville
+  'Autre':{appartement:9000,villa:11000,riad:9500,terrain:5800,immeuble:8500,local:7800}
+};
+const ETAT_M={neuf:1.22,recent:1.10,bon:1.00,rafraichir:0.85,renover:0.72};
 const EQ_M={piscine:1.12,jardin:1.05,terrasse:1.03,parking:1.02,securise:1.04,vue:1.03,solaire:1.03,chauffe_solaire:1.02,titre_foncier:1.08,maison_hotes:1.14,lcd:1.10,meuble:1.05,clim:1.02,balcon:1.02,ascenseur:1.01};
-const VAR={appartement:[0.93,1.09],villa:[0.89,1.14],riad:[0.83,1.22],terrain:[0.85,1.20],immeuble:[0.89,1.13],local:[0.89,1.12]};
+const VAR={appartement:[0.92,1.10],villa:[0.87,1.16],riad:[0.78,1.28],terrain:[0.82,1.25],immeuble:[0.88,1.14],local:[0.88,1.14]};
 const fN=n=>new Intl.NumberFormat('fr-MA').format(n);
 function goTo(v){
   document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
@@ -846,7 +1123,37 @@ function startLoad(){
   },360);
 }
 function calcEst(){const q=QPM2[A.quartier]||QPM2['Autre'];const t=A.type||'appartement';const base=q[t]||8500;const surf=parseInt(A.surface)||90;let m=ETAT_M[A.etat]||1.0;let eq=1.0;(A.equipements||[]).forEach(e=>{if(EQ_M[e])eq*=EQ_M[e];});eq=Math.min(eq,1.55);m*=eq;if(A.usage==='loc_courte')m*=1.07;else if(A.usage==='maison_hotes')m*=1.10;else if(A.usage==='vide')m*=0.96;const adj=Math.round(base*m);const vc=adj*surf;const[lo,hi]=VAR[t]||[0.93,1.09];return{low:Math.round(vc*lo/10000)*10000,high:Math.round(vc*hi/10000)*10000,base,mult:Math.round(m*1000)/1000};}
-function calcConf(){let s=50;if(['Guéliz','Semlalia','Agdal','Mhamid'].includes(A.quartier))s+=22;else if(['Hivernage','Targa','Route de Casablanca'].includes(A.quartier))s+=14;else if(A.quartier==='Médina')s+=5;else if(A.quartier==='Palmeraie')s+=10;else if(A.quartier==='Sidi Ghanem')s-=5;if(A.type==='appartement')s+=16;else if(A.type==='villa')s+=10;else if(A.type==='riad')s-=8;else if(A.type==='terrain')s-=12;if(A.surface&&A.surface>=50&&A.surface<=200)s+=8;if(A.etat)s+=5;s=Math.min(Math.max(s,20),90);let note;if(s>=70)note='Bonne — marché documenté sur ce segment';else if(s>=45)note='Correcte — à affiner avec un expert local';else note='Faible — marché peu homogène, estimation large';return{s,pct:s+'%',note};}
+function calcConf(){
+  let s=50;
+  // Liquidité et comparabilité par quartier
+  if(['Guéliz','Semlalia','Agdal'].includes(A.quartier))s+=22;        // marché le plus lisible
+  else if(['Targa','Route de Casablanca','Mhamid'].includes(A.quartier))s+=12;  // émergent, données croissantes
+  else if(A.quartier==='Hivernage')s+=16;                              // premium mais comparables existent
+  else if(A.quartier==='Palmeraie')s+=8;                               // moins liquide, variance forte
+  else if(A.quartier==='Médina')s+=2;                                  // marché très opaque (off-market dominant)
+  else if(A.quartier==='Sidi Ghanem')s-=5;                            // atypique, peu de comparables
+  // Type : appartement le plus homogène, riad le plus opaque
+  if(A.type==='appartement')s+=18;
+  else if(A.type==='local')s+=10;
+  else if(A.type==='immeuble')s+=8;
+  else if(A.type==='villa')s+=10;
+  else if(A.type==='terrain')s-=10;
+  else if(A.type==='riad')s-=12;   // variance extrême en Médina
+  // Surface dans la norme
+  if(A.surface&&A.surface>=50&&A.surface<=200)s+=8;
+  else if(A.surface&&A.surface>200)s-=5;
+  // Etat renseigné = meilleure précision
+  if(A.etat)s+=5;
+  // Combinaison riad+médina = confiance plancher
+  if(A.type==='riad'&&A.quartier==='Médina')s=Math.min(s,45);
+  s=Math.min(Math.max(s,15),88);
+  let note;
+  if(s>=72)note='Bonne — marché documenté, comparables disponibles';
+  else if(s>=50)note='Correcte — à affiner avec un professionnel local';
+  else if(s>=30)note='Modérée — marché peu homogène, fourchette large';
+  else note='Faible — segment très opaque, estimation indicative large';
+  return{s,pct:s+'%',note};
+}
 function genConseils(){const isBuy=A._mode==='buy';const cons=[];if(isBuy){if(A.projet==='verif_prix')cons.push({t:'default',titre:'Comparez au prix demandé',txt:"Si le prix affiché dépasse notre fourchette de plus de 15%, vous avez des arguments concrets pour négocier."});if(!(A.equipements||[]).includes('titre_foncier'))cons.push({t:'w',titre:'Vérifiez le titre foncier avant toute promesse',txt:"Demandez le numéro de titre à la Conservation Foncière de Marrakech avant de signer."});cons.push({t:'a',titre:'Prévoyez 8 à 10% de frais annexes',txt:'Frais de notaire et enregistrement représentent environ 6,7% TTC. À intégrer dès le départ.'});}else{if(A.projet==='vendre_vite')cons.push({t:'default',titre:'Pour vendre rapidement, positionnez-vous dans le bas de fourchette',txt:'Un prix dans le bas de la fourchette déclenche des offres en 4 à 8 semaines. Attendre le haut demande 4 à 6 mois.'});if(A.etat==='renover'||A.etat==='rafraichir')cons.push({t:'a',titre:'Un rafraîchissement ciblé peut améliorer le prix final',txt:'Peinture, petits travaux visibles, photos professionnelles : un investissement modeste peut déclencher plus de visites.'});if((A.equipements||[]).includes('titre_foncier'))cons.push({t:'default',titre:'Le titre foncier est un argument commercial fort',txt:'Mettez-le en avant dans vos annonces. Les investisseurs étrangers filtrent systématiquement sur ce critère.'});if(A.type==='riad')cons.push({t:'a',titre:'Le potentiel maison hôtes justifie une valorisation supérieure',txt:"Si le riad est exploitable en maison d'hôtes, ce potentiel représente généralement 20 à 35% de valeur supplémentaire."});}if(cons.length===0)cons.push({t:'default',titre:'Notre conseil',txt:"Cette fourchette est indicative. L'état précis, l'étage, l'exposition et la micro-localisation peuvent faire varier les prix de 10 à 20%."});return cons;}
 function sendToMake(est,conf){
   const sc=calcScore();
@@ -1056,6 +1363,50 @@ function closeMob(){
     setTimeout(initReveal,50);
   };
 })();
+</script>
+
+<div id="qmodal" style="display:none" class="qmodal-overlay" onclick="if(event.target===this)closeQModal()">
+  <div class="qmodal" id="qmodal-inner">
+    <button class="qmodal-close" onclick="closeQModal()">✕</button>
+    <div id="qmodal-content"></div>
+  </div>
+</div>
+
+<script>
+const QDATA={
+  'Guéliz':{tag:'Centre-ville · Liquide · Expats',prix:'13 500 – 25 000 MAD/m²',desc:"Guéliz c'est la ville nouvelle tracée sous le Protectorat français par l'architecte Henri Prost. Avenue Mohammed V, Carré Eden, Jardin Harti, gare ferroviaire, Théâtre Royal, cafés des Négociants et de la Renaissance qui datent de l'époque coloniale. C'est là que les Marrakchis vivent, consomment et sortent — le poumon économique de la ville, comme le dit Claire qui y habite depuis des années. Elle est à 10 minutes en taxi de son bureau et de Jemaa el-Fna. Digital nomads, banques, coworking, restaurants italiens et japonais : tout coexiste avenue Mohammed V.",cells:[{t:"Ce qu'on y trouve",v:'Studios à grands F4. Résidences sécurisées avec piscine et parking. Quelques penthouses avec rooftop. Villas : rarissimes.'},{t:'Ambiance',v:'Animée, cosmopolite. Commerces ouverts en soirée. Vie nocturne dans les bars et clubs — vérifiez le RDC si vous cherchez le calme.'},{t:'Commodités',v:'Carré Eden, Marrakech Plaza, Jardin El Harti, gare, lycée Victor Hugo, cliniques, banques, transport facile.'},{t:'Qui y vit',v:'Marocains aisés, expatriés français et belges, digital nomads, jeunes retraités actifs. La communauté expat la plus active.'}],note:'Marché le plus liquide de Marrakech. Les appartements se vendent et se louent rapidement. Négociation habituelle de 8 à 12%.',qKey:'Guéliz'},
+  'Hivernage':{tag:'Prestige · Calme · Hôtels de luxe',prix:'20 000 – 40 000+ MAD/m²',desc:"Nathalie y habite depuis 17 ans. Ce qu'elle aime : le calme, les jardins exquis, les villas bordées de végétation, et le claquement des fers des calèches qui passent le soir. L'Hivernage est né dans les années 30 autour du premier casino et des premiers hôtels. Aujourd'hui La Mamounia, Es Saadi, Four Seasons, Sofitel se partagent le quartier avec des résidences privées haut standing. C'est calme, arboré, très patrouillé. À 10 minutes de Guéliz et de Jemaa el-Fna.",cells:[{t:"Ce qu'on y trouve",v:'Appartements 80–200m², villas contemporaines rarissimes, penthouses. Résidences avec conciergerie, piscine, salle de sport.'},{t:'Ambiance',v:'Calme résidentiel le jour. Animation nocturne dans les night-clubs des grands hôtels. Pas de petite surface — tout est standing.'},{t:'Commodités',v:'Grands hôtels, restaurants gastronomiques, spas, casino. Accès rapide à Guéliz. Lycée Lycée Hassan II à proximité.'},{t:'Qui y vit',v:'Français, Belges, Suisses, investisseurs du Golfe. Résidences secondaires haut de gamme. Stars lors du Festival International du Film.'}],note:'Très patrouillé — présence hôtels de luxe et résidences officielles. Critère sécurité n°1 des acheteurs étrangers. Vendeurs peu enclins à négocier sur les beaux produits.',qKey:'Hivernage'},
+  'Agdal':{tag:'Familles · Neuf · Expats',prix:'13 000 – 22 000 MAD/m²',desc:"Agdal s'organise autour de l'avenue Mohammed VI qui mène vers la vallée de l'Ourika. En longeant cette avenue, on croise des potiers, menuisiers et pépiniéristes — une vie artisanale locale qui contraste avec les résidences modernes du quartier. Menara Mall, cinéma Mégarama, Al Mazar : les commerces sont là. L'aéroport Menara est à 15–20 minutes. Quartier neuf, bien planifié, calme — le choix des familles qui veulent du confort sans l'agitation de Guéliz.",cells:[{t:"Ce qu'on y trouve",v:'Appartements neufs en résidence sécurisée (80–150m²), programmes avec piscine et parking. Quelques villas modernes.'},{t:'Ambiance',v:"Résidentiel, calme, familial. Circulation fluide sur les grandes avenues. Moins d'animation que Guéliz mais mieux structuré."},{t:'Commodités',v:"Menara Mall, Al Mazar, Mégarama, cliniques, écoles internationales, accès rapide aéroport et routes d'excursion (Ourika, Atlas)."},{t:'Qui y vit',v:"Familles marocaines aisées, expatriés avec enfants, fonctionnaires internationaux. MRE qui reviennent s'installer."}],note:"Agdal affiche parmi les prix au m² les plus élevés de Marrakech hors Hivernage — marché actif, transactions régulières.",qKey:'Agdal'},
+  'Semlalia':{tag:'Résidentiel · Central · Rapport qualité/prix',prix:'10 500 – 16 000 MAD/m²',desc:"Semlalia est coincé entre Guéliz et la Médina, dans un entre-deux tranquille et central. Proche du Jardin Majorelle, de l'avenue Mohammed V et des marchés locaux. Le quartier recommandé par un expat du forum : 'je t'y suis restée 9 mois, c'était super'. Immeubles bien tenus, syndics actifs, ambiance locale marocaine. Peu de touristes, peu d'étrangers — et des prix encore raisonnables pour l'emplacement.",cells:[{t:"Ce qu'on y trouve",v:'Appartements 50–130m², quelques villas, maisons de ville. Offre variée selon état et standing.'},{t:'Ambiance',v:'Résidentiel tranquille, commerces de proximité, cafés locaux, épiceries de quartier. Moins animé que Guéliz, moins chic que Hivernage.'},{t:'Commodités',v:'Proche Jardin Majorelle, avenue Mohammed V, marchés Rahba Kdima, transports, cliniques.'},{t:'Qui y vit',v:"Classes moyennes marocaines, quelques MRE. Peu d'étrangers — ce qui explique les prix encore accessibles."}],note:'Meilleur rapport emplacement/prix de Marrakech sur le résidentiel standard. Prix constatés : 10 500 à 16 000 MAD/m².',qKey:'Semlalia'},
+  'Palmeraie':{tag:'Prestige · Villas · Golfs · Off-market',prix:'18 000 – 35 000+ MAD/m²',desc:"Marie et Pierre y ont fait construire leur villa — 14 mois de chantier, une piscine chauffée pour nager en hiver, un hammam privatif. 'Chaque jour on découvre de nouveaux plaisirs.' La Palmeraie c'est une oasis de palmiers-dattiers au nord de Marrakech, structurée autour des golfs privés — Amelkis, Al Maaden, Royal Palm. Vastes propriétés, personnel de maison, silence. Un mode de vie plus qu'un quartier.",cells:[{t:"Ce qu'on y trouve",v:"Villas d'architecte (500–5000m²), riads de prestige, appartements en résidence golfique. Pas de petite surface."},{t:'Ambiance',v:"Calme, verdoyant, exclusif. Voiture obligatoire pour tout. Navettes des résidences vers le centre. Loin de l'agitation."},{t:'Commodités',v:'Golfs, spas, piscines, restaurants de club. Services intégrés dans les domaines. Pour les courses : voiture vers Guéliz ou Agdal.'},{t:'Qui y vit',v:'Marocains très aisés, investisseurs du Golfe, familles patrimoniales, personnalités. Nombreux propriétaires non-résidents.'}],note:"Voiture indispensable. VNA obligatoire pour terrains constructibles (étrangers non-résidents). Marché dominé par le réseau et l'off-market — 6 à 18 mois pour vendre.",qKey:'Palmeraie'},
+  'Targa':{tag:'Émergent · Résidentiel · CM2030',prix:'9 500 – 13 000 MAD/m²',desc:"Un expat a étudié tous les quartiers avant de choisir Targa : Guéliz trop animé, Hivernage trop touristique, Palmeraie trop isolée et trop chère. Targa a gagné pour son côté résidentiel calme, sécurisé et bien connecté. Larges avenues, résidences modernes, clubs sportifs, écoles. L'axe Guéliz–aéroport le traverse. Quartier qui grandit vite et que les professionnels locaux voient évoluer rapidement depuis 2024.",cells:[{t:"Ce qu'on y trouve",v:'Appartements neufs en résidence avec piscine (70–120m²), villas modernes, terrains constructibles encore accessibles.'},{t:'Ambiance',v:"Calme résidentiel, familial. Moins d'animation que Guéliz, plus structuré que Mhamid. Nouvelles constructions permanentes."},{t:'Commodités',v:"Écoles internationales, clubs sportifs, parcs, accès facile à l'aéroport et à Guéliz (15–20 min). Grandes surfaces à proximité."},{t:'Qui y vit',v:'Jeunes familles marocaines, primo-accédants, expatriés qui cherchent calme et standing sans payer Hivernage.'}],note:"Le foncier a pratiquement doublé depuis 2024 selon les professionnels locaux. Les programmes livraison 2026–2027 restent à des prix d'avant-hausse.",qKey:'Targa'},
+  'Mhamid':{tag:'Accessible · Aéroport · Locatif',prix:'6 000 – 9 500 MAD/m²',desc:"Mhamid c'est le Marrakech accessible. Proche de l'aéroport Menara (10–15 minutes), de l'hôpital Ibn Tofail, du Parc Al Harti. Quartier résidentiel populaire marocain, dense, fonctionnel. Un expat du forum y a vécu 1 an pour 2 000 DH de loyer — RDC, 1 chambre, grand salon, cuisine, cour intérieure. Pour investisseurs cherchant du rendement locatif sans capital important, c'est souvent la bonne piste.",cells:[{t:"Ce qu'on y trouve",v:'Appartements standards 60–90m², finitions simples. Quelques petites villas. Programmes en livraison régulièrement.'},{t:'Ambiance',v:'Quartier populaire marocain. Commerces de proximité, marchés locaux. Peu de touristes. Vie de quartier authentique.'},{t:'Commodités',v:'Aéroport 10–15 min, hôpital Ibn Tofail, Parc Al Harti, grandes surfaces. Taxis et transport facile vers le centre.'},{t:'Qui y vit',v:'Classes moyennes marocaines, fonctionnaires, jeunes ménages, MRE avec petit budget.'}],note:'Prix constatés sur le marché : 7 000 à 9 500 MAD/m². Un F3 correct : 600 000 à 850 000 MAD. Rendement brut atteignable : 6–7%.',qKey:'Mhamid'},
+  'Médina':{tag:'Riads · Authenticité · Marché à part',prix:'10 000 – 40 000+ MAD/m²',desc:"La Médina est classée patrimoine mondial de l'UNESCO. Elle protège selon les spécialistes les plus beaux riads d'Afrique du Nord. Pas de voiture dans les ruelles — les décombres de rénovation partent à dos de mulet. Pour acheter un riad, il faut être sur place ou avoir quelqu'un de confiance sur place. Impossible à distance. Les gens qui réussissent en Médina sont ceux qui comptent leurs heures et connaissent le personnel local. Les autres vendent 3–5 ans après l'achat.",cells:[{t:"Ce qu'on y trouve",v:"Riads 2 à 10 chambres, demeures traditionnelles, fondouks. Pas d'ascenseur ni parking. Ruelles non carrossables."},{t:'Ambiance',v:'Jemaa el-Fna à pied, souks, hammams, mosquées. Densité humaine forte. Bruyant en journée, calme en profondeur de Médina.'},{t:'Commodités',v:"Tout à pied dans la vieille ville. Commerces locaux non-stop. Mais zéro service moderne à l'européenne."},{t:'Qui y vit',v:"Marocains historiques, investisseurs étrangers attirés par les riads, opérateurs touristiques, maisons d'hôtes."}],note:'Dar El Bacha, Mouassine, Riad Zitoun sont les adresses premium. Plus de 60% des transactions se font hors portails. Exigez un expert bâtiment indépendant avant toute signature.',qKey:'Médina'},
+  'Route de Casablanca':{tag:'Accessible · Promoteurs · CM2030',prix:'8 500 – 11 500 MAD/m²',desc:"L'axe Route de Casablanca est le couloir du Marrakech fonctionnel. Marjane, grandes enseignes, cliniques, écoles privées, accès direct aéroport. Les promoteurs y livrent régulièrement des programmes neufs à prix compétitifs. Pas de prestige, pas de charme architectural — mais une praticité réelle pour les Marrakchis qui font leur vie quotidienne là.",cells:[{t:"Ce qu'on y trouve",v:'Appartements neufs 65–110m², petites villas en lotissement, terrains constructibles.'},{t:'Ambiance',v:'Fonctionnel, commerçant, dépendant de la voiture. Moins de charme que Guéliz mais vie de quartier stable.'},{t:'Commodités',v:'Marjane, cliniques, écoles privées, grandes surfaces. Accès direct aéroport Menara (5–10 min).'},{t:'Qui y vit',v:'Classes moyennes marocaines, MRE premier achat, investisseurs locatifs budget intermédiaire.'}],note:"Terrains encore accessibles sur cet axe. L'extension de l'aéroport et les projets CM2030 sur l'axe aéroport–Menara pourraient valoriser fortement cette zone.",qKey:'Route de Casablanca'},
+  'Sidi Ghanem':{tag:'Créatif · Showrooms · Marché de niche',prix:'5 000 – 9 000 MAD/m²',desc:"Sidi Ghanem c'est l'ancienne zone industrielle qui s'est réinventée en quartier créatif. Showrooms de mobilier de luxe, galeries d'art, concept stores, restaurants branchés qui font le plein le week-end. Une clientèle internationale d'architectes, designers et propriétaires de maisons d'hôtes vient s'approvisionner. Pas un quartier résidentiel classique — un marché de niche pour profils particuliers.",cells:[{t:"Ce qu'on y trouve",v:"Locaux commerciaux reconvertis, lofts d'artiste, ateliers. Peu d'appartements classiques. Usages mixtes fréquents."},{t:'Ambiance',v:'Atelier-galerie en semaine, animation le week-end. Voiture indispensable. Clientèle internationale pointue.'},{t:'Commodités',v:'Peu de services de quartier classiques. Tout est orienté business et création. Accès voiture obligatoire.'},{t:'Qui y vit',v:'Créatifs, entrepreneurs lifestyle, expats secteur luxe et mode, investisseurs alternatifs.'}],note:'Excellent sur les locaux commerciaux (8 000–12 000 MAD/m² pour les beaux showrooms). Résidentiel loft : niche mais prix en hausse régulière.',qKey:'Sidi Ghanem'},
+};
+
+function openQuartier(nom){
+  const d=QDATA[nom];if(!d)return;
+  const cells=d.cells.map(c=>`<div class="qm-cell"><strong>${c.t}</strong><span>${c.v}</span></div>`).join('');
+  document.getElementById('qmodal-content').innerHTML=`
+    <div class="qmodal-tag">${d.tag}</div>
+    <h2>${nom}</h2>
+    <div class="qm-prix">Fourchette de marché · ${d.prix}</div>
+    <div class="qm-desc">${d.desc}</div>
+    <div class="qm-grid">${cells}</div>
+    <div class="qm-note">${d.note}</div>
+    <button class="qm-cta" onclick="closeQModal();startF('sell')">Estimer un bien dans ce quartier →</button>
+  `;
+  const modal=document.getElementById('qmodal');
+  modal.style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeQModal(){
+  document.getElementById('qmodal').style.display='none';
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQModal();});
 </script>
 </body>
 </html>
