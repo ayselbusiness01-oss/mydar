@@ -18,6 +18,105 @@
 <meta name="twitter:title" content="MyDar — Estimation immobilière Marrakech">
 <meta name="twitter:description" content="Fourchette de prix indicative en 2 minutes. Gratuit, indépendant, sans engagement.">
 <link rel="canonical" href="https://www.mydarimmo.ma">
+<meta name="keywords" content="estimation immobilière Marrakech, prix immobilier Marrakech, estimer bien Marrakech, prix appartement Guéliz, prix villa Marrakech, estimation riad Médina, prix m2 Marrakech, immobilier Marrakech 2026">
+<meta name="author" content="MyDar">
+<meta name="google-site-verification" content="DcZ_52X7SrOQe8Jn76pj0STBKrsbQpNeCDLfMsC4UNc">
+<meta property="og:image" content="https://www.mydarimmo.ma/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_MA">
+<meta name="geo.region" content="MA-MRK">
+<meta name="geo.placename" content="Marrakech">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.mydarimmo.ma/#website",
+      "url": "https://www.mydarimmo.ma",
+      "name": "MyDar",
+      "description": "Estimation immobilière indépendante à Marrakech",
+      "inLanguage": "fr",
+      "publisher": {
+        "@id": "https://www.mydarimmo.ma/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.mydarimmo.ma/#organization",
+      "name": "MyDar",
+      "url": "https://www.mydarimmo.ma",
+      "description": "Outil d'estimation immobilière indépendant à Marrakech. Fourchette de prix indicative gratuite en 2 minutes.",
+      "areaServed": {
+        "@type": "City",
+        "name": "Marrakech",
+        "sameAs": "https://www.wikidata.org/wiki/Q101625"
+      },
+      "serviceType": "Estimation immobilière"
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://www.mydarimmo.ma/#app",
+      "name": "MyDar — Estimation immobilière Marrakech",
+      "url": "https://www.mydarimmo.ma",
+      "applicationCategory": "RealEstateApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "MAD",
+        "description": "Estimation immobilière gratuite"
+      },
+      "description": "Obtenez une fourchette de prix indicative pour votre bien immobilier à Marrakech en 2 minutes. Gratuit, indépendant, sans engagement.",
+      "featureList": [
+        "Estimation appartement Marrakech",
+        "Estimation villa Marrakech",
+        "Estimation riad Médina Marrakech",
+        "Prix au m² par quartier",
+        "10 quartiers couverts"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "L'estimation immobilière MyDar est-elle gratuite ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, l'estimation est entièrement gratuite, sans engagement et sans obligation de passer par un intermédiaire."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment est calculée l'estimation immobilière à Marrakech ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MyDar croise les données actives du marché marrakchi et les indices officiels de transactions pour produire une fourchette indicative mise à jour régulièrement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le prix au m² à Marrakech ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le prix au m² varie fortement selon le quartier : de 5 000 MAD/m² à Sidi Ghanem à plus de 40 000 MAD/m² à Hivernage. Guéliz tourne autour de 13 000 à 25 000 MAD/m², Agdal entre 11 000 et 20 000 MAD/m²."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on estimer un riad à Marrakech ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, MyDar intègre le potentiel maison d'hôtes, le niveau de rénovation et la localisation dans la Médina pour estimer les riads. Le marché du riad est particulièrement variable, de 18 000 à plus de 40 000 MAD/m²."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -50,7 +149,7 @@ body{font-family:var(--font-body);background:var(--S);color:var(--DK);font-size:
 .view{display:none}.view.active{display:block}
 
 /* ===== REVEAL AU SCROLL ===== */
-.reveal{opacity:0;transform:translateY(32px);transition:opacity .65s cubic-bezier(.25,.46,.45,.94),transform .65s cubic-bezier(.25,.46,.45,.94)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.25,.46,.45,.94),transform .6s cubic-bezier(.25,.46,.45,.94)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-d1{transition-delay:.1s}
 .reveal-d2{transition-delay:.2s}
@@ -942,7 +1041,7 @@ function closeMob(){
     entries.forEach(e=>{
       if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
     });
-  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  },{threshold:0,rootMargin:'0px 0px -20px 0px'});
   function initReveal(){
     document.querySelectorAll('.reveal,.reveal-left,.reveal-scale').forEach(el=>{
       if(!el.classList.contains('visible'))obs.observe(el);

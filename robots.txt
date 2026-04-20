@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /funnel
+Disallow: /result
+
+Sitemap: https://www.mydarimmo.ma/sitemap.xml
