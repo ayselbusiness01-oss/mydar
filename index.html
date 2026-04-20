@@ -291,6 +291,39 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .btn-cta2:hover{background:rgba(255,255,255,.14)}
 
 /* ===== FOOTER ===== */
+
+/* ─── BLOG ─── */
+#v-blog .blog-hero{background:linear-gradient(160deg,var(--P2) 0%,var(--P) 100%);padding:64px 24px 48px;text-align:center}
+#v-blog .blog-hero h1{font-family:var(--font-display);font-size:clamp(28px,5vw,42px);color:#fff;margin-bottom:12px}
+#v-blog .blog-hero p{color:rgba(255,255,255,.7);font-size:15px;max-width:480px;margin:0 auto}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;padding:40px 24px;max-width:960px;margin:0 auto}
+.blog-card{background:var(--W);border-radius:16px;overflow:hidden;cursor:pointer;transition:.2s;border:1px solid var(--BR)}
+.blog-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
+.blog-card-img{height:180px;object-fit:cover;width:100%;background:var(--S);display:flex;align-items:center;justify-content:center;font-size:48px}
+.blog-card-body{padding:18px 20px 20px}
+.blog-card-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--V);margin-bottom:8px}
+.blog-card h2{font-family:var(--font-display);font-size:18px;color:var(--P);margin-bottom:8px;line-height:1.35}
+.blog-card p{font-size:13px;color:var(--T2);line-height:1.6}
+.blog-card-foot{padding:12px 20px 16px;border-top:1px solid var(--BR);font-size:11px;color:var(--T3);display:flex;justify-content:space-between}
+/* Article individuel */
+.article-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--V);cursor:pointer;padding:20px 24px 0;font-weight:600}
+.article-back:hover{text-decoration:underline}
+.article-container{max-width:720px;margin:0 auto;padding:0 24px 60px}
+.article-header{padding:32px 0 24px;border-bottom:1px solid var(--BR);margin-bottom:32px}
+.article-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--V);margin-bottom:10px}
+.article-header h1{font-family:var(--font-display);font-size:clamp(24px,4vw,36px);color:var(--P);margin-bottom:12px;line-height:1.25}
+.article-header .article-intro{font-size:16px;color:var(--T2);line-height:1.7;margin-bottom:0}
+.article-header .article-meta{font-size:11px;color:var(--T3);margin-top:14px}
+.article-body h2{font-family:var(--font-display);font-size:20px;color:var(--P);margin:36px 0 12px}
+.article-body p{font-size:15px;color:var(--T);line-height:1.75;margin-bottom:18px}
+.article-body .encadre{background:var(--S2);border-left:3px solid var(--V);border-radius:0 10px 10px 0;padding:16px 18px;margin:24px 0;font-size:14px;color:var(--T);line-height:1.65}
+.article-body .encadre strong{display:block;color:var(--P);margin-bottom:4px;font-size:13px;text-transform:uppercase;letter-spacing:.5px}
+.article-cta{background:var(--P);border-radius:16px;padding:28px 24px;text-align:center;margin-top:40px}
+.article-cta h3{font-family:var(--font-display);color:#fff;font-size:20px;margin-bottom:8px}
+.article-cta p{color:rgba(255,255,255,.7);font-size:13px;margin-bottom:18px}
+.article-cta button{background:var(--A);color:#fff;border:none;border-radius:30px;padding:13px 28px;font-size:15px;font-weight:700;cursor:pointer}
+.article-cta button:hover{opacity:.9}
+
 .footer{background:#1C1A17;padding:48px 24px 24px}
 .fi2{max-width:760px;margin:0 auto}
 .ft2{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;flex-wrap:wrap;gap:20px}
@@ -473,6 +506,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
     <a onclick="goTo('landing')">Accueil</a>
     <a onclick="goTo('conseils')">Nos conseils</a>
     <a onclick="goTo('quartiers')">Quartiers</a>
+    <a onclick="goTo('blog')">Blog</a>
     <a onclick="goTo('mentions')">Mentions légales</a>
   </div>
   <button class="btn-nav" onclick="startF('sell')">Estimer mon bien</button>
@@ -485,6 +519,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
   <a onclick="startF('buy');closeMob()">🔍 Vérifier un prix</a>
   <a onclick="goTo('conseils');closeMob()">💡 Nos conseils</a>
   <a onclick="goTo('quartiers');closeMob()">📍 Quartiers</a>
+  <a onclick="goTo('blog');closeMob()">✍️ Blog</a>
   <a onclick="goTo('mentions');closeMob()">📄 Mentions légales</a>
   <a onclick="goTo('confidentialite');closeMob()">🔒 Confidentialité</a>
   <button class="mob-cta" onclick="startF('sell');closeMob()">Estimer mon bien</button>
@@ -636,6 +671,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
       <div class="fl">
         <a onclick="goTo('conseils')">Nos conseils</a>
         <a onclick="goTo('quartiers')">Quartiers</a>
+        <a onclick="goTo('blog')">Blog</a>
         <a onclick="goTo('confidentialite')">Confidentialité</a>
         <a onclick="goTo('mentions')">Mentions légales</a>
       </div>
@@ -1365,6 +1401,29 @@ function closeMob(){
 })();
 </script>
 
+
+<div id="v-blog" class="view">
+  <div class="blog-hero">
+    <h1>Le marché immobilier à Marrakech</h1>
+    <p>Des analyses concrètes, sans langue de bois, pour mieux comprendre, acheter et investir.</p>
+  </div>
+  <div class="blog-grid" id="blog-grid">
+    <!-- Cards générées par JS -->
+  </div>
+</div>
+
+<div id="v-article" class="view">
+  <div class="article-back" onclick="goTo('blog')">← Retour aux articles</div>
+  <div class="article-container">
+    <div id="article-content"></div>
+    <div class="article-cta">
+      <h3>Votre bien, estimé en 2 minutes</h3>
+      <p>Une fourchette indicative gratuite, calibrée sur les prix réels du marché marrakchi.</p>
+      <button onclick="startF('sell')">Estimer mon bien</button>
+    </div>
+  </div>
+</div>
+
 <div id="qmodal" style="display:none" class="qmodal-overlay" onclick="if(event.target===this)closeQModal()">
   <div class="qmodal" id="qmodal-inner">
     <button class="qmodal-close" onclick="closeQModal()">✕</button>
@@ -1402,11 +1461,257 @@ function openQuartier(nom){
   modal.style.display='flex';
   document.body.style.overflow='hidden';
 }
+
+const ARTICLES = [
+  {
+    id: 'gueliz-hivernage',
+    tag: 'Quartiers',
+    emoji: '🏙️',
+    titre: 'Guéliz vs Hivernage : deux adresses, deux vies',
+    intro: "Ils sont voisins sur la carte. Dans les faits, tout les oppose. L'un est animé, cosmopolite, piéton. L'autre est calme, arboré, résidentiel. Voici ce qui les distingue vraiment — au-delà des brochures.",
+    date: 'Avril 2026',
+    contenu: `
+      <div class="article-tag">Quartiers</div>
+      <h1>Guéliz vs Hivernage : deux adresses, deux vies</h1>
+      <p class="article-intro">Ils sont voisins sur la carte. Dans les faits, tout les oppose. L'un est animé, cosmopolite, piéton. L'autre est calme, arboré, résidentiel. Voici ce qui les distingue vraiment — au-delà des brochures.</p>
+      <div class="article-meta">Avril 2026 · 5 min de lecture</div>
+    `,
+    body: `
+      <h2>Guéliz : la ville telle qu'elle vit</h2>
+      <p>Guéliz a été tracé sous le Protectorat français par l'architecte Henri Prost dans les années 1920. À l'époque, les familles européennes et les bourgeois marocains quittaient la Médina pour ces larges avenues bordées de ficus. Cent ans plus tard, l'ADN du quartier n'a pas changé : c'est là que Marrakech consomme, sort et travaille.</p>
+      <p>L'avenue Mohammed V est l'axe central. Le Carré Eden a remplacé l'ancien marché historique en 2014. Le café des Négociants et le café de la Renaissance datent de l'époque coloniale et font toujours le plein à 8h du matin. Rue Moulay Ali, onze restaurants se succèdent sur 200 mètres — du tajine traditionnel au bar à vins. Al Fassia, restaurant entièrement tenu par des femmes, est une institution depuis plus de vingt ans.</p>
+      <p>Le Jardin El Harti est le poumon vert du quartier : palmiers, roseraie, fontaines. Les familles marrakchies s'y retrouvent le vendredi soir. À dix minutes à pied, le Jardin Majorelle et le musée Yves Saint Laurent drainent une clientèle internationale qui remonte ensuite vers les terrasses de Guéliz.</p>
+      <p>Pour un expatrié qui s'installe, Guéliz coche toutes les cases : gare ferroviaire, cliniques, lycée Victor Hugo, Carrefour, coworking, connexion fibre. Tout se fait à pied. C'est ce que Claire, qui y habite depuis plusieurs années, résume simplement : "Je suis à 10 minutes en taxi de mon bureau et de la place Jemaa el-Fna. Pour moi c'est parfait."</p>
+      <div class="encadre"><strong>Ce que le marché dit</strong>Entre 13 500 et 25 000 MAD/m² selon le standing et l'étage. Les résidences récentes avec piscine et rooftop atteignent 20 000 à 28 000 MAD/m². Marché le plus liquide de la ville — les biens se vendent et se louent sans attendre. Taux d'occupation Airbnb parmi les plus élevés de Marrakech.</div>
+      <p>Une mise en garde réelle toutefois : Guéliz est animé. Les nuits de week-end, les terrasses de restaurant en rez-de-chaussée peuvent être bruyantes jusqu'à 2h du matin. Si vous achetez un appartement, vérifiez toujours la destination des locaux commerciaux en dessous avant de signer.</p>
+
+      <h2>Hivernage : le calme qui ne dort jamais</h2>
+      <p>L'Hivernage est né dans les années 1930 autour du premier casino et des premiers hôtels de luxe. Son nom vient de là : les Anglais et les Européens y passaient l'hiver, profitant d'un climat doux que leurs pays ne leur offraient pas. Aujourd'hui, La Mamounia, l'Es Saadi, le Four Seasons et le Sofitel définissent le quartier autant que ses résidences privées.</p>
+      <p>Nathalie y habite depuis 17 ans. Ce qui l'a gardée là : "Le calme. La végétation. Et le claquement des sabots des calèches qui passent le soir." L'Hivernage est arboré comme peu de quartiers urbains le sont. Les avenues sont larges, les jardins sont grands, les immeubles récents ont été construits avec un recul qui ne gêne pas les villas existantes. La circulation n'est pas dense.</p>
+      <p>C'est aussi le quartier le plus patrouillé de Marrakech, en raison de la présence des hôtels de luxe et de certaines résidences officielles. Pour les acheteurs étrangers, la sécurité est systématiquement le premier critère — et l'Hivernage le satisfait sans effort.</p>
+      <p>La vie nocturne existe, mais différemment. Les night-clubs des grands hôtels attirent une clientèle internationale pendant le Festival International du Film et tout au long de l'année. Le Comptoir Darna, en immeuble Art Déco, mélange gastronomie marocaine et spectacle de danse jusqu'à 1h du matin. Mais contrairement à Guéliz, le bruit reste concentré dans les enceintes hôtelières.</p>
+      <div class="encadre"><strong>Ce que le marché dit</strong>20 000 à 40 000+ MAD/m² selon la résidence et les prestations. Pas de petite surface ici : le marché commence à 80m². Les vendeurs négocient peu sur les beaux produits — la demande internationale est structurellement soutenue. Marché moins liquide que Guéliz mais plus stable dans le temps.</div>
+
+      <h2>Alors, lequel choisir ?</h2>
+      <p>La réponse dépend de ce que vous cherchez à vivre. Guéliz si vous voulez une vie urbaine active, un marché liquide et une adresse que tout le monde connaît. Hivernage si vous privilégiez le calme résidentiel, le standing et la proximité discrète avec le luxe sans l'agitation du centre-ville. Les deux sont à 10 minutes de Jemaa el-Fna. Les deux sont des marchés solides. Mais ce sont deux façons radicalement différentes de vivre Marrakech au quotidien.</p>
+    `
+  },
+  {
+    id: 'targa-agdal-semlalia',
+    tag: 'Investissement',
+    emoji: '🏘️',
+    titre: 'Targa, Agdal, Semlalia : où acheter avec un budget raisonnable',
+    intro: "Trois quartiers résidentiels, trois profils d'acheteurs. Ni Hivernage ni Palmeraie — mais des adresses solides, des prix cohérents, et des qualités de vie que les brochures de luxe ne mentionnent jamais.",
+    date: 'Avril 2026',
+    contenu: `
+      <div class="article-tag">Investissement</div>
+      <h1>Targa, Agdal, Semlalia : où acheter avec un budget raisonnable</h1>
+      <p class="article-intro">Trois quartiers résidentiels, trois profils d'acheteurs. Ni Hivernage ni Palmeraie — mais des adresses solides, des prix cohérents, et des qualités de vie que les brochures de luxe ne mentionnent jamais.</p>
+      <div class="article-meta">Avril 2026 · 6 min de lecture</div>
+    `,
+    body: `
+      <h2>Agdal : le quartier des familles bien installées</h2>
+      <p>Agdal s'organise autour de l'avenue Mohammed VI qui mène vers la vallée de l'Ourika et les montagnes de l'Atlas. En longeant cet axe, on croise des potiers, des menuisiers, des pépiniéristes — une vie artisanale locale authentique qui contraste avec les résidences modernes du quartier. C'est cette dualité qui donne à Agdal son caractère : moderne dans ses immeubles, ancré dans ses habitudes de vie.</p>
+      <p>Menara Mall, cinéma Mégarama, Al Mazar, cliniques, écoles internationales. L'aéroport Menara est à 15-20 minutes. Pour une famille avec enfants en école internationale ou un expatrié qui a besoin de tout trouver en voiture, Agdal est l'adresse évidente. La circulation y est fluide, les avenues larges, les résidences avec piscine et parking sont nombreuses.</p>
+      <p>Ce que peu de gens savent : Agdal affiche parmi les prix de transaction au m² les plus élevés de Marrakech hors Hivernage. C'est le signal d'un marché actif avec des transactions régulièrement enregistrées — un signe de confiance des acheteurs sur le long terme.</p>
+      <div class="encadre"><strong>Ce que le marché dit</strong>13 000 à 22 000 MAD/m² selon la résidence. Les programmes les plus récents (livraison 2024-2026) se positionnent entre 15 000 et 22 000 MAD/m². Marché familial stable, longue durée très solide. Fort potentiel de valorisation sur l'axe aéroport avec les projets CM2030.</div>
+
+      <h2>Semlalia : le central méconnu</h2>
+      <p>Semlalia est coincé entre Guéliz et la Médina, dans un entre-deux tranquille et stratégique. À deux pas du Jardin Majorelle, de l'avenue Mohammed V et des marchés locaux. C'est un quartier de classes moyennes marocaines établies — peu de touristes, peu d'étrangers, une vie de quartier réelle avec ses épiceries, ses cafés locaux, ses voisins qui se connaissent.</p>
+      <p>Cette discrétion est précisément ce qui maintient ses prix en dessous des quartiers voisins, pour un emplacement qui ne lui a rien à envier. Sur les forums d'expatriés, une résidente témoigne : "J'y suis restée neuf mois, c'était super." Simple, direct, concret. C'est la réputation de Semlalia.</p>
+      <p>Pour un premier achat ou une résidence principale avec un budget serré, Semlalia offre le meilleur rapport emplacement/prix de Marrakech sur le résidentiel standard. Les immeubles sont bien tenus, les syndics actifs. Quelques villas subsistent encore — de plus en plus rares au fil des années.</p>
+      <div class="encadre"><strong>Ce que le marché dit</strong>Prix constatés sur le marché : 10 500 à 16 000 MAD/m². Négociation possible de 10 à 15%. Un F3 de 90m² se trouve entre 950 000 et 1 400 000 MAD selon l'état et l'étage. Rendement locatif longue durée stable.</div>
+
+      <h2>Targa : le quartier du timing</h2>
+      <p>Targa était encore il y a quatre ans un quartier périphérique sans grande ambition immobilière. Les choses ont changé. L'axe Guéliz-aéroport le traverse, des programmes neufs sortent de terre chaque trimestre, et le foncier a subi une pression forte depuis l'annonce des grands événements sportifs. Les professionnels locaux sont unanimes là-dessus.</p>
+      <p>Un expatrié qui a longtemps hésité entre plusieurs quartiers résume son choix de Targa ainsi : "Guéliz, trop animé pour moi. Hivernage, trop touristique. Palmeraie, trop isolée et terrain trop cher. Targa, c'est calme, résidentiel, bien connecté." Ce profil revient souvent : l'acheteur qui veut de la qualité de vie sans payer le prix du prestige.</p>
+      <p>Le Grand Stade de Marrakech est en transformation complète pour la Coupe du Monde 2030 — suppression de la piste d'athlétisme, rapprochement des tribunes, mise aux normes FIFA. L'axe Targa bénéficiera mécaniquement de cette dynamique d'infrastructure. Les programmes neufs livraison 2026-2027 sont encore à des prix d'avant-hausse.</p>
+      <div class="encadre"><strong>Ce que le marché dit</strong>Prix constatés sur le marché : 9 500 à 13 000 MAD/m² sur le neuf. Terrains constructibles encore accessibles. Clubs sportifs, écoles internationales, ambiance familiale. Valorisation attendue progressive sur 3-5 ans avec les projets CM2030.</div>
+    `
+  },
+  {
+    id: 'marrakech-2h30-de-paris',
+    tag: 'Lifestyle',
+    emoji: '✈️',
+    titre: 'Marrakech à 2h30 de Paris : ce que ça change vraiment',
+    intro: "Ce n'est pas juste le soleil. C'est un rapport au temps, à l'espace, à l'argent qui change complètement. Voici ce que les gens qui s'y installent découvrent réellement — et qui les fait rester.",
+    date: 'Avril 2026',
+    contenu: `
+      <div class="article-tag">Lifestyle</div>
+      <h1>Marrakech à 2h30 de Paris : ce que ça change vraiment</h1>
+      <p class="article-intro">Ce n'est pas juste le soleil. C'est un rapport au temps, à l'espace, à l'argent qui change complètement. Voici ce que les gens qui s'y installent découvrent réellement — et qui les fait rester.</p>
+      <div class="article-meta">Avril 2026 · 7 min de lecture</div>
+    `,
+    body: `
+      <h2>La ville rouge ne se visite pas — elle se ressent</h2>
+      <p>Marrakech, on l'a dit et redit. Mais il y a une phrase qui revient systématiquement chez ceux qui y séjournent plusieurs fois : "Je n'ai jamais l'impression d'y revenir. À chaque fois, je redécouvre." Ce n'est pas une formule de guide touristique. C'est la réalité d'une ville qui change selon la saison, l'heure, le quartier où on se trouve.</p>
+      <p>En hiver, l'Atlas est enneigé et visible depuis les terrasses de Guéliz. En avril, les orangers sont en fleurs et l'air sent le jasmin. En juillet, 40°C en ville — mais à 65km au sud, la vallée de l'Ourika descend à 25°C avec ses restaurants installés directement dans la rivière. Les Marrakchis y vont le week-end, les pieds dans l'eau, tajine au bord du courant. C'est à 1h30 de voiture.</p>
+      <p>Essaouira est à 2h30 de route. Barques bleues dans le port, vent constant, médina tranquille où les prix sont affichés et non négociés — le contraire total de Marrakech. Beaucoup d'expatriés font l'aller-retour le samedi matin, retour le dimanche soir. La route est facile, une nationale toute droite.</p>
+
+      <h2>Le coût de la vie : ce que ça représente vraiment</h2>
+      <p>40 à 50% moins cher qu'en Europe — c'est le chiffre qui circule. Il est juste, à condition de comprendre ce qu'il recouvre. Les produits locaux sont effectivement très abordables : un tajine dans un snack rue Ibn Aïcha coûte 30 à 35 MAD (3 euros). Les courses au souk pour deux personnes : 1 500 à 2 500 MAD par mois. Une femme de ménage deux fois par semaine : environ 150 euros par mois.</p>
+      <p>En revanche, les produits importés — fromage français, vin, électronique européen — coûtent parfois plus cher qu'en Europe à cause des taxes douanières. Et les loyers dans les quartiers prisés (Guéliz, Hivernage) sont montés significativement ces dernières années, portés en partie par les arrivées de télétravailleurs européens qui comparent avec les prix de leur ville d'origine.</p>
+      <p>Un appartement meublé correct à Guéliz se loue entre 4 500 et 8 000 MAD par mois selon la taille et la résidence. Un F2 à Agdal : 5 000 à 9 000 MAD. Dans les quartiers périphériques (Targa, Mhamid) : 2 500 à 4 500 MAD. Pour un retraité français qui a vendu un appartement à Lyon, la différence de coût est immédiatement visible sur son compte en banque.</p>
+      <div class="encadre"><strong>Budget mensuel solo confortable à Marrakech</strong>Loyer Guéliz meublé (1ch) : 5 000 MAD · Courses : 2 000 MAD · Restaurants (2-3x/semaine) : 1 500 MAD · Transport (taxis) : 500 MAD · Femme de ménage : 700 MAD · Divers : 1 000 MAD · Total : ~10 700 MAD soit environ 980 €/mois.</div>
+
+      <h2>La vie quotidienne : ce que personne ne décrit</h2>
+      <p>Le thé à la menthe est un rituel social, pas un accessoire touristique. On le boit partout, tout le temps, comme les Italiens boivent leur espresso. Il n'est jamais refusé, toujours offert. C'est l'une des premières choses que les expatriés mentionnent quand on leur demande ce qui les a séduits.</p>
+      <p>Les Marrakchis sortent tard. Les cafés sont pleins à 21h, les familles se promènent dans les avenues à 22h, les terrasses de Guéliz tournent jusqu'à minuit en semaine. Ce rythme décalé par rapport à l'Europe surprend au début, puis devient naturel. La vie ralentit, mais ne s'arrête pas.</p>
+      <p>La communauté d'expatriés est active et bien organisée. Des groupes de plusieurs milliers de membres sur les réseaux sociaux partagent les bons plans, s'entraident pour les démarches administratives, organisent des événements. En 48h après votre arrivée à Guéliz, vous avez vingt contacts. Cette solidarité est l'un des facteurs qui explique que beaucoup de gens qui viennent pour "un an" sont encore là cinq ans plus tard.</p>
+
+      <h2>Ce qui retient vraiment les gens</h2>
+      <p>Au-delà des chiffres et des quartiers, il y a quelque chose de plus difficile à quantifier. Marrakech est une ville qui donne le sentiment d'une vie pleine — le soleil, les couleurs, la richesse culturelle, les escapades dans l'Atlas ou le désert d'Agafay. On mange bien, on vit dans l'espace, on a un jardin ou une terrasse que Paris ou Lyon ne permettraient pas avec le même budget. Et on reste à 2h30 de vol de la famille.</p>
+      <p>C'est ce contraste entre proximité géographique et dépaysement total qui fait la singularité de Marrakech dans le panorama des expatriations. Ce n'est pas l'autre bout du monde. C'est juste assez loin pour que tout soit différent, et assez proche pour ne jamais vraiment partir.</p>
+    `
+  },
+  {
+    id: 'investir-riad-medina',
+    tag: 'Investissement',
+    emoji: '🏺',
+    titre: 'Investir dans un riad : la réalité du marché en 2026',
+    intro: "Le riad reste l'investissement le plus passionnant du marché marrakchi. C'est aussi le plus exigeant. Voici comment les choses se passent vraiment pour ceux qui franchissent le pas.",
+    date: 'Avril 2026',
+    contenu: `
+      <div class="article-tag">Investissement</div>
+      <h1>Investir dans un riad : la réalité du marché en 2026</h1>
+      <p class="article-intro">Le riad reste l'investissement le plus passionnant du marché marrakchi. C'est aussi le plus exigeant. Voici comment les choses se passent vraiment pour ceux qui franchissent le pas.</p>
+      <div class="article-meta">Avril 2026 · 8 min de lecture</div>
+    `,
+    body: `
+      <h2>Qu'est-ce qu'un riad, précisément</h2>
+      <p>Le mot arabe "riad" signifie jardin. La maison traditionnelle marocaine est construite en tournant le dos à la rue — façade aveugle, porte discrète — et en s'ouvrant sur une cour intérieure avec fontaine et végétation. Cet espace central est à la fois climatiseur passif (l'air frais descend de la terrasse la nuit et rafraîchit la cour le jour), pièce à vivre et âme de la maison. L'architecture marocaine a résolu le problème de la chaleur il y a des siècles sans consommer un watt.</p>
+      <p>Dans la Médina de Marrakech, classée au patrimoine mondial de l'UNESCO depuis 1985, les riads se comptent par milliers. Certains sont de petits logements de quelques chambres. D'autres sont de véritables palais avec plusieurs patios, hammam privatif, terrasse avec vue sur l'Atlas et jardin planté d'orangers et de citronniers. C'est la même architecture, des siècles d'histoire commune, et des prix qui varient du simple au quintuple dans la même ruelle.</p>
+
+      <h2>Les adresses qui comptent</h2>
+      <p>Tous les riads de la Médina ne se valent pas — loin de là. La localisation est le premier facteur de valeur, encore plus qu'ailleurs. Dans les ruelles profondes de Bab Debbagh ou Bab Ghmat en périphérie, le riad coûte moins cher à l'achat et génère moins à la location. Dans les quartiers historiques premium — Dar El Bacha, Mouassine, Riad Zitoun Jdid, Kennariat, aux abords de la Kasbah — le prix monte et la demande locative est structurellement forte.</p>
+      <p>La proximité de Jemaa el-Fna est un paramètre réel : les locataires étrangers valorisent de pouvoir rejoindre la place à pied en quelques minutes. Mais attention, trop proche peut rimer avec trop bruyant selon les ruelles. L'équilibre se joue à l'échelle de la rue, pas du quartier.</p>
+      <div class="encadre"><strong>Repères de prix 2026</strong>Riad à rénover 150-200m² : 3 à 5 millions MAD selon emplacement · Riad rénové architecte, bon emplacement : 7 à 12 millions MAD · Riad d'exception avec piscine, licence maison d'hôtes, vue terrasse : au-delà de 2 millions € · Entretien annuel : compter 3 à 5% de la valeur du bien pour maintenir le tadelakt, les zelliges et les boiseries.</div>
+
+      <h2>La location saisonnière : les chiffres réels</h2>
+      <p>La Médina affiche les taux d'occupation les plus élevés de Marrakech sur la courte durée — en mai 2025, le taux d'occupation des meilleures propriétés atteignait 76%, avec des revenus mensuels supérieurs à 17 000 MAD pour les biens bien gérés et bien positionnés. Un riad 4 chambres bien géré peut générer un rendement brut de 6 à 8% net annuel.</p>
+      <p>La nouvelle réglementation de décembre 2024 (arrêté 985-24) a réformé le classement des maisons d'hôtes. Elle impose des normes obligatoires : chambres avec sanitaires privatifs, petit-déjeuner inclus, produits d'accueil, propreté stricte. Pour les propriétaires de riads de qualité, c'est une opportunité : la réglementation crée une différenciation claire avec les établissements non conformes et renforce l'attractivité des riads bien tenus auprès des locataires internationaux.</p>
+
+      <h2>La gestion : le facteur décisif</h2>
+      <p>C'est là que beaucoup de projets se jouent. Un riad en Médina, ça ne se gère pas depuis Paris. Les ruelles ne sont pas carrossables, les livraisons se font à dos de mulet, les pannes dans l'ancien sont fréquentes, et les locataires étrangers ont des exigences élevées en matière de service. Ceux qui réussissent sont ceux qui sont présents sur place — ou qui ont quelqu'un de parfaitement fiable sur place.</p>
+      <p>Les conciergeries professionnelles de Marrakech se sont bien structurées ces dernières années. Elles gèrent les réservations, les check-ins et check-outs, le ménage entre séjours, les petits travaux préventifs. Pour un propriétaire non-résident, c'est quasi-indispensable. Les frais de gestion représentent 15 à 25% des revenus bruts — un poste à intégrer dans le calcul de rentabilité dès le départ.</p>
+
+      <h2>Ce qu'il faut vérifier avant d'acheter</h2>
+      <p>Le titre foncier d'abord. Un riad sans titre foncier établi n'existe pas pour un acheteur sérieux. Ensuite, l'état des fondations et de la toiture terrasse — les infiltrations sont fréquentes dans l'ancien et les coûts de réparation peuvent être significatifs. La conformité des travaux existants avec les exigences de conservation de la Médina classée UNESCO. Et l'absence de servitudes de passage qui pourraient compliquer l'exploitation.</p>
+      <p>Faites toujours appel à un expert bâtiment indépendant — pas l'architecte de l'agence qui vous vend le bien — avant toute promesse. C'est le conseil numéro un de tous ceux qui ont acheté un riad et qui ont bien fait les choses.</p>
+    `
+  },
+  {
+    id: 'cm2030-marrakech',
+    tag: 'Marché',
+    emoji: '🏟️',
+    titre: 'CM2030 : ce qui se passe vraiment à Marrakech',
+    intro: "Le Grand Stade est en transformation. L'aéroport monte en capacité. Le TGV arrive. Les prix fonciers ont déjà bougé. Voici les faits concrets, sans promesses excessives.",
+    date: 'Avril 2026',
+    contenu: `
+      <div class="article-tag">Marché</div>
+      <h1>CM2030 : ce qui se passe vraiment à Marrakech</h1>
+      <p class="article-intro">Le Grand Stade est en transformation. L'aéroport monte en capacité. Le TGV arrive. Les prix fonciers ont déjà bougé. Voici les faits concrets, sans promesses excessives.</p>
+      <div class="article-meta">Avril 2026 · 6 min de lecture</div>
+    `,
+    body: `
+      <h2>Le Grand Stade : transformation en cours</h2>
+      <p>Le Grand Stade de Marrakech est entré en phase de transformation structurelle majeure. Les travaux ont commencé — la piste d'athlétisme qui entourait la pelouse est supprimée, les tribunes sont rapprochées du terrain pour créer une configuration plus immersive et répondre aux exigences FIFA. Pendant la durée des travaux, le Kawkab de Marrakech dispute ses matchs au stade El Harti. Ce n'est pas un projet annoncé — c'est en cours.</p>
+      <p>La Coupe d'Afrique des Nations s'est jouée du 21 décembre 2025 au 18 janvier 2026 au Maroc. Marrakech en était l'une des villes-hôtes. Ce premier grand événement a servi de test opérationnel et a démontré la capacité d'organisation du pays avant 2030.</p>
+
+      <h2>L'aéroport Menara : vers 11,5 millions de passagers</h2>
+      <p>L'aéroport Ménara dessert aujourd'hui plus de 70 destinations directes : Paris, Bruxelles, Madrid, Londres, Dubaï. Le programme "Aéroports 2030" de l'ONDA vise une capacité de 11,5 millions de passagers — une montée en puissance significative qui renforcera l'accessibilité de Marrakech pour les acheteurs et investisseurs étrangers. Les travaux d'infrastructure sont en cours.</p>
+
+      <h2>Le TGV : 1h20 depuis Casablanca</h2>
+      <p>La ligne à grande vitesse Al Boraq relie aujourd'hui Tanger à Casablanca. Son prolongement jusqu'à Marrakech est dans les plans officiels pour 2030. À terme, Casablanca sera à 1h20 de Marrakech — contre environ 3h en train classique aujourd'hui. Ce lien renforcera l'attractivité de Marrakech pour les professionnels casablancais qui pourraient envisager une résidence secondaire ou un investissement locatif dans la ville rouge.</p>
+
+      <h2>Ce que ça a déjà fait sur les prix</h2>
+      <p>Les prix fonciers ont pris 30% en moyenne à Marrakech en deux ans selon les professionnels du secteur. Dans certaines zones proches des infrastructures sportives et touristiques, la hausse atteint 50%. Les quartiers les plus directement exposés : Targa sur l'axe stade, Agdal sur l'axe aéroport, Route de Casablanca pour les terrains constructibles.</p>
+      <p>La demande immobilière a progressé de 15% en 2024 tandis que l'offre régressait de 10% — générant une rareté du foncier bien réelle. Les biens de standing partent avant même d'être publiés en ligne dans certains segments.</p>
+      <div class="encadre"><strong>Ce que les chiffres confirment</strong>Marrakech : rendements locatifs bruts entre 5,2% et 9%, moyenne à 6,9% — parmi les meilleurs du Maroc. Taux d'occupation Airbnb : 76% sur les meilleures propriétés en mai 2025. IDE (investissements directs étrangers) : +55% de croissance.</div>
+
+      <h2>Sidi Ghanem et l'Hivernage : deux quartiers en réaménagement</h2>
+      <p>Sidi Ghanem, l'ancienne zone industrielle reconvertie en quartier créatif, est en cours de réaménagement officiel dans le cadre du programme urbain CM2030. Le quartier de l'Hivernage fait l'objet d'une étude stratégique de développement par l'agence urbaine — un signal que l'État investit dans la valorisation de ce haut lieu résidentiel au-delà de l'événement sportif.</p>
+      <p>La place Jemaa el-Fna a bénéficié d'une rénovation du sol et de l'éclairage. Ces améliorations ne disparaîtront pas après 2030 — elles resteront en héritage pour les propriétaires de la ville.</p>
+
+      <h2>La perspective juste</h2>
+      <p>Ce n'est pas la première fois qu'un grand événement sportif joue ce rôle de catalyseur sur un marché immobilier. Après 2030, Marrakech conservera ses nouvelles infrastructures, sa nouvelle stature internationale et sa position consolidée parmi les grandes destinations mondiales. Les lignes de transport, les hôtels, les aménagements urbains sont des actifs permanents. Pour un acheteur qui pense à 5 ou 10 ans, la trajectoire est lisible.</p>
+    `
+  },
+  {
+    id: 'palmeraie-marche-a-part',
+    tag: 'Quartiers',
+    emoji: '🌴',
+    titre: 'La Palmeraie : comprendre un marché à part',
+    intro: "13 000 hectares de palmiers-dattiers. Des golfs privés. Un marché qui fonctionne à 60% hors des portails d'annonces. La Palmeraie n'est pas un quartier comme les autres — voici comment il s'appréhende.",
+    date: 'Avril 2026',
+    contenu: `
+      <div class="article-tag">Quartiers</div>
+      <h1>La Palmeraie : comprendre un marché à part</h1>
+      <p class="article-intro">13 000 hectares de palmiers-dattiers. Des golfs privés. Un marché qui fonctionne largement hors des portails d'annonces. La Palmeraie n'est pas un quartier comme les autres — voici comment il s'appréhende.</p>
+      <div class="article-meta">Avril 2026 · 6 min de lecture</div>
+    `,
+    body: `
+      <h2>Un territoire, pas un quartier</h2>
+      <p>La Palmeraie de Marrakech s'étend au nord de la ville sur 13 000 hectares de palmiers-dattiers plantés depuis des siècles. Ce n'est pas un quartier avec des avenues et des résidences — c'est un territoire. Les golfs privés y sont implantés : Amelkis, Al Maaden, Royal Palm. Les propriétés sont séparées par des allées privées, des murs, de la végétation. On n'aperçoit généralement les villas qu'en ayant été invité à y entrer.</p>
+      <p>Marie et Pierre y ont construit leur villa. Le chantier a duré 14 mois. "Depuis qu'on vit ici à temps plein, on découvre chaque jour de nouveaux plaisirs. Notre piscine chauffée nous permet de nager même en hiver, et le hammam est notre rituel quotidien." Ce type de témoignage revient souvent de la Palmeraie — et il est sincère. C'est une qualité de vie que les appartements en ville, quelle que soit leur standing, ne peuvent pas offrir.</p>
+
+      <h2>Ce qu'on y trouve vraiment</h2>
+      <p>Villas d'architecte entre 500 et 5 000m², riads de prestige, quelques appartements dans des résidences golfiques fermées. Pas de petites surfaces. Pas de studios. Le marché commence à plusieurs millions de MAD. Les villas signées par des architectes comme Charles Boccara ou Elie Mouyal — spécialistes de l'élégance traditionnelle marocaine moderne — représentent le segment le plus coté.</p>
+      <p>Les domaines avec piscine, hammam, salle de cinéma, spa et personnel de maison existent. Les prix dépassent facilement 80 millions MAD pour les propriétés les plus abouties. Ces produits ne s'achètent pas via un portail d'annonces — ils se trouvent via les réseaux d'agences premium et le bouche-à-oreille des propriétaires existants.</p>
+      <div class="encadre"><strong>Repères de prix 2026</strong>Villas construites : 18 000 à 35 000 MAD/m² selon architecte et prestations. Résidences golfiques : 15 000 à 25 000 MAD/m². Terrains constructibles : valeur très variable selon VNA et accès golf. Location saisonnière villa prestige : 10 000 à 18 000 MAD/nuit.</div>
+
+      <h2>La clientèle internationale</h2>
+      <p>La Palmeraie attire une clientèle que peu d'autres adresses africaines peuvent revendiquer : Marocains très aisés, investisseurs du Golfe, familles patrimoniales françaises et belges, personnalités internationales. Pendant le Festival International du Film de Marrakech, les villas de la Palmeraie affichent complet à des tarifs qui n'ont rien à envier aux grandes destinations mondiales.</p>
+      <p>Les 4x4 et les quads circulent entre les allées pour les excursions dans les palmiers. Les golfs proposent des forfaits résidents. Les hôtels Selman, Mandarin Oriental ou les Deux Tours offrent un accès à des services de resort sans avoir à quitter la Palmeraie. C'est un mode de vie autosuffisant, à 15 minutes de Jemaa el-Fna — ce contraste est précisément ce qui le rend unique.</p>
+
+      <h2>Les points d'attention pour les acheteurs étrangers</h2>
+      <p>La VNA (Vocation Non Agricole) est obligatoire pour rendre un terrain constructible en Palmeraie. Sans ce document administratif, un terrain nu ne peut pas accueillir de construction — vérifiez-le systématiquement avant toute promesse.</p>
+      <p>La voiture est indispensable pour tout. Pas de piéton en Palmeraie. La dépendance à la voiture est totale pour les courses, les sorties, les rendez-vous. Certaines résidences proposent des navettes vers le centre-ville — renseignez-vous avant d'acheter.</p>
+      <p>Enfin, la liquidité. Un bien en Palmeraie peut mettre de 6 à 18 mois à trouver preneur, sur un segment où le réseau et l'off-market dominent les transactions. C'est un marché pour investisseurs patrimoniaux avec un horizon long — pas pour ceux qui ont besoin de revendre rapidement.</p>
+    `
+  }
+];
+
+function openArticle(id) {
+  const art = ARTICLES.find(a => a.id === id);
+  if(!art) return;
+  document.getElementById('article-content').innerHTML = `
+    <div class="article-header">
+      ${art.contenu}
+    </div>
+    <div class="article-body">
+      ${art.body}
+    </div>
+  `;
+  goTo('article');
+  window.scrollTo(0,0);
+}
+
+function renderBlog() {
+  const grid = document.getElementById('blog-grid');
+  if(!grid) return;
+  grid.innerHTML = ARTICLES.map(a => `
+    <div class="blog-card" onclick="openArticle('${a.id}')">
+      <div class="blog-card-img">${a.emoji}</div>
+      <div class="blog-card-body">
+        <div class="blog-card-tag">${a.tag}</div>
+        <h2>${a.titre}</h2>
+        <p>${a.intro.slice(0,100)}…</p>
+      </div>
+      <div class="blog-card-foot">
+        <span>${a.date}</span>
+        <span>Lire →</span>
+      </div>
+    </div>
+  `).join('');
+}
+
 function closeQModal(){
   document.getElementById('qmodal').style.display='none';
   document.body.style.overflow='';
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQModal();});
+renderBlog();
 </script>
 </body>
 </html>
