@@ -160,6 +160,14 @@
   --r:14px;--rsm:8px;--rxl:20px;
   --font-display:'Playfair Display',Georgia,serif;
   --font-body:'DM Sans',-apple-system,sans-serif;
+  /* Aliases pour composants blog/modale/articles */
+  --P:var(--TXD);
+  --P2:var(--TD);
+  --V:var(--T);
+  --V2:var(--TM);
+  --S2:var(--TL);
+  --T2:var(--MU);
+  --T3:var(--MU2);
 }
 body{font-family:var(--font-body);background:var(--S);color:var(--DK);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
 .view{display:none}.view.active{display:block}
@@ -238,13 +246,13 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 /* ===== USP CARDS ===== */
 .usp-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px}
 @media(max-width:540px){.usp-row{grid-template-columns:1fr}}
-.uc{border-radius:var(--rxl);padding:28px;border:1.5px solid var(--SC);transition:transform .2s,box-shadow .2s}
+.uc{border-radius:var(--rxl);padding:28px;border:1.5px solid var(--SC);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
 .uc:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.07)}
 .uc.s{background:linear-gradient(135deg,var(--TL),#fff);border-color:rgba(79,169,122,.3)}
 .uc.b{background:linear-gradient(135deg,var(--AL),#fff);border-color:rgba(196,98,45,.25)}
-.uc-icon{font-size:28px;margin-bottom:12px}
+.uc-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;flex-shrink:0}
 .uc h3{font-family:var(--font-display);font-size:17px;font-weight:700;margin-bottom:8px}
-.uc.s h3{color:var(--TXD)}.uc.b h3{color:#4A2010}
+.uc.s h3{color:var(--TXD)}.uc.b h3{color:#4A2010}.uc.s .uc-icon{background:rgba(26,107,74,.1)}.uc.s .uc-icon svg{stroke:var(--TXD)}.uc.b .uc-icon{background:rgba(196,98,45,.12)}.uc.b .uc-icon svg{stroke:#7A3B18}
 .uc p{font-size:13px;line-height:1.7}
 .uc.s p{color:var(--TD)}.uc.b p{color:#7A3B18}
 
@@ -266,7 +274,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .qc:hover{border-color:var(--T);background:var(--TL);transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,107,74,.1)}
 .qc:hover::after{opacity:1;right:10px}
 .qn{font-size:14px;font-weight:700;color:var(--DK);margin-bottom:4px}
-.qr{font-size:11px;color:var(--T);font-weight:600}
+.qr{font-size:11px;color:var(--MU);font-weight:600}
 .qm{font-size:10px;color:var(--MU2);margin-top:3px;line-height:1.4}
 
 /* ===== FAQ ===== */
@@ -298,13 +306,13 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 #v-blog .blog-hero p{color:rgba(255,255,255,.7);font-size:15px;max-width:480px;margin:0 auto}
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;padding:40px 24px;max-width:960px;margin:0 auto}
 .blog-card{background:var(--W);border-radius:16px;overflow:hidden;cursor:pointer;transition:.2s;border:1px solid var(--BR)}
-.blog-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
-.blog-card-img{height:180px;object-fit:cover;width:100%;background:var(--S);display:flex;align-items:center;justify-content:center;font-size:48px}
-.blog-card-body{padding:18px 20px 20px}
+.blog-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.07)}.blog-card-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--T);margin-bottom:10px}.blog-card h2{font-family:var(--font-display);font-size:17px;color:var(--DK);margin-bottom:8px;line-height:1.3}.blog-card p{font-size:13px;color:var(--MU);line-height:1.65}
+
+.blog-card-body{padding:22px 22px 18px}
 .blog-card-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--V);margin-bottom:8px}
 .blog-card h2{font-family:var(--font-display);font-size:18px;color:var(--P);margin-bottom:8px;line-height:1.35}
 .blog-card p{font-size:13px;color:var(--T2);line-height:1.6}
-.blog-card-foot{padding:12px 20px 16px;border-top:1px solid var(--BR);font-size:11px;color:var(--T3);display:flex;justify-content:space-between}
+.blog-card-foot{padding:10px 22px 18px;border-top:1px solid var(--BR);font-size:11px;color:var(--MU2);display:flex;justify-content:space-between;align-items:center}
 /* Article individuel */
 .article-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--V);cursor:pointer;padding:20px 24px 0;font-weight:600}
 .article-back:hover{text-decoration:underline}
@@ -463,6 +471,28 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .bwa{background:#25D366;color:#fff;border:none;padding:12px;border-radius:50px;font-size:13px;font-weight:600;cursor:pointer;width:100%;display:flex;align-items:center;justify-content:center;gap:6px}
 .trust{display:flex;align-items:center;justify-content:center;gap:4px;font-size:11px;color:var(--MU2);margin-top:10px}
 .rinterp{background:linear-gradient(135deg,var(--TXD),#0D5438);border-radius:var(--r);padding:16px 18px;margin-bottom:10px;color:#fff}
+/* Statut marché */
+.rstatut{display:flex;align-items:center;gap:10px;background:var(--W);border-radius:var(--r);border:1.5px solid var(--BR);padding:14px 16px;margin-bottom:10px}
+.rstatut-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.rstatut-dot.ok{background:#22A87B}
+.rstatut-dot.over{background:#E24B4A}
+.rstatut-dot.under{background:#F59E0B}
+.rstatut-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--MU)}
+.rstatut-val{font-size:14px;font-weight:700;color:var(--DK);margin-top:2px}
+/* Comparatif marché */
+.rcomp{background:var(--W);border-radius:var(--r);border:1px solid var(--BR);padding:16px;margin-bottom:10px}
+.rcomp-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--MU);margin-bottom:12px}
+.rcomp-row{margin-bottom:8px}
+.rcomp-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
+.rcomp-label span:first-child{color:var(--MU)}
+.rcomp-label span:last-child{font-weight:700;color:var(--DK)}
+.rcomp-bar-bg{height:6px;background:var(--S);border-radius:50px;position:relative;overflow:visible}
+.rcomp-bar-range{height:6px;border-radius:50px;background:var(--TL);position:absolute;top:0}
+.rcomp-bar-dot{width:10px;height:10px;background:var(--A);border-radius:50%;position:absolute;top:-2px;transform:translateX(-50%);border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.rcomp-legend{display:flex;gap:12px;margin-top:6px;font-size:10px;color:var(--MU2)}
+.rcomp-legend span{display:flex;align-items:center;gap:4px}
+/* Délai de vente */
+.rdelai{background:var(--AL);border-radius:var(--rsm);padding:10px 13px;font-size:12px;color:#5A2A08;margin-bottom:10px;line-height:1.6}
 .rinterp-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:rgba(255,255,255,.5);margin-bottom:5px}
 .rinterp-txt{font-size:14px;font-weight:600;line-height:1.5}
 
@@ -514,32 +544,32 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 </nav>
 <div class="mob-overlay" id="mobOverlay" onclick="closeMob()"></div>
 <nav class="mob-menu" id="mobMenu">
-  <a onclick="goTo('landing');closeMob()">🏠 Accueil</a>
-  <a onclick="startF('sell');closeMob()">📊 Estimer mon bien</a>
-  <a onclick="startF('buy');closeMob()">🔍 Vérifier un prix</a>
-  <a onclick="goTo('conseils');closeMob()">💡 Nos conseils</a>
-  <a onclick="goTo('quartiers');closeMob()">📍 Quartiers</a>
-  <a onclick="goTo('blog');closeMob()">✍️ Blog</a>
-  <a onclick="goTo('mentions');closeMob()">📄 Mentions légales</a>
-  <a onclick="goTo('confidentialite');closeMob()">🔒 Confidentialité</a>
+  <a onclick="goTo('landing');closeMob()">Accueil</a>
+  <a onclick="startF('sell');closeMob()">Estimer mon bien</a>
+  <a onclick="startF('buy');closeMob()">Vérifier un prix</a>
+  <a onclick="goTo('conseils');closeMob()">Nos conseils</a>
+  <a onclick="goTo('quartiers');closeMob()">Quartiers</a>
+  <a onclick="goTo('blog');closeMob()">️ Blog</a>
+  <a onclick="goTo('mentions');closeMob()">Mentions légales</a>
+  <a onclick="goTo('confidentialite');closeMob()">Confidentialité</a>
   <button class="mob-cta" onclick="startF('sell');closeMob()">Estimer mon bien</button>
 </nav>
 
 <!-- ===== LANDING ===== -->
 <div id="v-landing" class="view active">
-<div class="sticky-cta" id="stickyCta"><button onclick="startF('sell')">Estimer mon bien gratuitement</button></div>
+<div class="sticky-cta" id="stickyCta"><button onclick="startF('sell')">Analyser mon bien — gratuit</button></div>
 
 <div class="hero">
   <div class="hg"></div>
   <div class="hg2"></div>
   <div class="hi">
     <div class="hpill"><span class="hdot"></span>Marrakech · Données marché actualisées</div>
-    <h1>Comprendre le vrai prix d'un bien à Marrakech n'a jamais été simple.</h1>
-    <p class="hero-sub">Fourchette indicative indépendante en 2 minutes.</p>
-    <p class="hero-disc">Estimation indicative · Non contractuelle · Gratuit · Sans engagement</p>
+    <h1>Votre bien est-il au bon prix ?</h1>
+    <p class="hero-sub">Lecture indépendante du marché marrakchi en 2 minutes. Gratuit, sans engagement.</p>
+    <p class="hero-disc">Estimation indicative · Non contractuelle · 10 quartiers couverts</p>
     <div class="hero-ctas">
-      <button class="btn-hero-main" onclick="startF('sell')">J'estime mon bien</button>
-      <button class="btn-hero-sec" onclick="startF('buy')">Je vérifie un prix</button>
+      <button class="btn-hero-main" onclick="startF('sell')">Analyser mon bien</button>
+      <button class="btn-hero-sec" onclick="startF('buy')">Vérifier un prix</button>
     </div>
     <div class="hstats">
       <div class="hs"><div class="n">10</div><div class="l">Quartiers couverts</div></div>
@@ -563,18 +593,30 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 <div class="sec sec-w">
   <div class="si">
     <div class="eyebrow reveal">Vendeurs et acheteurs</div>
-    <h2 class="sh reveal reveal-d1">Une référence indépendante, des deux côtés</h2>
-    <p class="si-sub reveal reveal-d2">Que vous souhaitiez vendre au juste prix ou vérifier que vous ne payez pas trop cher, MyDar vous fournit une fourchette ancrée sur les données réelles du marché marrakchi.</p>
+    <h2 class="sh reveal reveal-d1">Pas de bonne décision sans bonne référence</h2>
+    <p class="si-sub reveal reveal-d2">Le marché immobilier à Marrakech est fragmenté, peu transparent, et les prix affichés s'écartent souvent des prix réels. MyDar vous donne une référence indépendante, ancrée sur les données actives du marché.</p>
     <div class="usp-row">
       <div class="uc s reveal reveal-d2">
-        <div class="uc-icon">🏡</div>
+        <div class="uc-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <polyline points="9,22 9,12 15,12 15,22"/>
+          </svg>
+        </div>
         <h3>Vous vendez</h3>
-        <p>Une référence indépendante avant de confier votre bien. Négociez en position de force.</p>
+        <p>Positionnez votre bien au bon prix dès le départ. Un bien correctement positionné se vend en 4 à 8 semaines. Un bien surévalué reste des mois sur le marché.</p>
       </div>
       <div class="uc b reveal reveal-d3">
-        <div class="uc-icon">🔍</div>
+        <div class="uc-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <line x1="11" y1="8" x2="11" y2="14"/>
+            <line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+        </div>
         <h3>Vous achetez</h3>
-        <p>Vérifiez si le prix demandé est cohérent. Achetez sereinement ou négociez avec des arguments concrets.</p>
+        <p>Vérifiez que le prix demandé est cohérent avec le marché. Si l'écart dépasse 15%, vous avez des arguments concrets pour négocier.</p>
       </div>
     </div>
   </div>
@@ -681,10 +723,8 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
         <strong>Vous êtes professionnel ?</strong>
         Agence, promoteur, partenaire — contactez-nous.
       </div>
-      <a class="ft-pro-btn" href="https://wa.me/212663667975?text=Bonjour%2C%20je%20souhaite%20vous%20contacter%20en%20tant%20que%20professionnel." target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
+      <a class="ft-pro-btn" href="https://wa.me/212663667975?text=Bonjour%2C%20je%20souhaite%20vous%20contacter%20en%20tant%20que%20professionnel." target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp</a>
     </div>
     <div class="fb">© 2026 MyDar · Estimation indicative, non contractuelle · Marrakech, Maroc</div>
   </div>
@@ -1030,6 +1070,31 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
     </div>
   </div>
   <div class="rbody">
+    <div class="rstatut" id="rstatut-block">
+      <div class="rstatut-dot ok" id="rstatut-dot"></div>
+      <div>
+        <div class="rstatut-lbl" id="rstatut-lbl">Lecture du marché</div>
+        <div class="rstatut-val" id="rstatut-val">—</div>
+      </div>
+    </div>
+    <div class="rcomp">
+      <div class="rcomp-title">Positionnement par rapport au marché</div>
+      <div class="rcomp-row">
+        <div class="rcomp-label">
+          <span id="rcomp-type-label">—</span>
+          <span id="rcomp-ppm">— MAD/m²</span>
+        </div>
+        <div class="rcomp-bar-bg" id="rcomp-bg">
+          <div class="rcomp-bar-range" id="rcomp-range-bar"></div>
+          <div class="rcomp-bar-dot" id="rcomp-dot"></div>
+        </div>
+        <div class="rcomp-legend">
+          <span><svg width="8" height="8" viewBox="0 0 8 8"><rect width="8" height="8" rx="2" fill="#E8F5EE"/></svg>Fourchette marché</span>
+          <span><svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#C4622D"/></svg>Votre bien</span>
+        </div>
+      </div>
+    </div>
+    <div class="rdelai" id="rdelai-block" style="display:none"></div>
     <div id="rinterp-block" class="rinterp" style="display:none"><div class="rinterp-lbl">Analyse</div><div class="rinterp-txt" id="rinterp-txt"></div></div>
     <div class="rc"><div class="rct">Facteurs analysés</div><div id="rfactors"></div>
       <div class="disc"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;margin-top:1px"><path d="M8 1L1 14h14L8 1z" stroke="#7A3B18" stroke-width="1.2"/><path d="M8 6v4M8 11.5v.5" stroke="#7A3B18" stroke-width="1.2" stroke-linecap="round"/></svg>Fourchette indicative. Varie selon la micro-localisation, l'état précis et les conditions de marché.</div>
@@ -1131,7 +1196,7 @@ function ck(){return'<svg width="9" height="9" viewBox="0 0 12 12" fill="none"><
 function ob(ic,lb,sb,k,v){return`<div class="ob ${A[k]===v?'sel':''}" onclick="sel('${k}','${v}',this)"><div class="oi">${ic}</div><div class="ol">${lb}</div>${sb?`<div class="os">${sb}</div>`:''}</div>`}
 function ofl(lb,rb,k,v){const s=A[k]===v;return`<button class="ofl ${s?'sel':''}" onclick="sel('${k}','${v}',this)"><span class="ll">${lb}</span>${s?`<span class="cki">${ck()}</span>`:`<span class="lr">${rb}</span>`}</button>`}
 function render(){updP();const fc=document.getElementById('fcard');fc.classList.add('fade');setTimeout(()=>{fc.innerHTML=[s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12][step-1]();fc.classList.remove('fade');fc.scrollIntoView({behavior:'smooth',block:'start'});const inp=fc.querySelector('input,button.ofl,button.bcont');if(inp&&inp.tagName==='INPUT')setTimeout(()=>inp.focus(),80);},80);}
-function s1(){return`<div class="ftag2">Étape 1 sur 11</div><h2>${mode==='buy'?'Quel bien voulez-vous vérifier ?':'Quel bien souhaitez-vous estimer ?'}</h2><p class="fh">Chaque type suit une logique de valorisation propre au marché de Marrakech.</p><div style="display:flex;gap:5px;margin-bottom:16px"><div class="mst ${mode==='sell'?'sel':''}" onclick="mode='sell';A._mode='sell';render()">Estimer pour vendre</div><div class="mst ${mode==='buy'?'sel':''}" onclick="mode='buy';A._mode='buy';render()">Vérifier avant d'acheter</div></div><div class="opts o3">${ob('🏢','Appartement','','type','appartement')}${ob('🏡','Villa','','type','villa')}${ob('🏺','Riad','Médina','type','riad')}${ob('🌿','Terrain','','type','terrain')}${ob('🏗️','Immeuble','','type','immeuble')}${ob('🏪','Local','','type','local')}</div>`}
+function s1(){return`<div class="ftag2">Étape 1 sur 11</div><h2>${mode==='buy'?'Quel bien voulez-vous vérifier ?':'Quel bien souhaitez-vous estimer ?'}</h2><p class="fh">Chaque type suit une logique de valorisation propre au marché de Marrakech.</p><div style="display:flex;gap:5px;margin-bottom:16px"><div class="mst ${mode==='sell'?'sel':''}" onclick="mode='sell';A._mode='sell';render()">Estimer pour vendre</div><div class="mst ${mode==='buy'?'sel':''}" onclick="mode='buy';A._mode='buy';render()">Vérifier avant d'acheter</div></div><div class="opts o3">${ob('','Appartement','','type','appartement')}${ob('','Villa','','type','villa')}${ob('','Riad','Médina','type','riad')}${ob('','Terrain','','type','terrain')}${ob('️','Immeuble','','type','immeuble')}${ob('','Local','','type','local')}</div>`}
 function s2(){const t=A.type||'appartement';return`<div class="ftag2">Étape 2 sur 11</div><h2>Dans quel quartier ?</h2><p class="fh">La localisation est le premier facteur de valorisation à Marrakech.</p><div class="opts">${Object.keys(QPM2).map(q=>{const b=QPM2[q][t];return ofl(q,b?`~${fN(b)} MAD/m²`:'','quartier',q)}).join('')}</div>`}
 function s3(){const isT=A.type==='terrain';return`<div class="ftag2">Étape 3 sur 11</div><h2>${isT?'Surface du terrain ?':'Surface habitable ?'}</h2><p class="fh">${isT?'Superficie totale en m².':'Surface habitable en m², hors terrasse et garage.'}</p><input type="number" class="sin" id="sin" placeholder="${isT?'600':'90'}" value="${A.surface||''}" min="10" max="9999" oninput="A.surface=this.value"/><div style="font-size:11px;color:var(--MU);text-align:center">m²</div>${A.type!=='terrain'?`<div style="margin-top:10px;padding:9px 11px;background:var(--S);border-radius:var(--rsm);font-size:11px;color:var(--MU)">Jardin (optionnel) : <input type="number" style="width:60px;padding:3px 6px;border:1px solid var(--SC);border-radius:5px;font-size:11px;background:#fff" placeholder="0" oninput="A.surface_terrain=this.value"/> m²</div>`:''}<button class="bcont" onclick="if(document.getElementById('sin').value>0){A.surface=parseInt(document.getElementById('sin').value);nextStep();}else{document.getElementById('sin').style.borderColor='#E24B4A'}">Continuer</button><div class="reas"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.3 2.5 6.4 6 7.2C12.5 14.4 14 11.3 14 8V4L8 1z" stroke="currentColor" stroke-width="1.2"/></svg>Estimation indicative, non contractuelle</div>`}
 function s4(){const t=A.type;if(t==='terrain'||t==='local')return`<div class="ftag2">Étape 4 sur 11</div><h2>Configuration du bien</h2><p class="fh">Précisez le type principal.</p><div class="opts">${ofl('Nu constructible','Terrain vierge','config','nu')}${ofl('Avec fondations','Pré-construit','config','fondations')}${ofl('Rez-de-chaussée','RDC','config','rdc')}${ofl('En étage','Étage','config','etage')}</div>`;if(t==='villa'||t==='riad')return`<div class="ftag2">Étape 4 sur 11</div><h2>Nombre de chambres ?</h2><p class="fh">Détermine le standing du bien.</p><div class="opts o3">${['2 ch','3 ch','4 ch','5 ch','6 ch+'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`;if(t==='immeuble')return`<div class="ftag2">Étape 4 sur 11</div><h2>Nombre de lots ?</h2><p class="fh">Taille de l'immeuble.</p><div class="opts o2">${['2 à 4 lots','5 à 8 lots','9 à 15 lots','15+ lots'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`;return`<div class="ftag2">Étape 4 sur 11</div><h2>Nombre de pièces ?</h2><p class="fh">Studio, F2, F3 : chaque configuration a sa valeur propre.</p><div class="opts o3">${['Studio','F2 · 1ch','F3 · 2ch','F4 · 3ch','F5 · 4ch','F6+'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`}
@@ -1264,6 +1329,68 @@ function showResult(){
     const interpBlock=document.getElementById('rinterp-block');
     const interpEl=document.getElementById('rinterp-txt');
     if(interpBlock&&interpEl){interpEl.textContent=interpTxt;interpBlock.style.display='block';}
+
+    // ── STATUT MARCHÉ ──
+    const surf=parseInt(A.surface)||90;
+    const ppm=Math.round((est.low+est.high)/2/surf);
+    const q=A.quartier||'Autre';
+    const tType=A.type||'appartement';
+    const baseQ=QPM2[q]?QPM2[q][tType]:8500;
+    // Fourchettes de marché par type (variation autour de la base)
+    const varLo=t==='riad'?0.7:t==='terrain'?0.75:0.82;
+    const varHi=t==='riad'?1.45:t==='terrain'?1.35:1.22;
+    const mktLow=Math.round(baseQ*varLo);
+    const mktHigh=Math.round(baseQ*varHi);
+    // Statut
+    let statutTxt,statutCls,statutDot;
+    if(ppm<mktLow*0.92){
+      statutTxt='Potentiellement sous-évalué — marge de négociation à la hausse';
+      statutCls='under'; statutDot='under';
+    } else if(ppm>mktHigh*1.08){
+      statutTxt='Au-dessus du marché — justifié par des caractéristiques premium ou risque de surévaluation';
+      statutCls='over'; statutDot='over';
+    } else {
+      statutTxt='Cohérent avec le marché — prix en ligne avec les transactions observées';
+      statutCls='ok'; statutDot='ok';
+    }
+    const sLbl=isBuy?'Positionnement du prix demandé':'Positionnement de votre bien';
+    const sEl=document.getElementById('rstatut-lbl');
+    const sVal=document.getElementById('rstatut-val');
+    const sDot=document.getElementById('rstatut-dot');
+    if(sEl)sEl.textContent=sLbl;
+    if(sVal)sVal.textContent=statutTxt;
+    if(sDot){sDot.className='rstatut-dot '+statutDot;}
+
+    // ── COMPARATIF VISUEL ──
+    const compLabel=document.getElementById('rcomp-type-label');
+    const compPpm=document.getElementById('rcomp-ppm');
+    const compBg=document.getElementById('rcomp-bg');
+    const compRange=document.getElementById('rcomp-range-bar');
+    const compDot=document.getElementById('rcomp-dot');
+    if(compLabel)compLabel.textContent=(t.charAt(0).toUpperCase()+t.slice(1))+' · '+q;
+    if(compPpm)compPpm.textContent=fN(ppm)+' MAD/m²';
+    if(compBg&&compRange&&compDot){
+      const fullRange=mktHigh*1.4; // échelle barre
+      const leftPct=Math.max(2,(mktLow/fullRange)*100);
+      const widthPct=Math.min(96,((mktHigh-mktLow)/fullRange)*100);
+      const dotPct=Math.min(97,Math.max(1,(ppm/fullRange)*100));
+      compRange.style.left=leftPct+'%';
+      compRange.style.width=widthPct+'%';
+      compDot.style.left=dotPct+'%';
+    }
+
+    // ── DÉLAI DE VENTE ──
+    const delaiEl=document.getElementById('rdelai-block');
+    if(delaiEl){
+      let delaiTxt='';
+      if(!isBuy){
+        if(statutDot==='ok')delaiTxt='Les biens similaires correctement positionnés à '+q+' se vendent généralement en 4 à 10 semaines. Un prix dans le haut de fourchette allonge ce délai à 3 à 6 mois.';
+        else if(statutDot==='over')delaiTxt='Un bien positionné au-dessus du marché met en moyenne 4 à 6 mois à trouver preneur à '+q+', contre 4 à 8 semaines pour un bien bien positionné.';
+        else delaiTxt='Un bien sous le marché à '+q+' génère rapidement des offres. Assurez-vous que le positionnement reflète bien l\'état réel du bien.';
+        delaiEl.textContent=delaiTxt;
+        delaiEl.style.display='block';
+      } else { delaiEl.style.display='none'; }
+    }
     const etatL={neuf:'Neuf',recent:'Récent < 5 ans',bon:'Bon état',rafraichir:'À rafraîchir',renover:'À rénover'};
     const etatCl={neuf:'bg',recent:'bg',bon:'bg',rafraichir:'ba',renover:'br2'};
     const facts=[];
@@ -1276,7 +1403,7 @@ function showResult(){
     if(eq.includes('maison_hotes')||eq.includes('lcd'))facts.push({l:'Potentiel locatif',cl:'bg',v:'Fort potentiel saisonnier'});
     if(A.etat==='renover')facts.push({l:'Travaux importants',cl:'br2',v:'Décote significative'});
     document.getElementById('rfactors').innerHTML=facts.map(f=>`<div class="rfact"><span class="rfact-l">${f.l}</span><span class="badge ${f.cl}">${f.v}</span></div>`).join('');
-    const pots=[{ic:'📈',name:'Valorisation',desc:'Potentiel plus-value',on:['Guéliz','Hivernage','Palmeraie','Médina'].includes(A.quartier)||A.type==='riad'},{ic:'🏊',name:'Locatif saisonnier',desc:'Airbnb ou maison hôtes',on:eq.includes('maison_hotes')||eq.includes('lcd')||['loc_courte','maison_hotes'].includes(A.usage)},{ic:'☀️',name:'Solaire',desc:'Rentabilité énergétique',on:eq.includes('solaire')||A.type==='villa'},{ic:'🔨',name:'Rénovation',desc:'Valoriser avant vente',on:['renover','rafraichir'].includes(A.etat)},{ic:'🏢',name:'Locatif longue durée',desc:'Revenus stables',on:A.type==='appartement'&&['Guéliz','Semlalia','Agdal'].includes(A.quartier)},{ic:'🌴',name:'Résidence secondaire',desc:'Usage saisonnier',on:['Palmeraie','Hivernage','Médina'].includes(A.quartier)}];
+    const pots=[{ic:'',name:'Valorisation',desc:'Potentiel plus-value',on:['Guéliz','Hivernage','Palmeraie','Médina'].includes(A.quartier)||A.type==='riad'},{ic:'',name:'Locatif saisonnier',desc:'Airbnb ou maison hôtes',on:eq.includes('maison_hotes')||eq.includes('lcd')||['loc_courte','maison_hotes'].includes(A.usage)},{ic:'️',name:'Solaire',desc:'Rentabilité énergétique',on:eq.includes('solaire')||A.type==='villa'},{ic:'',name:'Rénovation',desc:'Valoriser avant vente',on:['renover','rafraichir'].includes(A.etat)},{ic:'',name:'Locatif longue durée',desc:'Revenus stables',on:A.type==='appartement'&&['Guéliz','Semlalia','Agdal'].includes(A.quartier)},{ic:'',name:'Résidence secondaire',desc:'Usage saisonnier',on:['Palmeraie','Hivernage','Médina'].includes(A.quartier)}];
     document.getElementById('rpot').innerHTML=pots.map(p=>`<div class="pot ${p.on?'on':'off'}"><div class="pot-ic">${p.ic}</div><div class="pot-name">${p.name}</div><div class="pot-desc">${p.desc}</div></div>`).join('');
     const cons=genConseils();
     document.getElementById('rconseils').innerHTML=cons.map(c=>`<div class="rcons ${c.t==='w'?'w':c.t==='a'?'a':''}"><div class="rcons-t">${c.titre}</div><p>${c.txt}</p></div>`).join('');
@@ -1426,7 +1553,7 @@ function closeMob(){
 
 <div id="qmodal" style="display:none" class="qmodal-overlay" onclick="if(event.target===this)closeQModal()">
   <div class="qmodal" id="qmodal-inner">
-    <button class="qmodal-close" onclick="closeQModal()">✕</button>
+    <button class="qmodal-close" onclick="closeQModal()"></button>
     <div id="qmodal-content"></div>
   </div>
 </div>
@@ -1466,7 +1593,7 @@ const ARTICLES = [
   {
     id: 'gueliz-hivernage',
     tag: 'Quartiers',
-    emoji: '🏙️',
+    emoji: '️',
     titre: 'Guéliz vs Hivernage : deux adresses, deux vies',
     intro: "Ils sont voisins sur la carte. Dans les faits, tout les oppose. L'un est animé, cosmopolite, piéton. L'autre est calme, arboré, résidentiel. Voici ce qui les distingue vraiment — au-delà des brochures.",
     date: 'Avril 2026',
@@ -1499,7 +1626,7 @@ const ARTICLES = [
   {
     id: 'targa-agdal-semlalia',
     tag: 'Investissement',
-    emoji: '🏘️',
+    emoji: '️',
     titre: 'Targa, Agdal, Semlalia : où acheter avec un budget raisonnable',
     intro: "Trois quartiers résidentiels, trois profils d'acheteurs. Ni Hivernage ni Palmeraie — mais des adresses solides, des prix cohérents, et des qualités de vie que les brochures de luxe ne mentionnent jamais.",
     date: 'Avril 2026',
@@ -1532,7 +1659,7 @@ const ARTICLES = [
   {
     id: 'marrakech-2h30-de-paris',
     tag: 'Lifestyle',
-    emoji: '✈️',
+    emoji: '️',
     titre: 'Marrakech à 2h30 de Paris : ce que ça change vraiment',
     intro: "Ce n'est pas juste le soleil. C'est un rapport au temps, à l'espace, à l'argent qui change complètement. Voici ce que les gens qui s'y installent découvrent réellement — et qui les fait rester.",
     date: 'Avril 2026',
@@ -1567,7 +1694,7 @@ const ARTICLES = [
   {
     id: 'investir-riad-medina',
     tag: 'Investissement',
-    emoji: '🏺',
+    emoji: '',
     titre: 'Investir dans un riad : la réalité du marché en 2026',
     intro: "Le riad reste l'investissement le plus passionnant du marché marrakchi. C'est aussi le plus exigeant. Voici comment les choses se passent vraiment pour ceux qui franchissent le pas.",
     date: 'Avril 2026',
@@ -1603,7 +1730,7 @@ const ARTICLES = [
   {
     id: 'cm2030-marrakech',
     tag: 'Marché',
-    emoji: '🏟️',
+    emoji: '️',
     titre: 'CM2030 : ce qui se passe vraiment à Marrakech',
     intro: "Le Grand Stade est en transformation. L'aéroport monte en capacité. Le TGV arrive. Les prix fonciers ont déjà bougé. Voici les faits concrets, sans promesses excessives.",
     date: 'Avril 2026',
@@ -1640,7 +1767,7 @@ const ARTICLES = [
   {
     id: 'palmeraie-marche-a-part',
     tag: 'Quartiers',
-    emoji: '🌴',
+    emoji: '',
     titre: 'La Palmeraie : comprendre un marché à part',
     intro: "13 000 hectares de palmiers-dattiers. Des golfs privés. Un marché qui fonctionne à 60% hors des portails d'annonces. La Palmeraie n'est pas un quartier comme les autres — voici comment il s'appréhende.",
     date: 'Avril 2026',
@@ -1692,7 +1819,6 @@ function renderBlog() {
   if(!grid) return;
   grid.innerHTML = ARTICLES.map(a => `
     <div class="blog-card" onclick="openArticle('${a.id}')">
-      <div class="blog-card-img">${a.emoji}</div>
       <div class="blog-card-body">
         <div class="blog-card-tag">${a.tag}</div>
         <h2>${a.titre}</h2>
