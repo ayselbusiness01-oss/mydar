@@ -169,6 +169,7 @@
   --T2:var(--MU);
   --T3:var(--MU2);
 }
+*{-webkit-tap-highlight-color:transparent}
 body{font-family:var(--font-body);background:var(--S);color:var(--DK);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
 .view{display:none}.view.active{display:block}
 
@@ -269,7 +270,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 
 /* ===== QUARTIERS ===== */
 .qg{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
-.qc{background:var(--W);border:1.5px solid var(--SC);border-radius:var(--r);padding:16px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden}
+.qc{background:var(--W);border:1.5px solid var(--SC);border-radius:var(--r);padding:16px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden;-webkit-user-select:none;user-select:none}
 .qc::after{content:'→';position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--A);opacity:0;transition:opacity .15s,right .15s}
 .qc:hover{border-color:var(--T);background:var(--TL);transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,107,74,.1)}
 .qc:hover::after{opacity:1;right:10px}
@@ -388,9 +389,9 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .fc h2{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--DK);margin-bottom:6px;letter-spacing:-.3px;line-height:1.2}
 .fh{font-size:13px;color:var(--MU);margin-bottom:20px;line-height:1.6}
 .opts{display:grid;gap:7px}.o2{grid-template-columns:1fr 1fr}.o3{grid-template-columns:1fr 1fr 1fr}
-.ob{background:var(--S);border:1.5px solid var(--SC);border-radius:var(--r);padding:13px 10px;text-align:center;cursor:pointer;transition:all .12s}
+.ob{background:var(--S);border:1.5px solid var(--SC);border-radius:var(--r);padding:13px 10px;text-align:center;cursor:pointer;transition:all .12s;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-height:72px}
 .ob:hover{border-color:var(--T);background:var(--TL)}.ob.sel{border-color:var(--T);background:var(--TL)}
-.ob .oi{font-size:18px;margin-bottom:4px}.ob .ol{font-size:12px;font-weight:700;color:var(--DK)}.ob .os{font-size:10px;color:var(--MU);margin-top:2px}
+.ob .ob .ol{font-size:12px;font-weight:700;color:var(--DK)}.ob .os{font-size:10px;color:var(--MU);margin-top:2px}
 .ofl{background:var(--S);border:1.5px solid var(--SC);border-radius:var(--rsm);padding:12px 14px;cursor:pointer;transition:all .12s;display:flex;align-items:center;justify-content:space-between;width:100%}
 .ofl:hover{border-color:var(--T);background:var(--TL)}.ofl.sel{border-color:var(--T);background:var(--TL)}
 .ofl .ll{font-size:13px;font-weight:600;color:var(--DK)}.ofl .lr{font-size:11px;color:var(--TD);font-weight:500}
@@ -595,10 +596,10 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
     <div class="eyebrow reveal">Vendeurs et acheteurs</div>
     <h2 class="sh reveal reveal-d1">Pas de bonne décision sans bonne référence</h2>
     <p class="si-sub reveal reveal-d2">Le marché immobilier à Marrakech est fragmenté, peu transparent, et les prix affichés s'écartent souvent des prix réels. MyDar vous donne une référence indépendante, ancrée sur les données actives du marché.</p>
-    <div class="usp-row">
+    <div <div class="usp-row">
       <div class="uc s reveal reveal-d2">
         <div class="uc-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
             <polyline points="9,22 9,12 15,12 15,22"/>
           </svg>
@@ -608,7 +609,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
       </div>
       <div class="uc b reveal reveal-d3">
         <div class="uc-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"/>
             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
             <line x1="11" y1="8" x2="11" y2="14"/>
@@ -619,8 +620,6 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
         <p>Vérifiez que le prix demandé est cohérent avec le marché. Si l'écart dépasse 15%, vous avez des arguments concrets pour négocier.</p>
       </div>
     </div>
-  </div>
-</div>
 
 <!-- Section 2 : Comment ça marche -->
 <div class="sec">
@@ -1193,13 +1192,13 @@ function sel(k,v,el){A[k]=v;document.querySelectorAll('.ob,.ofl').forEach(b=>b.c
 function togCb(k,v,el){if(!A[k])A[k]=[];const i=A[k].indexOf(v);if(i>-1){A[k].splice(i,1);el.classList.remove('ck');el.querySelector('.cbb').innerHTML='';}else{A[k].push(v);el.classList.add('ck');el.querySelector('.cbb').innerHTML=ck();}}
 function togCon(el){el.classList.toggle('ck');el.querySelector('.concb').innerHTML=el.classList.contains('ck')?ck():''}
 function ck(){return'<svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'}
-function ob(ic,lb,sb,k,v){return`<div class="ob ${A[k]===v?'sel':''}" onclick="sel('${k}','${v}',this)"><div class="oi">${ic}</div><div class="ol">${lb}</div>${sb?`<div class="os">${sb}</div>`:''}</div>`}
+function ob(ic,lb,sb,k,v){return`<div class="ob ${A[k]===v?'sel':''}" onclick="sel('${k}','${v}',this)"><div class="ol">${lb}</div>${sb?`<div class="os">${sb}</div>`:''}</div>`}
 function ofl(lb,rb,k,v){const s=A[k]===v;return`<button class="ofl ${s?'sel':''}" onclick="sel('${k}','${v}',this)"><span class="ll">${lb}</span>${s?`<span class="cki">${ck()}</span>`:`<span class="lr">${rb}</span>`}</button>`}
 function render(){updP();const fc=document.getElementById('fcard');fc.classList.add('fade');setTimeout(()=>{fc.innerHTML=[s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12][step-1]();fc.classList.remove('fade');fc.scrollIntoView({behavior:'smooth',block:'start'});const inp=fc.querySelector('input,button.ofl,button.bcont');if(inp&&inp.tagName==='INPUT')setTimeout(()=>inp.focus(),80);},80);}
-function s1(){return`<div class="ftag2">Étape 1 sur 11</div><h2>${mode==='buy'?'Quel bien voulez-vous vérifier ?':'Quel bien souhaitez-vous estimer ?'}</h2><p class="fh">Chaque type suit une logique de valorisation propre au marché de Marrakech.</p><div style="display:flex;gap:5px;margin-bottom:16px"><div class="mst ${mode==='sell'?'sel':''}" onclick="mode='sell';A._mode='sell';render()">Estimer pour vendre</div><div class="mst ${mode==='buy'?'sel':''}" onclick="mode='buy';A._mode='buy';render()">Vérifier avant d'acheter</div></div><div class="opts o3">${ob('','Appartement','','type','appartement')}${ob('','Villa','','type','villa')}${ob('','Riad','Médina','type','riad')}${ob('','Terrain','','type','terrain')}${ob('️','Immeuble','','type','immeuble')}${ob('','Local','','type','local')}</div>`}
+function s1(){return`<div class="ftag2">Étape 1 sur 11</div><h2>${mode==='buy'?'Quel bien voulez-vous vérifier ?':'Quel bien souhaitez-vous estimer ?'}</h2><p class="fh">Chaque type suit une logique de valorisation propre au marché de Marrakech.</p><div style="display:flex;gap:5px;margin-bottom:16px"><div class="mst ${mode==='sell'?'sel':''}" onclick="mode='sell';A._mode='sell';render()">Estimer pour vendre</div><div class="mst ${mode==='buy'?'sel':''}" onclick="mode='buy';A._mode='buy';render()">Vérifier avant d'acheter</div></div><div class="opts o3">${ob('','Appartement','Résidentiel collectif','type','appartement')}${ob('','Villa','Individuel avec terrain','type','villa')}${ob('','Riad','Médina · Maison de caractère','type','riad')}${ob('','Terrain','Nu ou constructible','type','terrain')}${ob('','Immeuble','Plusieurs lots','type','immeuble')}${ob('','Local','Commercial ou professionnel','type','local')}</div>`}
 function s2(){const t=A.type||'appartement';return`<div class="ftag2">Étape 2 sur 11</div><h2>Dans quel quartier ?</h2><p class="fh">La localisation est le premier facteur de valorisation à Marrakech.</p><div class="opts">${Object.keys(QPM2).map(q=>{const b=QPM2[q][t];return ofl(q,b?`~${fN(b)} MAD/m²`:'','quartier',q)}).join('')}</div>`}
 function s3(){const isT=A.type==='terrain';return`<div class="ftag2">Étape 3 sur 11</div><h2>${isT?'Surface du terrain ?':'Surface habitable ?'}</h2><p class="fh">${isT?'Superficie totale en m².':'Surface habitable en m², hors terrasse et garage.'}</p><input type="number" class="sin" id="sin" placeholder="${isT?'600':'90'}" value="${A.surface||''}" min="10" max="9999" oninput="A.surface=this.value"/><div style="font-size:11px;color:var(--MU);text-align:center">m²</div>${A.type!=='terrain'?`<div style="margin-top:10px;padding:9px 11px;background:var(--S);border-radius:var(--rsm);font-size:11px;color:var(--MU)">Jardin (optionnel) : <input type="number" style="width:60px;padding:3px 6px;border:1px solid var(--SC);border-radius:5px;font-size:11px;background:#fff" placeholder="0" oninput="A.surface_terrain=this.value"/> m²</div>`:''}<button class="bcont" onclick="if(document.getElementById('sin').value>0){A.surface=parseInt(document.getElementById('sin').value);nextStep();}else{document.getElementById('sin').style.borderColor='#E24B4A'}">Continuer</button><div class="reas"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.3 2.5 6.4 6 7.2C12.5 14.4 14 11.3 14 8V4L8 1z" stroke="currentColor" stroke-width="1.2"/></svg>Estimation indicative, non contractuelle</div>`}
-function s4(){const t=A.type;if(t==='terrain'||t==='local')return`<div class="ftag2">Étape 4 sur 11</div><h2>Configuration du bien</h2><p class="fh">Précisez le type principal.</p><div class="opts">${ofl('Nu constructible','Terrain vierge','config','nu')}${ofl('Avec fondations','Pré-construit','config','fondations')}${ofl('Rez-de-chaussée','RDC','config','rdc')}${ofl('En étage','Étage','config','etage')}</div>`;if(t==='villa'||t==='riad')return`<div class="ftag2">Étape 4 sur 11</div><h2>Nombre de chambres ?</h2><p class="fh">Détermine le standing du bien.</p><div class="opts o3">${['2 ch','3 ch','4 ch','5 ch','6 ch+'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`;if(t==='immeuble')return`<div class="ftag2">Étape 4 sur 11</div><h2>Nombre de lots ?</h2><p class="fh">Taille de l'immeuble.</p><div class="opts o2">${['2 à 4 lots','5 à 8 lots','9 à 15 lots','15+ lots'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`;return`<div class="ftag2">Étape 4 sur 11</div><h2>Nombre de pièces ?</h2><p class="fh">Studio, F2, F3 : chaque configuration a sa valeur propre.</p><div class="opts o3">${['Studio','F2 · 1ch','F3 · 2ch','F4 · 3ch','F5 · 4ch','F6+'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`}
+function s4(){const t=A.type;if(t==='terrain'||t==='local')return`<div class="ftag2">Étape 4 sur 11</div><h2>Configuration du bien</h2><p class="fh">Précisez le type principal.</p><div class="opts">${ofl('Nu constructible','Terrain vierge','config','nu')}${ofl('Avec fondations','Pré-construit','config','fondations')}${ofl('Rez-de-chaussée','RDC','config','rdc')}${ofl('En étage','Étage','config','etage')}</div>`;if(t==='villa'||t==='riad')return`<div class="ftag2">Étape 4 sur 11</div><h2>Nombre de chambres ?</h2><p class="fh">Détermine le standing du bien.</p><div class="opts o3">${['2 ch','3 ch','4 ch','5 ch','6 ch+'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`;if(t==='immeuble')return`<div class="ftag2">Étape 4 sur 11</div><h2>Nombre de lots ?</h2><p class="fh">Taille de l\'immeuble.</p><div class="opts o2">${['2 à 4 lots','5 à 8 lots','9 à 15 lots','15+ lots'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`;return`<div class="ftag2">Étape 4 sur 11</div><h2>Nombre de pièces ?</h2><p class="fh">Studio, F2, F3 : chaque configuration a sa valeur propre.</p><div class="opts o3">${['Studio','F2 · 1ch','F3 · 2ch','F4 · 3ch','F5 · 4ch','F6+'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`}
 function s5(){return`<div class="ftag2">Étape 5 sur 11</div><h2>État général du bien ?</h2><p class="fh">L'état peut modifier la fourchette de 20 à 35%.</p><div class="opts">${ofl('Neuf ou jamais habité','Impact positif fort','etat','neuf')}${ofl('Récent, moins de 5 ans','Très bon état','etat','recent')}${ofl('Bon état général','Entretenu','etat','bon')}${ofl('À rafraîchir','Petits travaux','etat','rafraichir')}${ofl('À rénover','Travaux importants','etat','renover')}</div>`}
 function s6(){const eqs=[['balcon','Balcon'],['terrasse','Terrasse'],['jardin','Jardin'],['piscine','Piscine'],['parking','Parking'],['securise','Résidence sécurisée'],['vue','Vue dégagée'],['clim','Climatisation'],['ascenseur','Ascenseur'],['solaire','Panneaux solaires'],['chauffe_solaire','Chauffe-eau solaire'],['meuble','Meublé'],['titre_foncier','Titre foncier'],['maison_hotes',"Maison d'hôtes possible"],['lcd','Location courte durée']];const eq=A.equipements||[];return`<div class="ftag2">Étape 6 sur 11</div><h2>Équipements ?</h2><p class="fh">Cochez tout ce qui s'applique. Chaque élément affine la fourchette.</p><div class="cbg">${eqs.map(([v,l])=>`<div class="cbi ${eq.includes(v)?'ck':''}" onclick="togCb('equipements','${v}',this)"><div class="cbb">${eq.includes(v)?ck():''}</div><span class="cbl">${l}</span></div>`).join('')}</div><button class="bcont" onclick="nextStep()">Continuer</button>`}
 function s7(){return`<div class="ftag2">Étape 7 sur 11</div><h2>Usage actuel du bien ?</h2><p class="fh">L'usage influe sur la valorisation.</p><div class="opts">${ofl('Résidence principale','Occupé','usage','principale')}${ofl('Résidence secondaire','Vacances','usage','secondaire')}${ofl('Location longue durée','Loué','usage','loc_longue')}${ofl('Location courte durée','Airbnb','usage','loc_courte')}${ofl("Maison d'hôtes","Exploité",'usage','maison_hotes')}${ofl('Vide','Non exploité','usage','vide')}</div>`}
@@ -1407,7 +1406,7 @@ function showResult(){
     document.getElementById('rpot').innerHTML=pots.map(p=>`<div class="pot ${p.on?'on':'off'}"><div class="pot-ic">${p.ic}</div><div class="pot-name">${p.name}</div><div class="pot-desc">${p.desc}</div></div>`).join('');
     const cons=genConseils();
     document.getElementById('rconseils').innerHTML=cons.map(c=>`<div class="rcons ${c.t==='w'?'w':c.t==='a'?'a':''}"><div class="rcons-t">${c.titre}</div><p>${c.txt}</p></div>`).join('');
-    document.getElementById('rcta1').textContent=isBuy?"Recevoir l'analyse complète par email":"Recevoir la fourchette complète par email";
+    document.getElementById('rcta1').textContent=isBuy?"Recevoir l\'analyse complète par email":"Recevoir la fourchette complète par email";
     goTo('result');
   }catch(e){
     // Fallback si une erreur survient
