@@ -6,6 +6,7 @@
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no, email=no, address=no">
 <title>MyDar — Estimation immobilière indépendante à Marrakech</title>
 <meta name="description" content="Obtenez une fourchette de prix indicative pour votre bien à Marrakech en 2 minutes. Gratuit, indépendant, sans engagement.">
 <meta name="robots" content="index, follow">
@@ -270,12 +271,12 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 
 /* ===== QUARTIERS ===== */
 .qg{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
-.qc{background:var(--W);border:1.5px solid var(--SC);border-radius:var(--r);padding:16px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden;-webkit-user-select:none;user-select:none}
+.qc{background:var(--W);border:1.5px solid var(--SC);border-radius:var(--r);padding:16px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden;-webkit-user-select:none;user-select:none}.qc a{color:inherit!important;text-decoration:none!important;pointer-events:none!important}
 .qc::after{content:'→';position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--A);opacity:0;transition:opacity .15s,right .15s}
 .qc:hover{border-color:var(--T);background:var(--TL);transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,107,74,.1)}
 .qc:hover::after{opacity:1;right:10px}
-.qn{font-size:14px;font-weight:700;color:var(--DK);margin-bottom:4px;-webkit-user-select:none;user-select:none}
-.qr{font-size:11px;color:var(--A);font-weight:700;-webkit-user-select:none;user-select:none}
+.qn{font-size:14px;font-weight:700;color:var(--DK);margin-bottom:4px;-webkit-user-select:none;user-select:none}.qn a,.qn a:link,.qn a:visited{color:var(--DK)!important;text-decoration:none!important;pointer-events:none}
+.qr{font-size:11px;color:var(--A);font-weight:700;-webkit-user-select:none;user-select:none}.qr a,.qr a:link,.qr a:visited{color:var(--A)!important;text-decoration:none!important;pointer-events:none}
 .qm{font-size:10px;color:var(--MU2);margin-top:3px;line-height:1.4;-webkit-user-select:none;user-select:none}
 
 /* ===== FAQ ===== */
@@ -389,7 +390,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .fc h2{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--DK);margin-bottom:6px;letter-spacing:-.3px;line-height:1.2}
 .fh{font-size:13px;color:var(--MU);margin-bottom:20px;line-height:1.6}
 .opts{display:grid;gap:7px}.o2{grid-template-columns:1fr 1fr}.o3{grid-template-columns:1fr 1fr 1fr}
-.ob{background:var(--S);border:1.5px solid var(--SC);border-radius:var(--r);padding:13px 10px;text-align:center;cursor:pointer;transition:all .12s;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-height:72px}
+.ob{background:var(--S);border:1.5px solid var(--SC);border-radius:var(--r);padding:13px 10px;text-align:center;cursor:pointer;transition:all .12s;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-height:72px}.ob a,.ofl a{color:inherit!important;text-decoration:none!important;pointer-events:none!important}
 .ob:hover{border-color:var(--T);background:var(--TL)}.ob:hover .ol{font-size:13px;font-weight:700;color:var(--DK)}.ob:hover .ob.sel .ol{font-size:13px;font-weight:700;color:var(--DK)}.ob.sel .ob.sel{border-color:var(--T);background:var(--TL)}
 .ob .ob .ol{font-size:12px;font-weight:700;color:var(--DK)}.ob .os{font-size:10px;color:var(--A);margin-top:2px;font-weight:600}
 .ofl{background:var(--S);border:1.5px solid var(--SC);border-radius:var(--rsm);padding:12px 14px;cursor:pointer;transition:all .12s;display:flex;align-items:center;justify-content:space-between;width:100%}
