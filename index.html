@@ -171,8 +171,8 @@
   --T3:var(--MU2);
 }
 *{-webkit-tap-highlight-color:transparent}
-body{font-family:var(--font-body);background:var(--S);color:var(--DK);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
-.view{display:none}.view.active{display:block}
+html,body{height:100%}body{font-family:var(--font-body);background:var(--S);color:var(--DK);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.view{display:none}.view.active{display:block}#v-landing.active{display:flex;flex-direction:column;min-height:calc(100vh - 64px)}.landing-content{flex:1}
 
 /* ===== REVEAL AU SCROLL ===== */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.25,.46,.45,.94),transform .6s cubic-bezier(.25,.46,.45,.94)}
@@ -198,8 +198,8 @@ body{font-family:var(--font-body);background:var(--S);color:var(--DK);font-size:
 .btn-nav:active{transform:translateY(0)}
 
 /* ===== HERO ===== */
-.hero{background:var(--TXD);padding:80px 24px 88px;text-align:center;position:relative;overflow:hidden;min-height:560px;display:flex;align-items:center}
-@media(max-width:640px){.hero{padding:52px 20px 60px;min-height:auto}.hstats{display:none}}
+.hero{background:var(--TXD);padding:80px 24px 88px;text-align:center;position:relative;overflow:hidden;min-height:580px;display:flex;align-items:center;width:100%}
+@media(max-width:640px){.hero{padding:52px 20px 60px;min-height:auto}.hstats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.1);margin-top:48px;padding-top:32px;max-width:700px;margin-left:auto;margin-right:auto}}
 /* Motif géométrique subtil */
 .hg{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(74,169,122,.08) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(196,98,45,.06) 0%,transparent 40%)}
 .hg2{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 20px)}
@@ -229,11 +229,11 @@ body{font-family:var(--font-body);background:var(--S);color:var(--DK);font-size:
 .vpill{background:rgba(196,98,45,.12);border-radius:50px;padding:3px 10px;font-size:11px;font-weight:600;color:#7A3B18}
 
 /* ===== SECTIONS ===== */
-.sec{padding:80px 24px}
+.sec{padding:80px 24px}@media(min-width:1024px){.sec{padding:100px 48px}}
 .sec-w{background:var(--W)}
 .sec-dark{background:var(--TXD)}
-.si{max-width:760px;margin:0 auto}
-.si-wide{max-width:1040px;margin:0 auto}
+.si{max-width:1080px;margin:0 auto}
+.si-wide{max-width:1200px;margin:0 auto}
 
 .eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--A);margin-bottom:14px}
 .eyebrow::before{content:'';width:20px;height:2px;background:var(--A);border-radius:2px}
@@ -290,9 +290,9 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .fi.open .fa{display:block}
 
 /* ===== CTA BAND ===== */
-.cta-b{background:var(--TXD);padding:80px 24px;text-align:center;position:relative;overflow:hidden}
+.cta-b{background:var(--TXD);padding:80px 24px;text-align:center;position:relative;overflow:hidden;width:100%}
 .cta-b::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(79,169,122,.15) 0%,transparent 60%)}
-.cta-b h2{font-family:var(--font-display);font-size:clamp(22px,4.5vw,38px);font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-.3px;position:relative}
+.cta-b .cta-inner{max-width:1080px;margin:0 auto;position:relative}.cta-b h2{font-family:var(--font-display);font-size:clamp(22px,4.5vw,38px);font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-.3px;position:relative}
 .cta-b p{color:rgba(255,255,255,.45);margin-bottom:32px;font-size:14px;position:relative}
 .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
 .btn-cta{background:var(--A);color:#fff;border:none;padding:15px 32px;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;transition:all .15s;box-shadow:0 4px 20px rgba(196,98,45,.3)}
@@ -306,11 +306,11 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 #v-blog .blog-hero{background:linear-gradient(160deg,var(--P2) 0%,var(--P) 100%);padding:64px 24px 48px;text-align:center}
 #v-blog .blog-hero h1{font-family:var(--font-display);font-size:clamp(28px,5vw,42px);color:#fff;margin-bottom:12px}
 #v-blog .blog-hero p{color:rgba(255,255,255,.7);font-size:15px;max-width:480px;margin:0 auto}
-.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;padding:40px 24px;max-width:960px;margin:0 auto}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;padding:40px 24px;max-width:1080px;margin:0 auto}
 .blog-card{background:var(--W);border-radius:16px;overflow:hidden;cursor:pointer;transition:.2s;border:1px solid var(--BR)}
 .blog-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.07)}
 
-.blog-card-body{padding:22px 22px 18px}
+.blog-card-.article-.article-body{padding:0}
 .blog-card-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--V);margin-bottom:8px}
 .blog-card h2{font-family:var(--font-display);font-size:18px;color:var(--P);margin-bottom:8px;line-height:1.35}
 .blog-card p{font-size:13px;color:var(--T2);line-height:1.6}
@@ -324,18 +324,18 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .article-header h1{font-family:var(--font-display);font-size:clamp(24px,4vw,36px);color:var(--P);margin-bottom:12px;line-height:1.25}
 .article-header .article-intro{font-size:16px;color:var(--T2);line-height:1.7;margin-bottom:0}
 .article-header .article-meta{font-size:11px;color:var(--T3);margin-top:14px}
-.article-body h2{font-family:var(--font-display);font-size:20px;color:var(--P);margin:36px 0 12px}
-.article-body p{font-size:15px;color:var(--T);line-height:1.75;margin-bottom:18px}
-.article-body .encadre{background:var(--S2);border-left:3px solid var(--V);border-radius:0 10px 10px 0;padding:16px 18px;margin:24px 0;font-size:14px;color:var(--T);line-height:1.65}
-.article-body .encadre strong{display:block;color:var(--P);margin-bottom:4px;font-size:13px;text-transform:uppercase;letter-spacing:.5px}
+.article-.article-body h2{font-family:var(--font-display);font-size:20px;color:var(--P);margin:36px 0 12px}
+.article-.article-.article-body p{font-size:15px;color:var(--T);line-height:1.75;margin-bottom:18px}
+.article-.article-.article-body .encadre{background:var(--S2);border-left:3px solid var(--V);border-radius:0 10px 10px 0;padding:16px 18px;margin:24px 0;font-size:14px;color:var(--T);line-height:1.65}
+.article-.article-body .encadre strong{display:block;color:var(--P);margin-bottom:4px;font-size:13px;text-transform:uppercase;letter-spacing:.5px}
 .article-cta{background:var(--P);border-radius:16px;padding:28px 24px;text-align:center;margin-top:40px}
 .article-cta h3{font-family:var(--font-display);color:#fff;font-size:20px;margin-bottom:8px}
 .article-cta p{color:rgba(255,255,255,.7);font-size:13px;margin-bottom:18px}
 .article-cta button{background:var(--A);color:#fff;border:none;border-radius:30px;padding:13px 28px;font-size:15px;font-weight:700;cursor:pointer}
 .article-cta button:hover{opacity:.9}
 
-.footer{background:#1C1A17;padding:48px 24px 24px}
-.fi2{max-width:760px;margin:0 auto}
+.footer{background:#1C1A17;padding:48px 24px 24px;width:100%}
+.fi2{max-width:1080px;margin:0 auto}
 .ft2{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;flex-wrap:wrap;gap:20px}
 .fn{font-family:var(--font-display);font-size:18px;font-weight:800}.fn .my{color:var(--T)}.fn .dar{color:var(--A)}
 .ftag{font-size:11px;color:rgba(255,255,255,.22);margin-top:4px}
@@ -526,7 +526,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQ2QHCV5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<div id="app">
+<div id="app" style="min-height:100vh;display:flex;flex-direction:column">
 
 <!-- NAV GLOBALE -->
 <nav class="nav">
@@ -561,6 +561,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 <div id="v-landing" class="view active">
 <div class="sticky-cta" id="stickyCta"><button onclick="startF('sell')">Analyser mon bien — gratuit</button></div>
 
+<div class="landing-content">
 <div class="hero">
   <div class="hg"></div>
   <div class="hg2"></div>
@@ -693,15 +694,16 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
   </div>
 </div>
 
+</div><!-- /landing-content -->
 <!-- CTA final -->
-<div class="cta-b">
+<div class="cta-b"><div class="hg"></div><div class="hg2"></div><div class="cta-inner">
   <h2 class="reveal">Votre bien vaut combien aujourd'hui ?</h2>
   <p class="reveal reveal-d1">Une fourchette indicative indépendante en 2 minutes.</p>
   <div class="cta-btns reveal reveal-d2">
     <button class="btn-cta" onclick="startF('sell')">J'estime mon bien</button>
     <button class="btn-cta2" onclick="startF('buy')">Je vérifie un prix</button>
   </div>
-</div>
+</div></div>
 
 <div class="footer">
   <div class="fi2">
@@ -1196,34 +1198,22 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 </div><!-- #app -->
 
 <script>
-const TOTAL=12;let step=1,mode='sell';const A={};
+const TOTAL=13;let step=1,mode='sell';const A={};
 const QPM2={
-  // ─── DONNÉES MARCHÉ AVRIL 2026 ───
-  // Calibrées sur transactions réelles + annonces actives + terrain
-  // Guéliz : marché intermédiaire standard+. Neuf premium jusqu'à 25-30k.
-  'Guéliz':{appartement:15500,villa:20000,riad:15000,terrain:10000,immeuble:15000,local:13500},
-  // Semlalia : fourchette terrain validée
-  'Semlalia':{appartement:12500,villa:16000,riad:12000,terrain:8500,immeuble:12000,local:11000},
-  // Hivernage : marché premium très segmenté. Base 20k = standard standing.
-  'Hivernage':{appartement:20000,villa:25000,riad:20000,terrain:13000,immeuble:20000,local:16000},
-  // Médina : marché très opaque. Riad rénové 15-40k+. Fourchette très large intentionnelle.
-  'Médina':{appartement:10500,villa:15000,riad:20000,terrain:7500,immeuble:11000,local:9000},
-  // Palmeraie : villas 18-35k construit, appartements rares.
-  'Palmeraie':{appartement:15000,villa:20000,riad:15000,terrain:11000,immeuble:13000,local:11000},
-  // Agdal : parmi les prix les plus élevés. Programmes neufs 15-28k.
-  'Agdal':{appartement:15500,villa:19000,riad:13500,terrain:10000,immeuble:15000,local:13000},
-  // Targa : neuf émergent, impact CM2030 sur le foncier.
-  'Targa':{appartement:10000,villa:13000,riad:9000,terrain:7500,immeuble:9500,local:9000},
-  // Mhamid : entrée de gamme. Potentiel locatif aéroport.
-  'Mhamid':{appartement:6500,villa:8500,riad:7000,terrain:5000,immeuble:6500,local:6000},
-  // Sidi Ghanem : zone industrielle reconvertie, locaux commerciaux porteurs.
-  'Sidi Ghanem':{appartement:6000,villa:8000,riad:6500,terrain:4800,immeuble:6800,local:8500},
-  // Route de Casa : axe accessible, programmes promoteurs.
-  'Route de Casablanca':{appartement:9500,villa:11000,riad:8500,terrain:7000,immeuble:9500,local:8500},
-  // Autre : moyenne prudente ville
-  'Autre':{appartement:9000,villa:11000,riad:9500,terrain:5800,immeuble:8500,local:7800}
+  'Guéliz':        {appartement:14500,villa:16000,riad:20000,terrain:8000,immeuble:13500,local:11500},
+  'Semlalia':      {appartement:11500,villa:14000,riad:15000,terrain:6000,immeuble:10500,local:9500},
+  'Hivernage':     {appartement:19000,villa:25000,riad:35000,terrain:12000,immeuble:17000,local:14000},
+  'Médina':        {appartement:10000,villa:12000,riad:22000,terrain:5000,immeuble:9000,local:7500},
+  'Palmeraie':     {appartement:15000,villa:22000,riad:25000,terrain:8000,immeuble:14000,local:12000},
+  'Agdal':         {appartement:16500,villa:19000,riad:21000,terrain:8500,immeuble:15000,local:12500},
+  'Targa':         {appartement:10000,villa:12000,riad:13000,terrain:5000,immeuble:9000,local:7500},
+  'Mhamid':        {appartement:6000,villa:8000,riad:8500,terrain:2800,immeuble:5500,local:4800},
+  'Sidi Ghanem':   {appartement:5800,villa:7800,riad:8200,terrain:2600,immeuble:5200,local:5200},
+  'Route de Casa': {appartement:9000,villa:11500,riad:12000,terrain:4200,immeuble:8000,local:7000},
+  'Autre':         {appartement:8500,villa:11000,riad:13000,terrain:3800,immeuble:7500,local:6500},
 };
 const ETAT_M={neuf:1.22,recent:1.10,bon:1.00,rafraichir:0.85,renover:0.72};
+const MICRO_M={standard:0.95,bon:1.00,premium:1.10};
 const EQ_M={piscine:1.12,jardin:1.05,terrasse:1.03,parking:1.02,securise:1.04,vue:1.03,solaire:1.03,chauffe_solaire:1.02,titre_foncier:1.08,maison_hotes:1.14,lcd:1.10,meuble:1.05,clim:1.02,balcon:1.02,ascenseur:1.01};
 const VAR={appartement:[0.92,1.10],villa:[0.87,1.16],riad:[0.78,1.28],terrain:[0.82,1.25],immeuble:[0.88,1.14],local:[0.88,1.14]};
 const fN=n=>new Intl.NumberFormat('fr-MA').format(n);
@@ -1245,19 +1235,20 @@ function togCon(el){el.classList.toggle('ck');el.querySelector('.concb').innerHT
 function ck(){return'<svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'}
 function ob(ic,lb,sb,k,v){return`<div class="ob ${A[k]===v?'sel':''}" onclick="sel('${k}','${v}',this)"><div class="ol">${lb}</div>${sb?`<div class="os">${sb}</div>`:''}</div>`}
 function ofl(lb,rb,k,v){const s=A[k]===v;return`<button class="ofl ${s?'sel':''}" onclick="sel('${k}','${v}',this)"><span class="ll">${lb}</span>${s?`<span class="cki">${ck()}</span>`:`<span class="lr">${rb}</span>`}</button>`}
-function render(){updP();const fc=document.getElementById('fcard');fc.classList.add('fade');setTimeout(()=>{fc.innerHTML=[s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12][step-1]();fc.classList.remove('fade');fc.scrollIntoView({behavior:'smooth',block:'start'});const inp=fc.querySelector('input,button.ofl,button.bcont');if(inp&&inp.tagName==='INPUT')setTimeout(()=>inp.focus(),80);},80);}
-function s1(){return`<div class="ftag2">Étape 1 sur 11</div><h2>${mode==='buy'?'Quel bien voulez-vous vérifier ?':'Quel bien souhaitez-vous estimer ?'}</h2><p class="fh">Chaque type suit une logique de valorisation propre au marché de Marrakech.</p><div style="display:flex;gap:5px;margin-bottom:16px"><div class="mst ${mode==='sell'?'sel':''}" onclick="mode='sell';A._mode='sell';render()">Estimer pour vendre</div><div class="mst ${mode==='buy'?'sel':''}" onclick="mode='buy';A._mode='buy';render()">Vérifier avant d'acheter</div></div><div class="opts o3">${ob('','Appartement','Résidentiel collectif','type','appartement')}${ob('','Villa','Individuel avec terrain','type','villa')}${ob('','Riad','Médina · Maison de caractère','type','riad')}${ob('','Terrain','Nu ou constructible','type','terrain')}${ob('','Immeuble','Plusieurs lots','type','immeuble')}${ob('','Local','Commercial ou professionnel','type','local')}</div>`}
-function s2(){const t=A.type||'appartement';return`<div class="ftag2">Étape 2 sur 11</div><h2>Dans quel quartier ?</h2><p class="fh">La localisation est le premier facteur de valorisation à Marrakech.</p><div class="opts">${Object.keys(QPM2).map(q=>{const b=QPM2[q][t];return ofl(q,b?`~${fN(b)} MAD/m²`:'','quartier',q)}).join('')}</div>`}
-function s3(){const isT=A.type==='terrain';return`<div class="ftag2">Étape 3 sur 11</div><h2>${isT?'Surface du terrain ?':'Surface habitable ?'}</h2><p class="fh">${isT?'Superficie totale en m².':'Surface habitable en m², hors terrasse et garage.'}</p><input type="number" class="sin" id="sin" placeholder="${isT?'600':'90'}" value="${A.surface||''}" min="10" max="9999" oninput="A.surface=this.value"/><div style="font-size:11px;color:var(--MU);text-align:center">m²</div>${A.type!=='terrain'?`<div style="margin-top:10px;padding:9px 11px;background:var(--S);border-radius:var(--rsm);font-size:11px;color:var(--MU)">Jardin (optionnel) : <input type="number" style="width:60px;padding:3px 6px;border:1px solid var(--SC);border-radius:5px;font-size:11px;background:#fff" placeholder="0" oninput="A.surface_terrain=this.value"/> m²</div>`:''}<button class="bcont" onclick="if(document.getElementById('sin').value>0){A.surface=parseInt(document.getElementById('sin').value);nextStep();}else{document.getElementById('sin').style.borderColor='#E24B4A'}">Continuer</button><div class="reas"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.3 2.5 6.4 6 7.2C12.5 14.4 14 11.3 14 8V4L8 1z" stroke="currentColor" stroke-width="1.2"/></svg>Estimation indicative, non contractuelle</div>`}
-function s4(){const t=A.type;if(t==='terrain'||t==='local')return`<div class="ftag2">Étape 4 sur 11</div><h2>Configuration du bien</h2><p class="fh">Précisez le type principal.</p><div class="opts">${ofl('Nu constructible','Terrain vierge','config','nu')}${ofl('Avec fondations','Pré-construit','config','fondations')}${ofl('Rez-de-chaussée','RDC','config','rdc')}${ofl('En étage','Étage','config','etage')}</div>`;if(t==='villa'||t==='riad')return`<div class="ftag2">Étape 4 sur 11</div><h2>Nombre de chambres ?</h2><p class="fh">Détermine le standing du bien.</p><div class="opts o3">${['2 ch','3 ch','4 ch','5 ch','6 ch+'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`;if(t==='immeuble')return`<div class="ftag2">Étape 4 sur 11</div><h2>Nombre de lots ?</h2><p class="fh">Taille de l\'immeuble.</p><div class="opts o2">${['2 à 4 lots','5 à 8 lots','9 à 15 lots','15+ lots'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`;return`<div class="ftag2">Étape 4 sur 11</div><h2>Nombre de pièces ?</h2><p class="fh">Studio, F2, F3 : chaque configuration a sa valeur propre.</p><div class="opts o3">${['Studio','F2 · 1ch','F3 · 2ch','F4 · 3ch','F5 · 4ch','F6+'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`}
-function s5(){return`<div class="ftag2">Étape 5 sur 11</div><h2>État général du bien ?</h2><p class="fh">L'état peut modifier la fourchette de 20 à 35%.</p><div class="opts">${ofl('Neuf ou jamais habité','Impact positif fort','etat','neuf')}${ofl('Récent, moins de 5 ans','Très bon état','etat','recent')}${ofl('Bon état général','Entretenu','etat','bon')}${ofl('À rafraîchir','Petits travaux','etat','rafraichir')}${ofl('À rénover','Travaux importants','etat','renover')}</div>`}
-function s6(){const eqs=[['balcon','Balcon'],['terrasse','Terrasse'],['jardin','Jardin'],['piscine','Piscine'],['parking','Parking'],['securise','Résidence sécurisée'],['vue','Vue dégagée'],['clim','Climatisation'],['ascenseur','Ascenseur'],['solaire','Panneaux solaires'],['chauffe_solaire','Chauffe-eau solaire'],['meuble','Meublé'],['titre_foncier','Titre foncier'],['maison_hotes',"Maison d'hôtes possible"],['lcd','Location courte durée']];const eq=A.equipements||[];return`<div class="ftag2">Étape 6 sur 11</div><h2>Équipements ?</h2><p class="fh">Cochez tout ce qui s'applique. Chaque élément affine la fourchette.</p><div class="cbg">${eqs.map(([v,l])=>`<div class="cbi ${eq.includes(v)?'ck':''}" onclick="togCb('equipements','${v}',this)"><div class="cbb">${eq.includes(v)?ck():''}</div><span class="cbl">${l}</span></div>`).join('')}</div><button class="bcont" onclick="nextStep()">Continuer</button>`}
-function s7(){return`<div class="ftag2">Étape 7 sur 11</div><h2>Usage actuel du bien ?</h2><p class="fh">L'usage influe sur la valorisation.</p><div class="opts">${ofl('Résidence principale','Occupé','usage','principale')}${ofl('Résidence secondaire','Vacances','usage','secondaire')}${ofl('Location longue durée','Loué','usage','loc_longue')}${ofl('Location courte durée','Airbnb','usage','loc_courte')}${ofl("Maison d'hôtes","Exploité",'usage','maison_hotes')}${ofl('Vide','Non exploité','usage','vide')}</div>`}
-function s8(){if(mode==='buy')return`<div class="ftag2">Étape 8 sur 11</div><h2>Pourquoi vérifiez-vous ce prix ?</h2><p class="fh">Pour vous donner les conseils les plus adaptés.</p><div class="opts">${ofl('Vérifier si le prix est cohérent','Avant négociation','projet','verif_prix')}${ofl('Comparer plusieurs biens','Due diligence','projet','comparer')}${ofl("Décider si j'achète",'Décision finale','projet','decider')}${ofl('Investissement locatif','Rentabilité','projet','investir')}</div>`;return`<div class="ftag2">Étape 8 sur 11</div><h2>Votre projet avec ce bien ?</h2><p class="fh">Pour vous orienter vers les bons conseils.</p><div class="opts">${ofl('Vendre rapidement','Urgence','projet','vendre_vite')}${ofl('Vendre dans les mois à venir','Préparation','projet','vendre_mois')}${ofl('Connaître la valeur','Sans projet immédiat','projet','connaitre')}${ofl('Mettre en location','Revenus locatifs','projet','louer')}${ofl('Rénover avant vente','Valorisation','projet','renover_vente')}</div>`}
-function s9(){return`<div class="ftag2">Étape 9 sur 11</div><h2>Dans quel délai envisagez-vous d'agir ?</h2><p class="fh">Confidentiel. Nous aide à vous accompagner au bon moment.</p><div class="opts">${ofl('Immédiat','Dès maintenant','delai','immediat')}${ofl('Dans 1 à 3 mois','Court terme','delai','1_3mois')}${ofl('Dans 3 à 6 mois','Moyen terme','delai','3_6mois')}${ofl('Plus tard','Long terme','delai','plus_tard')}${ofl('Pas encore défini','En réflexion','delai','indefini')}</div>`}
-function s10(){return`<div class="ftag2">Étape 10 sur 12</div><h2>Où envoyer votre fourchette ?</h2><p class="fh">Vos données sont confidentielles et ne seront jamais revendues.</p><div><label class="flbl">Prénom <span style="color:#E24B4A">*</span></label><input class="finp" id="fp" placeholder="Karim" value="${A.prenom||''}" oninput="A.prenom=this.value.trim();valField('fp','prenom')"/><div class="field-err" id="fp-err">Prénom requis</div></div><div><label class="flbl">Téléphone / WhatsApp <span style="color:#E24B4A">*</span></label><input class="finp" id="ft" placeholder="+212 6 00 00 00 00" value="${A.tel||''}" oninput="A.tel=this.value.trim();valField('ft','tel')"/><div class="field-err" id="ft-err">Numéro invalide (ex: +212600000000)</div></div><div><label class="flbl">Email <span style="color:var(--MU2);font-weight:400;text-transform:none">(facultatif)</span></label><input class="finp" id="fe" placeholder="votre@email.com" value="${A.email||''}" oninput="A.email=this.value.trim();if(this.value)valField('fe','email')"/><div class="field-err" id="fe-err">Email invalide</div></div><div><label class="flbl">Préférence de contact</label><div class="chips">${['WhatsApp','Téléphone','Email'].map(p=>`<div class="chip ${A.contact===p?'sel':''}" onclick="A.contact='${p}';document.querySelectorAll('.chips .chip').forEach(c=>c.classList.remove('sel'));this.classList.add('sel')">${p}</div>`).join('')}</div></div><button class="bcont" onclick="submitContact()">Continuer</button><div class="reas"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.3 2.5 6.4 6 7.2C12.5 14.4 14 11.3 14 8V4L8 1z" stroke="currentColor" stroke-width="1.2"/></svg>Données confidentielles · Jamais revendues</div>`}
-function s11(){return`<div class="ftag2">Étape 11 sur 12</div><h2>${mode==='buy'?'Quel est votre budget ?':'Avez-vous déjà une idée du prix ?'}</h2><p class="fh">${mode==='buy'?'Aide à calibrer l\'estimation par rapport à votre budget réel.':'Nous aide à contextualiser votre fourchette.'}</p><div class="opts">${mode==='buy'?[ofl('Moins de 1 million MAD','< 1M','budget','<1M'),ofl('1 à 2 millions MAD','1M – 2M','budget','1-2M'),ofl('2 à 4 millions MAD','2M – 4M','budget','2-4M'),ofl('4 à 8 millions MAD','4M – 8M','budget','4-8M'),ofl('Plus de 8 millions MAD','8M+','budget','>8M'),ofl('Je préfère ne pas dire','—','budget','nd')].join(''):[ofl('Non, première fois','Première démarche','estim_deja','non'),ofl('Oui, agence ou notaire','Estimation pro','estim_deja','pro'),ofl('Oui, estimation en ligne','Via un outil','estim_deja','online'),ofl('Je connais déjà la valeur','Je sais ce que ça vaut','estim_deja','sait')].join('')}</div>`}
-function s12(){return`<div class="ftag2">Étape 12 sur 12</div><h2>Dernière étape</h2><p class="fh">Confirmez vos préférences avant de recevoir votre fourchette indicative.</p><div class="conb"><div class="coni" id="con1" onclick="togCon(this)"><div class="concb"></div><div class="cont"><strong>J'ai lu et j'accepte la <span style="color:var(--T);text-decoration:underline;cursor:pointer" onclick="event.stopPropagation();goTo('confidentialite')">politique de confidentialité</span>.</strong> <span style="color:#E24B4A;font-weight:700">*</span></div></div><div class="coni" onclick="togCon(this)"><div class="concb"></div><div class="cont"><strong>J'accepte que MyDar me recontacte</strong> si ma demande le nécessite.</div></div><div class="coni" onclick="togCon(this)"><div class="concb"></div><div class="cont">J'accepte, <strong>si ma demande le justifie</strong>, d'être mis en relation avec un professionnel partenaire.</div></div></div><p style="font-size:10px;color:var(--MU2);margin-top:8px"><span style="color:#E24B4A">*</span> Champ obligatoire</p><button class="bcont" onclick="const c=document.getElementById('con1');if(!c.classList.contains('ck')){c.style.outline='2px solid #E24B4A';c.scrollIntoView({behavior:'smooth',block:'center'});return;}c.style.outline='';startLoad()">Voir ma fourchette</button><div class="reas" style="margin-top:6px"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.3 2.5 6.4 6 7.2C12.5 14.4 14 11.3 14 8V4L8 1z" stroke="currentColor" stroke-width="1.2"/></svg>Conformément à la loi marocaine 09-08 sur la protection des données</div>`}
+function render(){updP();const fc=document.getElementById('fcard');fc.classList.add('fade');setTimeout(()=>{fc.innerHTML=[s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13][step-1]();fc.classList.remove('fade');fc.scrollIntoView({behavior:'smooth',block:'start'});const inp=fc.querySelector('input,button.ofl,button.bcont');if(inp&&inp.tagName==='INPUT')setTimeout(()=>inp.focus(),80);},80);}
+function s1(){return`<div class="ftag2">Étape 1 sur 13</div><h2>${mode==='buy'?'Quel bien voulez-vous vérifier ?':'Quel bien souhaitez-vous estimer ?'}</h2><p class="fh">Chaque type suit une logique de valorisation propre au marché de Marrakech.</p><div style="display:flex;gap:5px;margin-bottom:16px"><div class="mst ${mode==='sell'?'sel':''}" onclick="mode='sell';A._mode='sell';render()">Estimer pour vendre</div><div class="mst ${mode==='buy'?'sel':''}" onclick="mode='buy';A._mode='buy';render()">Vérifier avant d'acheter</div></div><div class="opts o3">${ob('','Appartement','Résidentiel collectif','type','appartement')}${ob('','Villa / Maison','Bien individuel avec terrain','type','villa')}${ob('','Riad','Médina · Maison de caractère','type','riad')}${ob('','Terrain','Nu ou constructible','type','terrain')}${ob('','Immeuble','Plusieurs lots','type','immeuble')}${ob('','Local','Commercial ou professionnel','type','local')}</div>`}
+function s2(){const t=A.type||'appartement';return`<div class="ftag2">Étape 2 sur 13</div><h2>Dans quel quartier ?</h2><p class="fh">La localisation est le premier facteur de valorisation à Marrakech.</p><div class="opts">${Object.keys(QPM2).map(q=>{const b=QPM2[q][t];return ofl(q,b?`~${fN(b)} MAD/m²`:'','quartier',q)}).join('')}</div>`}
+function s3(){const isT=A.type==='terrain';return`<div class="ftag2">Étape 3 sur 13</div><h2>${isT?'Surface du terrain ?':'Surface habitable ?'}</h2><p class="fh">${isT?'Superficie totale en m².':'Surface habitable en m², hors terrasse et garage.'}</p><input type="number" class="sin" id="sin" placeholder="${isT?'600':'90'}" value="${A.surface||''}" min="10" max="9999" oninput="A.surface=this.value"/><div style="font-size:11px;color:var(--MU);text-align:center">m²</div>${A.type!=='terrain'?`<div style="margin-top:10px;padding:9px 11px;background:var(--S);border-radius:var(--rsm);font-size:11px;color:var(--MU)">Jardin (optionnel) : <input type="number" style="width:60px;padding:3px 6px;border:1px solid var(--SC);border-radius:5px;font-size:11px;background:#fff" placeholder="0" oninput="A.surface_terrain=this.value"/> m²</div>`:''}<button class="bcont" onclick="if(document.getElementById('sin').value>0){A.surface=parseInt(document.getElementById('sin').value);nextStep();}else{document.getElementById('sin').style.borderColor='#E24B4A'}">Continuer</button><div class="reas"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.3 2.5 6.4 6 7.2C12.5 14.4 14 11.3 14 8V4L8 1z" stroke="currentColor" stroke-width="1.2"/></svg>Estimation indicative, non contractuelle</div>`}
+function s4(){const t=A.type;if(t==='terrain'||t==='local')return`<div class="ftag2">Étape 4 sur 13</div><h2>Configuration du bien</h2><p class="fh">Précisez le type principal.</p><div class="opts">${ofl('Nu constructible','Terrain vierge','config','nu')}${ofl('Avec fondations','Pré-construit','config','fondations')}${ofl('Rez-de-chaussée','RDC','config','rdc')}${ofl('En étage','Étage','config','etage')}</div>`;if(t==='villa'||t==='riad')return`<div class="ftag2">Étape 4 sur 13</div><h2>Nombre de chambres ?</h2><p class="fh">Détermine le standing du bien.</p><div class="opts o3">${['2 ch','3 ch','4 ch','5 ch','6 ch+'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`;if(t==='immeuble')return`<div class="ftag2">Étape 4 sur 13</div><h2>Nombre de lots ?</h2><p class="fh">Taille de l\'immeuble.</p><div class="opts o2">${['2 à 4 lots','5 à 8 lots','9 à 15 lots','15+ lots'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`;return`<div class="ftag2">Étape 4 sur 13</div><h2>Nombre de pièces ?</h2><p class="fh">Studio, F2, F3 : chaque configuration a sa valeur propre.</p><div class="opts o3">${['Studio','F2 · 1ch','F3 · 2ch','F4 · 3ch','F5 · 4ch','F6+'].map(v=>ob('',v,'','pieces',v)).join('')}</div>`}
+function s5(){return`<div class="ftag2">Étape 5 sur 13</div><h2>Comment est situé ce bien ?</h2><p class="fh">L'emplacement au sein du quartier influence directement la valeur du bien.</p><div class="opts o3">${ofl('Standard','Périphérique ou peu recherché','micro','standard')}${ofl('Bon emplacement','Secteur résidentiel classique','micro','bon')}${ofl('Premium','Rue prisée, vue, centralité','micro','premium')}</div><button class="bcont" onclick="if(!A.micro)A.micro='bon';nextStep()">Continuer</button>`}
+function s6(){return`<div class="ftag2">Étape 5 sur 13</div><h2>État général du bien ?</h2><p class="fh">L'état peut modifier la fourchette de 20 à 35%.</p><div class="opts">${ofl('Neuf ou jamais habité','Impact positif fort','etat','neuf')}${ofl('Récent, moins de 5 ans','Très bon état','etat','recent')}${ofl('Bon état général','Entretenu','etat','bon')}${ofl('À rafraîchir','Petits travaux','etat','rafraichir')}${ofl('À rénover','Travaux importants','etat','renover')}</div>`}
+function s7(){const eqs=[['balcon','Balcon'],['terrasse','Terrasse'],['jardin','Jardin'],['piscine','Piscine'],['parking','Parking'],['securise','Résidence sécurisée'],['vue','Vue dégagée'],['clim','Climatisation'],['ascenseur','Ascenseur'],['solaire','Panneaux solaires'],['chauffe_solaire','Chauffe-eau solaire'],['meuble','Meublé'],['titre_foncier','Titre foncier'],['maison_hotes',"Maison d'hôtes possible"],['lcd','Location courte durée']];const eq=A.equipements||[];return`<div class="ftag2">Étape 6 sur 13</div><h2>Équipements ?</h2><p class="fh">Cochez tout ce qui s'applique. Chaque élément affine la fourchette.</p><div class="cbg">${eqs.map(([v,l])=>`<div class="cbi ${eq.includes(v)?'ck':''}" onclick="togCb('equipements','${v}',this)"><div class="cbb">${eq.includes(v)?ck():''}</div><span class="cbl">${l}</span></div>`).join('')}</div><button class="bcont" onclick="nextStep()">Continuer</button>`}
+function s8(){return`<div class="ftag2">Étape 7 sur 13</div><h2>Usage actuel du bien ?</h2><p class="fh">L'usage influe sur la valorisation.</p><div class="opts">${ofl('Résidence principale','Occupé','usage','principale')}${ofl('Résidence secondaire','Vacances','usage','secondaire')}${ofl('Location longue durée','Loué','usage','loc_longue')}${ofl('Location courte durée','Airbnb','usage','loc_courte')}${ofl("Maison d'hôtes","Exploité",'usage','maison_hotes')}${ofl('Vide','Non exploité','usage','vide')}</div>`}
+function s9(){if(mode==='buy')return`<div class="ftag2">Étape 8 sur 13</div><h2>Pourquoi vérifiez-vous ce prix ?</h2><p class="fh">Pour vous donner les conseils les plus adaptés.</p><div class="opts">${ofl('Vérifier si le prix est cohérent','Avant négociation','projet','verif_prix')}${ofl('Comparer plusieurs biens','Due diligence','projet','comparer')}${ofl("Décider si j'achète",'Décision finale','projet','decider')}${ofl('Investissement locatif','Rentabilité','projet','investir')}</div>`;return`<div class="ftag2">Étape 8 sur 13</div><h2>Votre projet avec ce bien ?</h2><p class="fh">Pour vous orienter vers les bons conseils.</p><div class="opts">${ofl('Vendre rapidement','Urgence','projet','vendre_vite')}${ofl('Vendre dans les mois à venir','Préparation','projet','vendre_mois')}${ofl('Connaître la valeur','Sans projet immédiat','projet','connaitre')}${ofl('Mettre en location','Revenus locatifs','projet','louer')}${ofl('Rénover avant vente','Valorisation','projet','renover_vente')}</div>`}
+function s10(){return`<div class="ftag2">Étape 9 sur 13</div><h2>Dans quel délai envisagez-vous d'agir ?</h2><p class="fh">Confidentiel. Nous aide à vous accompagner au bon moment.</p><div class="opts">${ofl('Immédiat','Dès maintenant','delai','immediat')}${ofl('Dans 1 à 3 mois','Court terme','delai','1_3mois')}${ofl('Dans 3 à 6 mois','Moyen terme','delai','3_6mois')}${ofl('Plus tard','Long terme','delai','plus_tard')}${ofl('Pas encore défini','En réflexion','delai','indefini')}</div>`}
+function s11(){return`<div class="ftag2">Étape 10 sur 13</div><h2>Où envoyer votre fourchette ?</h2><p class="fh">Vos données sont confidentielles et ne seront jamais revendues.</p><div><label class="flbl">Prénom <span style="color:#E24B4A">*</span></label><input class="finp" id="fp" placeholder="Karim" value="${A.prenom||''}" oninput="A.prenom=this.value.trim();valField('fp','prenom')"/><div class="field-err" id="fp-err">Prénom requis</div></div><div><label class="flbl">Téléphone / WhatsApp <span style="color:#E24B4A">*</span></label><input class="finp" id="ft" placeholder="+212 6 00 00 00 00" value="${A.tel||''}" oninput="A.tel=this.value.trim();valField('ft','tel')"/><div class="field-err" id="ft-err">Numéro invalide (ex: +212600000000)</div></div><div><label class="flbl">Email <span style="color:var(--MU2);font-weight:400;text-transform:none">(facultatif)</span></label><input class="finp" id="fe" placeholder="votre@email.com" value="${A.email||''}" oninput="A.email=this.value.trim();if(this.value)valField('fe','email')"/><div class="field-err" id="fe-err">Email invalide</div></div><div><label class="flbl">Préférence de contact</label><div class="chips">${['WhatsApp','Téléphone','Email'].map(p=>`<div class="chip ${A.contact===p?'sel':''}" onclick="A.contact='${p}';document.querySelectorAll('.chips .chip').forEach(c=>c.classList.remove('sel'));this.classList.add('sel')">${p}</div>`).join('')}</div></div><button class="bcont" onclick="submitContact()">Continuer</button><div class="reas"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.3 2.5 6.4 6 7.2C12.5 14.4 14 11.3 14 8V4L8 1z" stroke="currentColor" stroke-width="1.2"/></svg>Données confidentielles · Jamais revendues</div>`}
+function s12(){return`<div class="ftag2">Étape 11 sur 13</div><h2>${mode==='buy'?'Quel est votre budget ?':'Avez-vous déjà une idée du prix ?'}</h2><p class="fh">${mode==='buy'?'Aide à calibrer l\'estimation par rapport à votre budget réel.':'Nous aide à contextualiser votre fourchette.'}</p><div class="opts">${mode==='buy'?[ofl('Moins de 1 million MAD','< 1M','budget','<1M'),ofl('1 à 2 millions MAD','1M – 2M','budget','1-2M'),ofl('2 à 4 millions MAD','2M – 4M','budget','2-4M'),ofl('4 à 8 millions MAD','4M – 8M','budget','4-8M'),ofl('Plus de 8 millions MAD','8M+','budget','>8M'),ofl('Je préfère ne pas dire','—','budget','nd')].join(''):[ofl('Non, première fois','Première démarche','estim_deja','non'),ofl('Oui, agence ou notaire','Estimation pro','estim_deja','pro'),ofl('Oui, estimation en ligne','Via un outil','estim_deja','online'),ofl('Je connais déjà la valeur','Je sais ce que ça vaut','estim_deja','sait')].join('')}</div>`}
+function s13(){return`<div class="ftag2">Étape 12 sur 13</div><h2>Dernière étape</h2><p class="fh">Confirmez vos préférences avant de recevoir votre fourchette indicative.</p><div class="conb"><div class="coni" id="con1" onclick="togCon(this)"><div class="concb"></div><div class="cont"><strong>J'ai lu et j'accepte la <span style="color:var(--T);text-decoration:underline;cursor:pointer" onclick="event.stopPropagation();goTo('confidentialite')">politique de confidentialité</span>.</strong> <span style="color:#E24B4A;font-weight:700">*</span></div></div><div class="coni" onclick="togCon(this)"><div class="concb"></div><div class="cont"><strong>J'accepte que MyDar me recontacte</strong> si ma demande le nécessite.</div></div><div class="coni" onclick="togCon(this)"><div class="concb"></div><div class="cont">J'accepte, <strong>si ma demande le justifie</strong>, d'être mis en relation avec un professionnel partenaire.</div></div></div><p style="font-size:10px;color:var(--MU2);margin-top:8px"><span style="color:#E24B4A">*</span> Champ obligatoire</p><button class="bcont" onclick="const c=document.getElementById('con1');if(!c.classList.contains('ck')){c.style.outline='2px solid #E24B4A';c.scrollIntoView({behavior:'smooth',block:'center'});return;}c.style.outline='';startLoad()">Voir ma fourchette</button><div class="reas" style="margin-top:6px"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.3 2.5 6.4 6 7.2C12.5 14.4 14 11.3 14 8V4L8 1z" stroke="currentColor" stroke-width="1.2"/></svg>Conformément à la loi marocaine 09-08 sur la protection des données</div>`}
 function startLoad(){
   goTo('loading');
   const pills=['ls1','ls2','ls3','ls4','ls5'];
@@ -1273,7 +1264,16 @@ function startLoad(){
     }catch(e){clearInterval(iv);clearTimeout(safeTimeout);showResult();}
   },360);
 }
-function calcEst(){const q=QPM2[A.quartier]||QPM2['Autre'];const t=A.type||'appartement';const base=q[t]||8500;const surf=parseInt(A.surface)||90;let m=ETAT_M[A.etat]||1.0;let eq=1.0;(A.equipements||[]).forEach(e=>{if(EQ_M[e])eq*=EQ_M[e];});eq=Math.min(eq,1.55);m*=eq;if(A.usage==='loc_courte')m*=1.07;else if(A.usage==='maison_hotes')m*=1.10;else if(A.usage==='vide')m*=0.96;const adj=Math.round(base*m);const vc=adj*surf;const[lo,hi]=VAR[t]||[0.93,1.09];return{low:Math.round(vc*lo/10000)*10000,high:Math.round(vc*hi/10000)*10000,base,mult:Math.round(m*1000)/1000};}
+function calcEst(){const q=QPM2[A.quartier]||QPM2['Autre'];const t=A.type||'appartement';const base=q[t]||8500;const surf=parseInt(A.surface)||90;let m=ETAT_M[A.etat]||1.0;let eq=1.0;(A.equipements||[]).forEach(e=>{if(EQ_M[e])eq*=EQ_M[e];});eq=Math.min(eq,1.55);m*=eq;if(A.usage==='loc_courte')m*=1.07;else if(A.usage==='maison_hotes')m*=1.10;else if(A.usage==='vide')m*=0.96;
+  // Micro-localisation
+  m*=(MICRO_M[A.micro]||1.00);
+  // Villa > 300m² — éviter explosion multiplicateur
+  if(t==='villa'&&surf>300)m=Math.min(m,1.35);
+  // Riad à rénover — décote structurelle
+  if(t==='riad'&&A.etat==='renover')m*=0.90;
+  // Reality check — prix annonces vs transactions réelles
+  const REALITY=0.97;
+  const adj=Math.round(base*m);const vc=adj*surf*REALITY;const[lo,hi]=VAR[t]||[0.93,1.09];return{low:Math.round(vc*lo/10000)*10000,high:Math.round(vc*hi/10000)*10000,base,mult:Math.round(m*1000)/1000};}
 function calcConf(){
   let s=50;
   // Liquidité et comparabilité par quartier
