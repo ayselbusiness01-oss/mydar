@@ -215,7 +215,7 @@ html,body{height:100%}body{font-family:var(--font-body);background:var(--S);colo
 @media(max-width:640px){.hero{padding:52px 20px 60px;min-height:auto}.hstats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:28px;max-width:700px;margin-left:auto;margin-right:auto}}
 /* Motif géométrique subtil */
 .hg{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(74,169,122,.08) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(196,98,45,.06) 0%,transparent 40%)}
-.hg2{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 20px)}
+.hg2{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 20px);pointer-events:none}
 .hi{position:relative;max-width:600px;margin:0 auto;width:100%}
 .hpill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);color:#A8DFC0;border:1px solid rgba(255,255,255,.18);padding:5px 14px;border-radius:50px;font-size:11px;font-weight:600;margin-bottom:28px;letter-spacing:.5px;animation:fadeDown .8s ease both}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
@@ -306,7 +306,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .fi.open .fa{display:block}
 
 /* ===== CTA BAND ===== */
-.cta-b{background:var(--TXD);padding:80px 24px;text-align:center;position:relative;overflow:hidden;width:100%;display:none}
+.cta-b{background:var(--TXD);padding:80px 24px;text-align:center;position:relative;overflow:hidden;width:100%}
 .cta-b::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(79,169,122,.15) 0%,transparent 60%)}
 .cta-b .cta-inner{max-width:1080px;margin:0 auto;position:relative}.cta-b h2{font-family:var(--font-display);font-size:clamp(22px,4.5vw,38px);font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-.3px;position:relative}
 .cta-b p{color:rgba(255,255,255,.45);margin-bottom:32px;font-size:14px;position:relative}
@@ -319,7 +319,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 /* ===== FOOTER ===== */
 
 /* ─── BLOG ─── */
-#v-blog .blog-hero{background:linear-gradient(160deg,var(--P2) 0%,var(--P) 100%);padding:64px 24px 48px;text-align:center}
+#v-blog .blog-hero{background:linear-gradient(160deg,var(--P2) 0%,var(--P) 100%);padding:64px 24px 48px;text-align:center;position:relative;overflow:hidden}
 #v-blog .blog-hero h1{font-family:var(--font-display);font-size:clamp(28px,5vw,42px);color:#fff;margin-bottom:12px}
 #v-blog .blog-hero p{color:rgba(255,255,255,.7);font-size:15px;max-width:480px;margin:0 auto}
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;padding:40px 24px;max-width:1080px;margin:0 auto}
@@ -351,7 +351,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .article-cta button{background:var(--A);color:#fff;border:none;border-radius:30px;padding:13px 28px;font-size:15px;font-weight:700;cursor:pointer}
 .article-cta button:hover{opacity:.9}
 
-.footer{background:#1C1A17;padding:48px 24px 24px;width:100%;display:none}
+.footer{background:#1C1A17;padding:48px 24px 24px;width:100%}
 .fi2{max-width:1080px;margin:0 auto}
 .ft2{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;flex-wrap:wrap;gap:20px}
 .fn{font-family:var(--font-display);font-size:18px;font-weight:800}.fn .my{color:var(--T)}.fn .dar{color:var(--A)}
@@ -406,7 +406,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .ftag2{font-size:10px;color:var(--A);font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
 .fc h2{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--DK);margin-bottom:6px;letter-spacing:-.3px;line-height:1.2}
 .fh{font-size:13px;color:var(--MU);margin-bottom:20px;line-height:1.6}
-.opts{display:grid;gap:7px}.o2{grid-template-columns:1fr 1fr}.o3{grid-template-columns:1fr 1fr 1fr}
+.opts{display:grid;gap:7px}.o2{grid-template-columns:1fr 1fr}.o3{grid-template-columns:1fr}
 .ob{background:var(--S);border:1.5px solid var(--SC);border-radius:var(--r);padding:13px 10px;text-align:center;cursor:pointer;transition:all .12s;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-height:72px}.ob a,.ofl a{color:inherit!important;text-decoration:none!important;pointer-events:none!important}
 .ob:hover{border-color:var(--T);background:var(--TL)}.ob:hover .ol{font-size:13px;font-weight:700;color:var(--DK)}.ob:hover .ob.sel .ol{font-size:13px;font-weight:700;color:var(--DK)}.ob.sel .ob.sel{border-color:var(--T);background:var(--TL)}
 .ob .ob .ol{font-size:12px;font-weight:700;color:var(--DK)}.ob .os{font-size:10px;color:var(--A);margin-top:2px;font-weight:600}
@@ -422,7 +422,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .cbb{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--SC);background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .cbi.ck .cbb{background:var(--T);border-color:var(--T)}
 .cbl{font-size:13px;color:var(--DK);font-weight:500}
-.finp{width:100%;background:var(--S);border:1.5px solid var(--SC);border-radius:var(--rsm);padding:11px 13px;font-size:14px;color:var(--DK);margin-bottom:10px;font-family:var(--font-body)}
+.finp{width:100%;background:var(--S);border:1.5px solid var(--SC);border-radius:var(--rsm);padding:11px 13px;font-size:14px;color:var(--DK);margin-bottom:10px;font-family:var(--font-body);box-sizing:border-box;max-width:100%}
 .finp:focus{outline:none;border-color:var(--T);background:#fff;box-shadow:0 0 0 3px rgba(26,107,74,.1)}
 .finp.err{border-color:#C44B4A;background:#FFF5F5}
 .finp.ok{border-color:var(--T)}
@@ -462,7 +462,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .conf-track{height:4px;background:rgba(255,255,255,.1);border-radius:50px;overflow:hidden}
 .conf-bar{height:100%;border-radius:50px;background:linear-gradient(90deg,var(--TM),#A8DFC0)}
 .conf-note{font-size:11px;color:#A8DFC0;margin-top:5px;font-weight:600}
-.rbody{max-width:480px;margin:-20px auto 0;padding:0 14px 52px}
+.rbody{max-width:600px;margin:20px auto 0;padding:0 16px 52px}
 .rc{background:var(--W);border-radius:var(--rxl);border:1px solid var(--BR);padding:20px;margin-bottom:10px;box-shadow:0 2px 16px rgba(0,0,0,.04)}
 .rct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--MU);margin-bottom:14px}
 .rfact{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--BR)}
@@ -491,7 +491,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .trust{display:flex;align-items:center;justify-content:center;gap:4px;font-size:11px;color:var(--MU2);margin-top:10px}
 .rinterp{background:linear-gradient(135deg,var(--TXD),#0D5438);border-radius:var(--r);padding:16px 18px;margin-bottom:10px;color:#fff}
 /* Statut marché */
-.rstatut{display:flex;align-items:center;gap:10px;background:var(--W);border-radius:var(--r);border:1.5px solid var(--BR);padding:14px 16px;margin-bottom:10px}
+.rstatut{display:flex;align-items:center;gap:10px;background:var(--W);border-radius:var(--r);border:1.5px solid var(--BR);padding:14px 16px;margin-bottom:10px;margin-top:8px}
 .rstatut-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
 .rstatut-dot.ok{background:#22A87B}
 .rstatut-dot.over{background:#E24B4A}
@@ -539,6 +539,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .panel-page{max-width:680px;margin:0 auto;padding:44px 24px 64px}
 .panel-page h1{font-family:var(--font-display);font-size:28px;font-weight:800;margin-bottom:28px;color:var(--DK)}
 .mfooter{padding:18px 24px;border-top:1px solid var(--BR);display:flex;align-items:center;justify-content:center;gap:10px;background:var(--W);flex-wrap:wrap;font-size:13px;color:var(--MU2)}.mfooter a{color:inherit;text-decoration:none;cursor:pointer}
+.fview{overflow:hidden;width:100%}
 </style>
 </head>
 <body>
@@ -604,9 +605,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 <div class="vband">
   <div class="vband-inner">
     <span>Données marché actualisées</span><strong>Marrakech</strong><span>·</span>
-    <span class="vpill">Yakeey · Mubawab · Barnes</span>
-    <span class="vpill">Données 2025–2026</span>
-    <span class="vpill">Gratuit & indépendant</span>
+    <span class="vpill">Casablanca · Tanger · Agadir · Rabat bientôt</span>
   </div>
 </div>
 
@@ -985,8 +984,8 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
     <div class="note"><span>Ce que les pros font et que les particuliers ne font pas</span><p>Photos professionnelles, tarification dynamique selon la saisonnalité, réponse aux avis locataires, entretien préventif avant chaque saison. Ces détails représentent 20 à 40% de revenus supplémentaires par rapport à une gestion non optimisée. C'est documenté dans le secteur.</p></div>
   </div>
 </div>
-<div class="cta-b"><h2>Prêt à estimer votre bien ?</h2><p>Une fourchette indicative en 2 minutes.</p><div class="cta-btns"><button class="btn-cta" onclick="startF('sell')">Lancer l'estimation</button></div></div>
-<div class="footer"><div class="fi2"><div class="ft2"><div><div class="fn" onclick="goTo('landing')" style="cursor:pointer;display:flex;align-items:center;gap:8px"><div style="width:28px;height:28px;background:var(--TXD);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="16" height="16" viewBox="0 0 34 34" fill="none"><path d="M17 3L2 12v19h9V20h12v11h9V12L17 3z" fill="#fff"/><circle cx="17" cy="11" r="3" fill="#C4622D"/></svg></div><div class="nb"><span class="my">My</span><span class="dar">Dar</span></div></div></div><div class="fl"><a onclick="goTo('landing')">Accueil</a><a onclick="goTo('quartiers')">Quartiers</a><a onclick="goTo('mentions')">Mentions légales</a><a onclick="goTo('confidentialite')">Confidentialité</a></div></div><div class="fb">© 2026 MyDar · Marrakech, Maroc</div></div></div>
+
+
 </div>
 
 <div class="mfooter"><div onclick="goTo('landing')" style="cursor:pointer;display:flex;align-items:center;gap:6px"><div style="width:24px;height:24px;background:var(--TXD);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 34 34" fill="none"><path d="M17 3L2 12v19h9V20h12v11h9V12L17 3z" fill="#fff"/><circle cx="17" cy="11" r="3" fill="#C4622D"/></svg></div><span style="font-weight:700"><span class="my">My</span><span class="dar">Dar</span></span></div><span>·</span><span>Estimation indicative · Marrakech</span><span>·</span><a onclick="goTo('mentions')" style="color:inherit;text-decoration:none;cursor:pointer">Mentions légales</a><span>·</span><a onclick="goTo('confidentialite')" style="color:inherit;text-decoration:none;cursor:pointer">Confidentialité</a></div>
@@ -1012,15 +1011,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
   </div>
 </div></div>
 
-<div class="mini-footer">
-  <div onclick="goTo('landing')" style="cursor:pointer;display:flex;al
-    <span style="font-weight:700"><span class="my">My</span><span class="dar">Dar</span></span>
-  </div>
-  <span style="color:var(--SC)">·</span>
-  <span style="color:var(--MU2);font-size:12px">Estimation indicative · Marrakech</span>
-  <span style="color:var(--SC)">·</span>
-  <a onclick="goTo('mentions')" style="color:var(--MU2);font-size:12px;cursor:pointer;text-decoration:none">Mentions légales</a>
-</div>
+
 
 <div class="mfooter"><div onclick="goTo('landing')" style="cursor:pointer;display:flex;align-items:center;gap:6px"><div style="width:24px;height:24px;background:var(--TXD);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 34 34" fill="none"><path d="M17 3L2 12v19h9V20h12v11h9V12L17 3z" fill="#fff"/><circle cx="17" cy="11" r="3" fill="#C4622D"/></svg></div><span style="font-weight:700"><span class="my">My</span><span class="dar">Dar</span></span></div><span>·</span><span>Estimation indicative · Marrakech</span><span>·</span><a onclick="goTo('mentions')" style="color:inherit;text-decoration:none;cursor:pointer">Mentions légales</a><span>·</span><a onclick="goTo('confidentialite')" style="color:inherit;text-decoration:none;cursor:pointer">Confidentialité</a></div>
 </div>
@@ -1148,16 +1139,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
   <p>L'ensemble du contenu de ce site (textes, données, design, code) est la propriété d'AySel LLC. Toute reproduction sans autorisation est interdite.</p></div>
 </div>
 
-<div class="mini-footer">
-  <div onclick="goTo('landing')" style="cursor:pointer;display:flex;align-items:center;gap:6px">
-    <div style="width:22px;height:22px;background:var(--TXD);border-radius:5px;display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 34 34" fill="none"><path d="M17 3L2 12v19h9V20h12v11h9V12L17 3z" fill="#fff"/><circle cx="17" cy="11" r="2.5" fill="#C4622D"/></svg></div>
-    <span style="font-weight:700"><span class="my">My</span><span class="dar">Dar</span></span>
-  </div>
-  <span style="color:var(--SC)">·</span>
-  <span style="color:var(--MU2);font-size:12px">Estimation indicative · Marrakech</span>
-  <span style="color:var(--SC)">·</span>
-  <a onclick="goTo('mentions')" style="color:var(--MU2);font-size:12px;cursor:pointer;text-decoration:none">Mentions légales</a>
-</div>
+
 
 <div class="mfooter"><div onclick="goTo('landing')" style="cursor:pointer;display:flex;align-items:center;gap:6px"><div style="width:24px;height:24px;background:var(--TXD);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 34 34" fill="none"><path d="M17 3L2 12v19h9V20h12v11h9V12L17 3z" fill="#fff"/><circle cx="17" cy="11" r="3" fill="#C4622D"/></svg></div><span style="font-weight:700"><span class="my">My</span><span class="dar">Dar</span></span></div><span>·</span><span>Estimation indicative · Marrakech</span><span>·</span><a onclick="goTo('mentions')" style="color:inherit;text-decoration:none;cursor:pointer">Mentions légales</a><span>·</span><a onclick="goTo('confidentialite')" style="color:inherit;text-decoration:none;cursor:pointer">Confidentialité</a></div>
 </div>
@@ -1175,16 +1157,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
   <div class="bloc"><div class="num">Responsable de traitement</div><h3>Farid Masmoudi</h3><p>Particulier domicilié à Marrakech, Maroc.<br>Téléphone : <a href="tel:+212663667975" style="color:var(--T)">+212 6 63 66 79 75</a><br>Email : <a href="mailto:ayselbusiness01@gmail.com" style="color:var(--T)">ayselbusiness01@gmail.com</a></p></div>
 </div>
 
-<div class="mini-footer">
-  <div onclick="goTo('landing')" style="cursor:pointer;display:flex;align-items:center;gap:6px">
-    <div style="width:22px;height:22px;background:var(--TXD);border-radius:5px;display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 34 34" fill="none"><path d="M17 3L2 12v19h9V20h12v11h9V12L17 3z" fill="#fff"/><circle cx="17" cy="11" r="2.5" fill="#C4622D"/></svg></div>
-    <span style="font-weight:700"><span class="my">My</span><span class="dar">Dar</span></span>
-  </div>
-  <span style="color:var(--SC)">·</span>
-  <span style="color:var(--MU2);font-size:12px">Estimation indicative · Marrakech</span>
-  <span style="color:var(--SC)">·</span>
-  <a onclick="goTo('mentions')" style="color:var(--MU2);font-size:12px;cursor:pointer;text-decoration:none">Mentions légales</a>
-</div>
+
 
 <div class="mfooter"><div onclick="goTo('landing')" style="cursor:pointer;display:flex;align-items:center;gap:6px"><div style="width:24px;height:24px;background:var(--TXD);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 34 34" fill="none"><path d="M17 3L2 12v19h9V20h12v11h9V12L17 3z" fill="#fff"/><circle cx="17" cy="11" r="3" fill="#C4622D"/></svg></div><span style="font-weight:700"><span class="my">My</span><span class="dar">Dar</span></span></div><span>·</span><span>Estimation indicative · Marrakech</span><span>·</span><a onclick="goTo('mentions')" style="color:inherit;text-decoration:none;cursor:pointer">Mentions légales</a><span>·</span><a onclick="goTo('confidentialite')" style="color:inherit;text-decoration:none;cursor:pointer">Confidentialité</a></div>
 </div>
@@ -1192,7 +1165,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 
 
 <div id="v-blog" class="view">
-  <div class="blog-hero">
+  <div class="blog-hero"><div class="hg"></div><div class="hg2"></div>
     <h1>Le marché immobilier à Marrakech</h1>
     <p>Des analyses concrètes, sans langue de bois, pour mieux comprendre, acheter et investir.</p>
   </div>
@@ -1200,16 +1173,7 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
     <!-- Cards générées par JS -->
   </div>
 
-<div class="mini-footer">
-  <div onclick="goTo('landing')" style="cursor:pointer;display:flex;align-items:center;gap:6px">
-    <div style="width:22px;height:22px;background:var(--TXD);border-radius:5px;display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 34 34" fill="none"><path d="M17 3L2 12v19h9V20h12v11h9V12L17 3z" fill="#fff"/><circle cx="17" cy="11" r="2.5" fill="#C4622D"/></svg></div>
-    <span style="font-weight:700"><span class="my">My</span><span class="dar">Dar</span></span>
-  </div>
-  <span style="color:var(--SC)">·</span>
-  <span style="color:var(--MU2);font-size:12px">Estimation indicative · Marrakech</span>
-  <span style="color:var(--SC)">·</span>
-  <a onclick="goTo('mentions')" style="color:var(--MU2);font-size:12px;cursor:pointer;text-decoration:none">Mentions légales</a>
-</div>
+
 
 <div class="mfooter"><div onclick="goTo('landing')" style="cursor:pointer;display:flex;align-items:center;gap:6px"><div style="width:24px;height:24px;background:var(--TXD);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 34 34" fill="none"><path d="M17 3L2 12v19h9V20h12v11h9V12L17 3z" fill="#fff"/><circle cx="17" cy="11" r="3" fill="#C4622D"/></svg></div><span style="font-weight:700"><span class="my">My</span><span class="dar">Dar</span></span></div><span>·</span><span>Estimation indicative · Marrakech</span><span>·</span><a onclick="goTo('mentions')" style="color:inherit;text-decoration:none;cursor:pointer">Mentions légales</a><span>·</span><a onclick="goTo('confidentialite')" style="color:inherit;text-decoration:none;cursor:pointer">Confidentialité</a></div>
 </div>
@@ -1236,6 +1200,37 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 
 
 
+
+<div class="cta-b"><div class="hg"></div><div class="hg2"></div><h2>Prêt à estimer votre bien ?</h2><p>Une fourchette indicative en 2 minutes.</p><div class="cta-btns"><button class="btn-cta" onclick="startF('sell')">Lancer l'estimation</button></div></div>
+<div class="footer" style="position:relative;overflow:hidden">
+<div class="hg2" style="position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 20px)"></div>
+<div class="fi2"><div class="ft2">
+<div>
+  <div class="fn" onclick="goTo('landing')" style="cursor:pointer;display:flex;align-items:center;gap:8px">
+    <div style="width:28px;height:28px;background:var(--TXD);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="16" height="16" viewBox="0 0 34 34" fill="none"><path d="M17 3L2 12v19h9V20h12v11h9V12L17 3z" fill="#fff"/><circle cx="17" cy="11" r="3" fill="#C4622D"/></svg></div>
+    <div class="nb"><span class="my">My</span><span class="dar">Dar</span></div>
+  </div>
+  <div class="ftag">Estimation indicative · Marrakech</div>
+</div>
+<div class="fl">
+  <a onclick="goTo('conseils')" style="cursor:pointer">Nos conseils</a>
+  <a onclick="goTo('quartiers')" style="cursor:pointer">Quartiers</a>
+  <a onclick="goTo('blog')" style="cursor:pointer">Blog</a>
+  <a onclick="goTo('confidentialite')" style="cursor:pointer">Confidentialité</a>
+  <a onclick="goTo('mentions')" style="cursor:pointer">Mentions légales</a>
+</div></div>
+<div class="fb-pro" style="display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08)">
+  <div>
+    <div style="font-weight:700;color:#fff;margin-bottom:4px">Vous êtes professionnel ?</div>
+    <div style="font-size:13px;color:rgba(255,255,255,.6)">Agence, promoteur, partenaire — contactez-nous.</div>
+  </div>
+  <a href="https://wa.me/212663667975" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:10px 20px;border-radius:50px;font-size:14px;font-weight:600;text-decoration:none;flex-shrink:0">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.531 5.851L.057 23.272a.75.75 0 00.912.912l5.421-1.474A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.68-.524-5.2-1.436l-.372-.222-3.862 1.051 1.051-3.862-.222-.372A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    WhatsApp
+  </a>
+</div>
+<div class="fb" style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:rgba(255,255,255,.4)">© 2026 MyDar · Estimation indicative, non contractuelle · Marrakech, Maroc</div>
+</div></div>
 </div><!-- #app -->
 
 <script>
