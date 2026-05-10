@@ -1266,6 +1266,10 @@ function goTo(v){
   // Sticky CTA uniquement sur landing
   const sc=document.getElementById('stickyCta');
   if(sc)sc.style.display=(v==='landing')?'':'none';
+  // Reset URL quand on quitte la page résultat
+  if(v!=='result'&&window.location.search.includes('step=resultat')){
+    history.pushState({},'','/');
+  }
 }
 function startF(m){mode=m;step=1;Object.keys(A).forEach(k=>delete A[k]);A._mode=m;goTo('funnel');render()}
 function prevStep(){if(step>1){step--;render();}else goTo('landing')}
@@ -1401,6 +1405,37 @@ function genInterp(est,conf,isBuy){
   return txt;
 }
 function showResult(){
+  // ── TRACKING CONVERSION ──────────────────────────────────
+  // Anti double-déclenchement : ne fire qu'une seule fois par session
+  if(!window._conversionFired){
+    window._conversionFired = true;
+
+    // 1. URL → ?step=resultat (pour Google Ads & GA4 via URL)
+    history.pushState({},'','/?step=resultat');
+
+    // 2. Événement GA4 estimation_complete
+    if(typeof gtag === 'function'){
+      gtag('event','estimation_complete',{
+        event_category: 'conversion',
+        event_label: (typeof A !== 'undefined' ? (A.quartier||'') + ' - ' + (A.type||'') : ''),
+        quartier: (typeof A !== 'undefined' ? A.quartier||'' : ''),
+        type_bien: (typeof A !== 'undefined' ? A.type||'' : ''),
+        surface: (typeof A !== 'undefined' ? A.surface||0 : 0),
+        non_interaction: false
+      });
+    }
+
+    // 3. Google Ads conversion — ajoute ton ID ici quand tu l'auras
+    // Format : 'AW-XXXXXXXXX/XXXXXXXXXXXXXXXXXX'
+    // if(typeof gtag === 'function'){
+    //   gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/XXXXXXXXXXXXXXXXXX'});
+    // }
+
+    // 4. Meta Pixel Lead — déjà géré dans sendToMake() mais sécurisé ici aussi
+    // (sendToMake vérifie déjà avant de fire, pas de double)
+  }
+  // ─────────────────────────────────────────────────────────
+
   try{
     const est=calcEst();
     const conf=calcConf();
