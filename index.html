@@ -1608,14 +1608,44 @@ function valField(id,type){
   return valid;
 }
 function submitContact(){
-  const okNom=valField('fp','prenom');
-  const okTel=valField('ft','tel');
-  const emailEl=document.getElementById('fe');
-  let okEmail=true;
-  if(emailEl&&emailEl.value.trim())okEmail=valField('fe','email');
-  if(!okNom){document.getElementById('fp').focus();return;}
-  if(!okTel){document.getElementById('ft').focus();return;}
-  if(!okEmail){document.getElementById('fe').focus();return;}
+  const nomEl = document.getElementById('fn');
+  const emailEl = document.getElementById('fe');
+  const telEl = document.getElementById('ft') || document.getElementById('ftel');
+
+  const nom = nomEl ? nomEl.value.trim() : (A.nom||'').trim();
+  const email = emailEl ? emailEl.value.trim() : (A.email||'').trim();
+  const tel = telEl ? telEl.value.trim() : (A.tel||'').trim();
+
+  // Mettre à jour A
+  if(nomEl) A.nom = nom;
+  if(emailEl) A.email = email;
+  if(telEl) A.tel = tel;
+
+  // Validation nom
+  const okNom = nom.length >= 2;
+  // Validation email
+  const okEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+  // Validation téléphone : au moins 8 chiffres
+  const okTel = tel.replace(/\D/g,'').length >= 8;
+
+  // Afficher les erreurs
+  const errEl = document.getElementById('err-contact');
+  if(!okNom){
+    if(errEl) errEl.textContent = 'Merci d\'indiquer votre prénom (2 caractères min.)';
+    if(nomEl) nomEl.focus();
+    return;
+  }
+  if(!okEmail){
+    if(errEl) errEl.textContent = 'Adresse email invalide';
+    if(emailEl) emailEl.focus();
+    return;
+  }
+  if(!okTel){
+    if(errEl) errEl.textContent = 'Numéro de téléphone invalide (8 chiffres min.)';
+    if(telEl) telEl.focus();
+    return;
+  }
+  if(errEl) errEl.textContent = '';
   nextStep();
 }
 
