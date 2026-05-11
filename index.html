@@ -540,6 +540,12 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 .panel-page h1{font-family:var(--font-display);font-size:28px;font-weight:800;margin-bottom:28px;color:var(--DK)}
 .mfooter{padding:18px 24px;border-top:1px solid var(--BR);display:flex;align-items:center;justify-content:center;gap:10px;background:var(--W);flex-wrap:wrap;font-size:13px;color:var(--MU2)}.mfooter a{color:inherit;text-decoration:none;cursor:pointer}
 .fview{overflow:hidden;width:100%}
+.page-hero{background:linear-gradient(160deg,var(--P2) 0%,var(--P) 100%);padding:56px 24px 48px;text-align:center;position:relative;overflow:hidden}
+.page-hero .hg{position:absolute;inset:0}
+.page-hero .hg2{position:absolute;inset:0;pointer-events:none}
+.page-hero-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:16px}
+.page-hero h1{font-family:var(--font-display);font-size:clamp(26px,4vw,42px);font-weight:800;color:#fff;margin-bottom:12px;line-height:1.15}
+.page-hero p{font-size:16px;color:rgba(255,255,255,.75);max-width:540px;margin:0 auto}
 </style>
 </head>
 <body>
@@ -719,11 +725,12 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 
 <!-- ===== CONSEILS ===== -->
 <div id="v-conseils" class="view">
-<div class="ch"><div class="chi">
-  <div class="lbl" style="background:var(--AL);color:#5A2A08;margin-bottom:14px">Nos conseils · Marrakech 2026</div>
+<div class="page-hero">
+  <div class="hg"></div><div class="hg2"></div>
+  <div class="page-hero-tag">Nos conseils · Marrakech 2026</div>
   <h1>Des repères pour avancer sereinement</h1>
   <p>Le marché marrakchi a ses usages. Voici ce qu'il faut savoir avant de vendre, d'acheter ou d'investir.</p>
-</div></div>
+</div>
 <div class="tabs-bar"><div class="ti">
   <div class="tab on" onclick="sw('v',this)">Vous vendez</div>
   <div class="tab" onclick="sw('a',this)">Vous achetez</div>
@@ -992,32 +999,12 @@ p.si-sub-white{color:rgba(255,255,255,.55)}
 </div>
 <!-- ===== QUARTIERS ===== -->
 <div id="v-quartiers" class="view">
-<div class="sec sec-w" style="padding-bottom:20px"><div class="si">
-  <div class="eyebrow">Référentiel · Avril 2026</div>
-  <h2 class="sh">Marrakech quartier par quartier</h2>
-  <p class="si-sub">Fourchettes indicatives basées sur les données actives du marché et les indices officiels.</p>
-  <div class="qg">
-    <div class="qc" onclick="openQuartier('Guéliz')" style="cursor:pointer"><div class="qn">Guéliz</div><div class="qr">13 000 à 25 000 MAD/m²</div><div class="qm">Ancien, rénové, résidences récentes</div>
-      </div>
-   
-    <div class="qc reveal reveal-d1" onclick="openQuartier('Majorelle')" style="cursor:pointer"><div class="qn">Majorelle</div><div class="qr">18 000 – 28 000 MAD/m²</div><div class="qm">Premium touristique · Jardin Majorelle</div></div>
-      <div class="qc reveal reveal-d1" onclick="openQuartier('Hay Mabrouka')" style="cursor:pointer"><div class="qn">Hay Mabrouka</div><div class="qr">10 000 – 16 000 MAD/m²</div><div class="qm">Résidentiel familial · MRE</div></div>
-      <div class="qc reveal reveal-d1" onclick="openQuartier('Massira')" style="cursor:pointer"><div class="qn">Massira</div><div class="qr">8 000 – 12 000 MAD/m²</div><div class="qm">Abordable · Bon rendement locatif</div></div>
-      <div class="qc reveal reveal-d1" onclick="openQuartier('Azzouzia')" style="cursor:pointer"><div class="qn">Azzouzia</div><div class="qr">8 000 – 12 000 MAD/m²</div><div class="qm">Périphérique · Prix accessibles</div></div>
-      <div class="qc reveal reveal-d1" onclick="openQuartier('Saada')" style="cursor:pointer"><div class="qn">Saada</div><div class="qr">6 000 – 9 000 MAD/m²</div><div class="qm">Économique · En développement</div></div> 
-    
-    <div class="qc" onclick="openQuartier('Semlalia')" style="cursor:pointer"><div class="qn">Semlalia</div><div class="qr">10 000 à 16 000 MAD/m²</div><div class="qm">Résidentiel central, bon rapport prix/surface</div></div>
-    <div class="qc" onclick="openQuartier('Hivernage')" style="cursor:pointer"><div class="qn">Hivernage</div><div class="qr">20 000 à 40 000+ MAD/m²</div><div class="qm">Résidences de standing à villas de luxe</div></div>
-    <div class="qc" onclick="openQuartier('Médina')" style="cursor:pointer"><div class="qn">Médina appart.</div><div class="qr">9 000 à 14 000 MAD/m²</div><div class="qm">Selon localisation dans la Médina</div></div>
-    <div class="qc" onclick="openQuartier('Médina')" style="cursor:pointer"><div class="qn">Médina riad</div><div class="qr">18 000 à 40 000+ MAD/m²</div><div class="qm">Du riad brut à la maison d'hôtes rénovée</div></div>
-    <div class="qc" onclick="openQuartier('Palmeraie')" style="cursor:pointer"><div class="qn">Palmeraie</div><div class="qr">13 000 à 30 000+ MAD/m²</div><div class="qm">Villa standard à propriété de prestige</div></div>
-    <div class="qc" onclick="openQuartier('Agdal')" style="cursor:pointer"><div class="qn">Agdal</div><div class="qr">11 000 à 20 000 MAD/m²</div><div class="qm">Familles, écoles, cadres expatriés</div></div>
-    <div class="qc" onclick="openQuartier('Targa')" style="cursor:pointer"><div class="qn">Targa</div><div class="qr">7 500 à 14 000 MAD/m²</div><div class="qm">Programmes neufs, quartier en essor</div></div>
-    <div class="qc" onclick="openQuartier('Mhamid')" style="cursor:pointer"><div class="qn">Mhamid</div><div class="qr">5 500 à 9 500 MAD/m²</div><div class="qm">Proche aéroport, fort potentiel locatif</div></div>
-    <div class="qc" onclick="openQuartier('Sidi Ghanem')" style="cursor:pointer"><div class="qn">Sidi Ghanem</div><div class="qr">5 000 à 8 500 MAD/m²</div><div class="qm">Lofts, ateliers, usages atypiques</div></div>
-    <div class="qc" onclick="openQuartier('Route de Casablanca')" style="cursor:pointer"><div class="qn">Route de Casa</div><div class="qr">7 000 à 12 000 MAD/m²</div><div class="qm">Second marché, terrains, promoteurs</div></div>
-  </div>
-</div></div>
+<div class="page-hero">
+  <div class="hg"></div><div class="hg2"></div>
+  <div class="page-hero-tag">Référentiel · Marrakech 2026</div>
+  <h1>Marrakech quartier par quartier</h1>
+  <p>Fourchettes indicatives basées sur les données actives du marché et les indices officiels.</p>
+</div>
 
 
 
@@ -1309,7 +1296,7 @@ function s7(){const eqs=[['balcon','Balcon'],['terrasse','Terrasse'],['jardin','
 function s8(){return`<div class="ftag2">Étape 7 sur 13</div><h2>Usage actuel du bien ?</h2><p class="fh">L'usage influe sur la valorisation.</p><div class="opts">${ofl('Résidence principale','Occupé','usage','principale')}${ofl('Résidence secondaire','Vacances','usage','secondaire')}${ofl('Location longue durée','Loué','usage','loc_longue')}${ofl('Location courte durée','Airbnb','usage','loc_courte')}${ofl("Maison d'hôtes","Exploité",'usage','maison_hotes')}${ofl('Vide','Non exploité','usage','vide')}</div>`}
 function s9(){if(mode==='buy')return`<div class="ftag2">Étape 8 sur 13</div><h2>Pourquoi vérifiez-vous ce prix ?</h2><p class="fh">Pour vous donner les conseils les plus adaptés.</p><div class="opts">${ofl('Vérifier si le prix est cohérent','Avant négociation','projet','verif_prix')}${ofl('Comparer plusieurs biens','Due diligence','projet','comparer')}${ofl("Décider si j'achète",'Décision finale','projet','decider')}${ofl('Investissement locatif','Rentabilité','projet','investir')}</div>`;return`<div class="ftag2">Étape 8 sur 13</div><h2>Votre projet avec ce bien ?</h2><p class="fh">Pour vous orienter vers les bons conseils.</p><div class="opts">${ofl('Vendre rapidement','Urgence','projet','vendre_vite')}${ofl('Vendre dans les mois à venir','Préparation','projet','vendre_mois')}${ofl('Connaître la valeur','Sans projet immédiat','projet','connaitre')}${ofl('Mettre en location','Revenus locatifs','projet','louer')}${ofl('Rénover avant vente','Valorisation','projet','renover_vente')}</div>`}
 function s10(){return`<div class="ftag2">Étape 9 sur 13</div><h2>Dans quel délai envisagez-vous d'agir ?</h2><p class="fh">Confidentiel. Nous aide à vous accompagner au bon moment.</p><div class="opts">${ofl('Immédiat','Dès maintenant','delai','immediat')}${ofl('Dans 1 à 3 mois','Court terme','delai','1_3mois')}${ofl('Dans 3 à 6 mois','Moyen terme','delai','3_6mois')}${ofl('Plus tard','Long terme','delai','plus_tard')}${ofl('Pas encore défini','En réflexion','delai','indefini')}</div>`}
-function s11(){return`<div class="ftag2">Étape 10 sur 13</div><h2>Vos coordonnées pour recevoir l'estimation</h2><p class="fh">Votre estimation s'affiche immédiatement. Nous pouvons aussi vous recontacter si vous le souhaitez.</p><div><label class="flbl">Prénom <span style="color:#E24B4A">*</span></label><input class="finp" id="fp" placeholder="Karim" value="${A.prenom||''}" oninput="A.prenom=this.value.trim();valField('fp','prenom')"/><div class="field-err" id="fp-err">Prénom requis</div></div><div><label class="flbl">Téléphone / WhatsApp <span style="color:#E24B4A">*</span></label><input class="finp" id="ft" placeholder="+212 6 00 00 00 00" value="${A.tel||''}" oninput="A.tel=this.value.trim();valField('ft','tel')"/><div class="field-err" id="ft-err">Numéro invalide (ex: +212600000000)</div></div><div><label class="flbl">Email <span style="color:var(--MU2);font-weight:400;text-transform:none">(facultatif)</span></label><input class="finp" id="fe" placeholder="votre@email.com" value="${A.email||''}" oninput="A.email=this.value.trim();if(this.value)valField('fe','email')"/><div class="field-err" id="fe-err">Email invalide</div></div><div><label class="flbl">Préférence de contact</label><div class="chips">${['WhatsApp','Téléphone','Email'].map(p=>`<div class="chip ${A.contact===p?'sel':''}" onclick="A.contact='${p}';document.querySelectorAll('.chips .chip').forEach(c=>c.classList.remove('sel'));this.classList.add('sel')">${p}</div>`).join('')}</div></div><button class="bcont" onclick="submitContact()">Continuer</button><div class="reas"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.3 2.5 6.4 6 7.2C12.5 14.4 14 11.3 14 8V4L8 1z" stroke="currentColor" stroke-width="1.2"/></svg>Estimation gratuite · Sans engagement</div>`}
+function s11(){return`<div class="ftag2">Étape 10 sur 13</div><h2>Vos coordonnées pour recevoir l'estimation</h2><p class="fh">Votre estimation s'affiche immédiatement. Nous pouvons aussi vous recontacter si vous le souhaitez.</p><div><label class="flbl">Prénom <span style="color:#E24B4A">*</span></label><input class="finp" id="fp" placeholder="Karim" value="${A.prenom||''}" oninput="A.prenom=this.value.trim();valField('fp','prenom')"/><div class="field-err" id="fp-err">Prénom requis</div></div><div><label class="flbl">Téléphone / WhatsApp <span style="color:#E24B4A">*</span></label><input class="finp" id="ft" placeholder="+212 6 00 00 00 00" value="${A.tel||''}" oninput="A.tel=this.value.trim();valField('ft','tel')"/><div class="field-err" id="ft-err">Numéro invalide (ex: +212600000000)</div></div><div><label class="flbl">Email <span style="color:var(--MU2);font-weight:400;text-transform:none"></span></label><input class="finp" id="fe" placeholder="votre@email.com" value="${A.email||''}" oninput="A.email=this.value.trim();if(this.value)valField('fe','email')"/><div class="field-err" id="fe-err">Email invalide</div></div><div><label class="flbl">Préférence de contact</label><div class="chips">${['WhatsApp','Téléphone','Email'].map(p=>`<div class="chip ${A.contact===p?'sel':''}" onclick="A.contact='${p}';document.querySelectorAll('.chips .chip').forEach(c=>c.classList.remove('sel'));this.classList.add('sel')">${p}</div>`).join('')}</div></div><button class="bcont" onclick="submitContact()">Continuer</button><div class="reas"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.3 2.5 6.4 6 7.2C12.5 14.4 14 11.3 14 8V4L8 1z" stroke="currentColor" stroke-width="1.2"/></svg>Estimation gratuite · Sans engagement</div>`}
 function s12(){return`<div class="ftag2">Étape 11 sur 13</div><h2>${mode==='buy'?'Quel est votre budget ?':'Avez-vous déjà une idée du prix ?'}</h2><p class="fh">${mode==='buy'?'Aide à calibrer l\'estimation par rapport à votre budget réel.':'Nous aide à contextualiser votre fourchette.'}</p><div class="opts">${mode==='buy'?[ofl('Moins de 1 million MAD','< 1M','budget','<1M'),ofl('1 à 2 millions MAD','1M – 2M','budget','1-2M'),ofl('2 à 4 millions MAD','2M – 4M','budget','2-4M'),ofl('4 à 8 millions MAD','4M – 8M','budget','4-8M'),ofl('Plus de 8 millions MAD','8M+','budget','>8M'),ofl('Je préfère ne pas dire','—','budget','nd')].join(''):[ofl('Non, première fois','Première démarche','estim_deja','non'),ofl('Oui, agence ou notaire','Estimation pro','estim_deja','pro'),ofl('Oui, estimation en ligne','Via un outil','estim_deja','online'),ofl('Je connais déjà la valeur','Je sais ce que ça vaut','estim_deja','sait')].join('')}</div>`}
 function s13(){return`<div class="ftag2">Étape 12 sur 13</div><h2>Dernière étape</h2><p class="fh">Confirmez vos préférences avant de recevoir votre fourchette indicative.</p><div class="conb"><div class="coni" id="con1" onclick="togCon(this)"><div class="concb"></div><div class="cont"><strong>J'ai lu et j'accepte la <span style="color:var(--T);text-decoration:underline;cursor:pointer" onclick="event.stopPropagation();goTo('confidentialite')">politique de confidentialité</span>.</strong> <span style="color:#E24B4A;font-weight:700">*</span></div></div><div class="coni" onclick="togCon(this)"><div class="concb"></div><div class="cont"><strong>J'accepte que MyDar me recontacte</strong> si ma demande le nécessite.</div></div><div class="coni" onclick="togCon(this)"><div class="concb"></div><div class="cont">J'accepte, <strong>si ma demande le justifie</strong>, d'être mis en relation avec un professionnel partenaire.</div></div></div><p style="font-size:10px;color:var(--MU2);margin-top:8px"><span style="color:#E24B4A">*</span> Champ obligatoire</p><button class="bcont" onclick="const c=document.getElementById('con1');if(!c.classList.contains('ck')){c.style.outline='2px solid #E24B4A';c.scrollIntoView({behavior:'smooth',block:'center'});return;}c.style.outline='';startLoad()">Voir ma fourchette</button><div class="reas" style="margin-top:6px"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.3 2.5 6.4 6 7.2C12.5 14.4 14 11.3 14 8V4L8 1z" stroke="currentColor" stroke-width="1.2"/></svg>Conformément à la loi marocaine 09-08 sur la protection des données</div>`}
 function startLoad(){
